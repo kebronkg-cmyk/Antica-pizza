@@ -112,16 +112,16 @@
 
   /* ═══ Die Bühne ═══ */
   var PIZZEN = [
-    { name: 'Margherita', bild: 'margherita', farbe: '#1d5641', preis: '10,00', veg: true,
+    { name: 'Margherita', bild: 'margherita', farbe: '#141110', preis: '10,00', veg: true,
       satz: 'Tomate, Mozzarella, Oregano. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
-    { name: 'Sucuk', bild: 'salame', farbe: '#1f6b70', preis: '12,50',
+    { name: 'Sucuk', bild: 'salame', farbe: '#6b1c15', preis: '12,50',
       satz: 'Würzige Knoblauchwurst und Zwiebeln. Die Pizza, für die Stammgäste extra vorbeikommen.', zusatz: 'kräftig' },
-    { name: 'Quattro Formaggi', bild: 'formaggi', farbe: '#171311', preis: '13,90', veg: true,
+    { name: 'Quattro Formaggi', bild: 'formaggi', farbe: '#7d5c1e', preis: '13,90', veg: true,
       satz: 'Edamer, Mozzarella, Feta und Gorgonzola. Vier Käse, ein goldener Rand.', zusatz: 'für Käseliebhaber' },
     { name: 'Tonno', bild: 'tonno', farbe: '#b04512', preis: '12,50',
       satz: 'Thunfisch und rote Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'einfach gut' },
-    { name: 'Vegetarisch', bild: 'verdure', farbe: '#a82c1c', preis: '13,90', veg: true,
-      satz: 'Gegrillte Aubergine, Zucchini und Paprika mit Feta und Champignons.', zusatz: 'bunt wie die Stühle draußen' }
+    { name: 'Vegetarisch', bild: 'verdure', farbe: '#1f6b70', preis: '13,90', veg: true,
+      satz: 'Gegrillte Aubergine, Zucchini und Paprika mit Feta und Champignons.', zusatz: 'türkis wie die Stühle draußen' }
   ];
 
   var feld = $('[data-feld]'), tafel = $('[data-tafel]'), teller = $('[data-teller]'), kranz = $('[data-kranz]');
@@ -359,14 +359,14 @@
   }
 
   /* ── Auftritte beim Scrollen und das Schild, das sich selbst malt ── */
-  $$('[data-malen] .schild-zug path').forEach(function (p, i) { p.style.setProperty('--i', i); });
+  $$('[data-malen]').forEach(function (svg) { $$('.schild-zug path', svg).forEach(function (p, i) { p.style.setProperty('--i', i); }); });
   var auf = $$('[data-auf]'), malen = $$('[data-malen]');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add(e.target.hasAttribute('data-malen') ? 'is-gemalt' : 'is-da');
-        if (e.target.hasAttribute('data-malen')) e.target.closest('.fuss-schild').classList.add('is-gemalt');
+        if (e.target.hasAttribute('data-malen')) e.target.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt');
         io.unobserve(e.target);
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
@@ -378,7 +378,7 @@
     malen.forEach(function (el) { io.observe(el); });
   } else {
     auf.forEach(function (el) { el.classList.add('is-da'); });
-    malen.forEach(function (el) { el.classList.add('is-gemalt'); el.closest('.fuss-schild').classList.add('is-gemalt'); });
+    malen.forEach(function (el) { el.classList.add('is-gemalt'); el.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt'); });
   }
 
   /* ── Karte erst nach Klick laden (vorher keine Verbindung zu Dritten) ── */

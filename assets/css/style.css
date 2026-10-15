@@ -7,6 +7,8 @@
 @font-face { font-family: "Bodoni Moda"; src: url("../fonts/bodoni-moda.woff2") format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Bodoni Moda"; src: url("../fonts/bodoni-moda-italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
 @font-face { font-family: "Bricolage Grotesque"; src: url("../fonts/bricolage-grotesque.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("../fonts/instrument-serif.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("../fonts/instrument-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Caveat"; src: url("../fonts/caveat-latin.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
 
 :root {
@@ -28,6 +30,8 @@
   --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --f-text: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-hand: "Caveat", "Segoe Print", cursive;
+  --f-buehne: "Instrument Serif", "Didot", Georgia, serif;
+  --bordeaux: #6b1c15;
 
   --wrap: 1280px;
   --rand: clamp(16px, 4vw, 56px);
@@ -80,7 +84,8 @@ address { font-style: normal; }
 .kopf-zeile { height: var(--kopf-h); display: flex; align-items: center; gap: 28px; }
 .kopf.is-fest { background: rgba(20, 17, 16, .88); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 1px 0 rgba(207,165,76,.18); }
 .kopf.is-weg { transform: translateY(-100%); }
-.marke { display: grid; justify-items: center; text-decoration: none; margin-right: auto; padding: 6px 0; }
+.marke { display: grid; justify-items: center; text-decoration: none; margin-right: auto; padding: 6px 0; transition: opacity .5s, transform .6s var(--ease-out); }
+.kopf:not(.is-fest) .marke:not(.marke--immer) { opacity: 0; transform: translateY(-8px); pointer-events: none; }
 .schild { width: 132px; height: auto; overflow: visible; }
 .marke-unter { font: 700 8.5px/1 var(--f-text); letter-spacing: .42em; text-transform: uppercase; margin-top: 3px; padding-left: .42em; opacity: .9; }
 .kopf-nav { display: flex; gap: 6px; }
@@ -105,7 +110,7 @@ address { font-style: normal; }
 
 /* ═══ Bühne ═══ */
 .buehne { position: relative; isolation: isolate; color: var(--crema); min-height: 100vh; min-height: 100svh; padding: calc(var(--kopf-h) + 18px) 0 clamp(28px, 4vw, 48px); overflow: hidden; }
-.buehne-feld, .buehne-feld-neu { position: absolute; inset: 0; z-index: -2; background: var(--verde); }
+.buehne-feld, .buehne-feld-neu { position: absolute; inset: 0; z-index: -2; background: var(--nero); }
 .buehne-korn { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .22; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .buehne::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(120% 90% at 70% 45%, transparent 40%, rgba(0,0,0,.28) 100%); }
 
@@ -119,20 +124,28 @@ address { font-style: normal; }
 .ecke--lo { left: -8px; }
 .ecke--ro { right: -8px; }
 
-.buehne-raster { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); grid-template-areas: "intro tafel" "gericht tafel" "gericht waehler"; column-gap: clamp(24px, 4vw, 72px); align-items: start; }
-.intro { grid-area: intro; padding-top: clamp(12px, 3vh, 40px); }
-.intro-ort { display: inline-flex; align-items: center; gap: .5em; font-size: 14px; font-weight: 500; letter-spacing: .02em; opacity: .85; margin-bottom: 18px; }
-.intro-titel { font: 400 clamp(44px, 5.6vw, 88px)/.98 var(--f-display); font-variation-settings: "opsz" 96; letter-spacing: -.02em; text-wrap: balance; }
-.intro-titel em { font-style: italic; color: var(--oro-hell); position: relative; white-space: nowrap; }
-.intro-titel em::after { content: ""; position: absolute; left: -2%; right: -4%; bottom: .02em; height: .16em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C50 3 120 2 197 6 C140 6 80 9 30 12' fill='none' stroke='%23ecd38a' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%; transform-origin: left; animation: unterstrich 1.1s .7s var(--ease-out) both; }
+.buehne-raster { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); grid-template-areas: "intro tafel" "gericht tafel" "gericht waehler"; grid-template-rows: auto 1fr auto; column-gap: clamp(24px, 4vw, 72px); align-items: start; }
+.intro { grid-area: intro; padding-top: clamp(4px, 1.6vh, 24px); }
+.intro-ort { display: inline-flex; align-items: center; gap: .5em; font-size: 14px; font-weight: 500; letter-spacing: .02em; opacity: .85; margin-bottom: 14px; }
+.intro-marke { display: grid; justify-items: start; margin: 0 0 clamp(16px, 2vw, 24px); }
+.schild--buehne { width: clamp(260px, 28vw, 460px); margin-left: -1.5%; filter: drop-shadow(0 10px 24px rgba(0,0,0,.45)); }
+.intro-schild-unter { display: flex; align-items: center; gap: .85em; margin-top: clamp(8px, 1vw, 14px); font: 700 clamp(11px, 1vw, 14px)/1 var(--f-text); letter-spacing: .52em; text-transform: uppercase; color: var(--crema); padding-left: .3em; }
+.intro-schild-unter i { width: 4px; height: 4px; border-radius: 50%; background: var(--oro); }
+.tricolore--buehne { width: clamp(150px, 15vw, 230px); height: 3px; margin-top: 14px; }
+.intro-marke .tricolore i:nth-child(1) { transition-delay: 1.5s; }
+.intro-marke .tricolore i:nth-child(2) { transition-delay: 1.65s; }
+.intro-marke .tricolore i:nth-child(3) { transition-delay: 1.8s; }
+.intro-titel { font: 400 clamp(30px, 2.9vw, 46px)/1.04 var(--f-buehne); letter-spacing: -.005em; text-wrap: balance; max-width: 15ch; }
+.intro-titel em { font-style: italic; color: var(--oro-hell); padding-right: .06em; position: relative; white-space: nowrap; }
+.intro-titel em::after { content: ""; position: absolute; left: -2%; right: -4%; bottom: .02em; height: .16em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C50 3 120 2 197 6 C140 6 80 9 30 12' fill='none' stroke='%23ecd38a' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%; transform-origin: left; animation: unterstrich 1.1s 2s var(--ease-out) both; }
 @keyframes unterstrich { from { transform: scaleX(0); } }
-.intro-rest { margin-top: clamp(18px, 2.4vw, 30px); max-width: 470px; }
+.intro-rest { margin-top: clamp(14px, 1.8vw, 22px); max-width: 470px; }
 .intro-unter { font-size: clamp(16px, 1.2vw, 18px); opacity: .9; }
-.intro-handeln { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.intro-handeln { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
 .intro-status { margin-top: 18px; font-size: 14px; opacity: .85; }
 
 /* Tafel: Pizza mit Kranz */
-.tafel { grid-area: tafel; position: relative; aspect-ratio: 1; width: 100%; max-width: 680px; justify-self: center; margin-top: clamp(0px, 1vh, 16px); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; }
+.tafel { grid-area: tafel; position: relative; aspect-ratio: 1; width: 100%; max-width: min(640px, calc(100vh - 330px)); justify-self: center; margin-top: clamp(0px, 1vh, 16px); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; }
 .tafel.is-zieht { cursor: grabbing; }
 .kranz { position: absolute; inset: -2%; width: 104%; height: 104%; color: var(--crema); transform: rotate(var(--dreh, 0deg)); transition: transform 1.2s var(--ease-io); pointer-events: none; }
 .kranz-punkte { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-dasharray: 0 9.5; stroke-linecap: round; opacity: .45; }
@@ -168,19 +181,19 @@ address { font-style: normal; }
 .tafel-pfeil:hover { background: var(--crema); color: var(--nero); border-color: var(--crema); transform: scale(1.06); }
 
 /* Gericht-Text */
-.gericht { grid-area: gericht; align-self: end; margin-top: clamp(24px, 4vh, 48px); padding-top: clamp(20px, 3vh, 32px); border-top: 1px solid rgba(246,238,223,.3); min-height: 230px; max-width: 560px; }
+.gericht { grid-area: gericht; align-self: end; margin-top: clamp(18px, 3vh, 36px); padding-top: clamp(16px, 2.4vh, 28px); border-top: 1px solid rgba(246,238,223,.3); min-height: 230px; max-width: 560px; }
 .gericht-kopf { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-.gericht-name { font: italic 500 clamp(38px, 4vw, 60px)/1 var(--f-display); letter-spacing: -.01em; }
+.gericht-name { font: italic 400 clamp(40px, 4.2vw, 64px)/1 var(--f-buehne); letter-spacing: -.01em; }
 .gericht-marke { display: inline-flex; align-items: center; gap: 5px; font: 600 12px/1 var(--f-text); letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px 6px 8px; border-radius: 999px; background: rgba(246,238,223,.14); border: 1px solid rgba(246,238,223,.3); transform: translateY(-6px); }
 .gericht-marke svg { width: 13px; height: 13px; color: #9ad39a; }
 .gericht-satz { margin-top: 12px; font-size: clamp(16px, 1.2vw, 18px); opacity: .9; max-width: 440px; }
 .gericht-handeln { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
-.gericht-preis { font: 500 clamp(30px, 2.6vw, 40px)/1 var(--f-display); font-variant-numeric: lining-nums tabular-nums; }
+.gericht-preis { font: 400 clamp(32px, 2.8vw, 44px)/1 var(--f-buehne); font-variant-numeric: lining-nums tabular-nums; }
 .gericht-preis small { font-size: .55em; margin-left: .15em; opacity: .8; }
 .gericht-zusatz { font: 600 20px/1.1 var(--f-hand); color: var(--oro-hell); transform: rotate(-3deg); }
 
 /* Wähler */
-.waehler-zeile { grid-area: waehler; position: relative; justify-self: center; margin-top: clamp(4px, 1vh, 14px); }
+.waehler-zeile { grid-area: waehler; position: relative; justify-self: center; align-self: end; margin-top: clamp(6px, 1.4vh, 18px); }
 .waehler { display: flex; gap: clamp(4px, 1vw, 14px); justify-content: center; }
 .waehler-tab { position: relative; display: grid; justify-items: center; align-content: start; gap: 8px; line-height: 1.15; padding: 6px 6px 14px; border: 0; background: none; color: var(--crema); font-size: 13px; font-weight: 500; opacity: .72; transition: opacity .3s; }
 .waehler-tab img { width: clamp(52px, 5.2vw, 72px); height: auto; filter: drop-shadow(0 6px 6px rgba(0,0,0,.3)); transition: transform .55s var(--ease-out); }
@@ -241,7 +254,7 @@ address { font-style: normal; }
 .karte::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; background: radial-gradient(60% 50% at 15% 0%, rgba(207,165,76,.14), transparent 70%); }
 .karte .titel-gross em { color: var(--oro-hell); }
 .karte .hand { color: var(--oro-hell); }
-.rand-pizza { position: absolute; right: calc(-1 * clamp(90px, 10vw, 220px)); top: clamp(40px, 6vw, 90px); width: clamp(240px, 26vw, 460px); filter: drop-shadow(0 30px 30px rgba(0,0,0,.55)); pointer-events: none; transform: rotate(var(--rad, 0deg)); }
+.rand-pizza { position: absolute; right: calc(-1 * clamp(90px, 10vw, 220px)); top: clamp(40px, 6vw, 90px); width: clamp(240px, 26vw, 460px); height: auto; aspect-ratio: 1; filter: drop-shadow(0 30px 30px rgba(0,0,0,.55)); pointer-events: none; transform: rotate(var(--rad, 0deg)); }
 .karte-steuer { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid rgba(207,165,76,.3); }
 .reiter { display: flex; gap: 6px; flex-wrap: wrap; }
 .reiter-tab { border: 1px solid rgba(246,238,223,.25); background: none; padding: 11px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: background-color .25s, color .25s, border-color .25s; }
@@ -285,7 +298,7 @@ address { font-style: normal; }
 .karte-hinweis { flex: 1; min-width: 240px; max-width: 46ch; }
 
 /* ═══ Gäste ═══ */
-.gaeste { background: var(--verde); color: var(--crema); padding: clamp(80px, 11vw, 150px) 0; position: relative; overflow: hidden; }
+.gaeste { background: var(--bordeaux); color: var(--crema); padding: clamp(80px, 11vw, 150px) 0; position: relative; overflow: hidden; }
 .gaeste .hand, .gaeste .titel-gross em { color: var(--oro-hell); }
 .zettel-reihe { display: grid; grid-template-columns: .8fr 1.2fr 1fr 1fr; gap: clamp(14px, 2vw, 26px); align-items: start; }
 .zettel { position: relative; background: var(--crema); color: var(--tinte); padding: 34px 28px 26px; border-radius: 4px; box-shadow: 0 18px 36px -18px rgba(0,0,0,.55); transform: rotate(var(--r, -1.4deg)); transition: transform .6s var(--ease-out); }
@@ -380,6 +393,7 @@ address { font-style: normal; }
 /* Schild malt sich */
 .js [data-malen] .schild-zug path { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
 .js [data-malen].is-gemalt .schild-zug path { animation: malen .5s var(--ease-io) forwards; animation-delay: calc(var(--i) * 110ms); }
+.js .intro-marke [data-malen].is-gemalt .schild-zug path { animation-delay: calc(250ms + var(--i) * 105ms); }
 @keyframes malen { 0% { stroke-dashoffset: 1; opacity: 0; } 2% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
 
 /* ═══ Leiste (Handy) ═══ */
@@ -440,10 +454,13 @@ address { font-style: normal; }
   .marke { margin-right: auto; }
 
   .buehne { padding-top: calc(var(--kopf-h) + 14px); }
-  .buehne-raster { grid-template-columns: 1fr; grid-template-areas: "ort" "titel" "tafel" "gericht" "waehler" "rest"; text-align: center; }
+  .buehne-raster { grid-template-columns: 1fr; grid-template-areas: "ort" "marke" "titel" "tafel" "gericht" "waehler" "rest"; text-align: center; }
+  .intro-marke { grid-area: marke; justify-items: center; margin-bottom: 14px; }
+  .schild--buehne { width: min(78vw, 360px); margin-left: 0; }
+  .intro-schild-unter { font-size: 11px; }
   .intro { display: contents; }
   .intro-ort { grid-area: ort; justify-self: center; margin-bottom: 10px; }
-  .intro-titel { grid-area: titel; font-size: clamp(36px, 10vw, 54px); }
+  .intro-titel { grid-area: titel; font-size: clamp(28px, 8vw, 40px); margin-inline: auto; }
   .intro-rest { grid-area: rest; margin: 34px auto 0; }
   .intro-handeln { justify-content: center; }
   .tafel { max-width: 460px; width: 96%; margin-top: 10px; }

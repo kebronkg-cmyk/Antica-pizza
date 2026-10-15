@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Antica · Caffè Pizza Bar · Haidhausen</title>
   <meta name="description" content="Antica Caffè Pizza Bar in der Weißenburger Straße 27, München-Haidhausen. Nachmittags Caffè, abends Bar, immer Pizza. Dazu Pide, Pasta, Schanigarten und Pizza zum Mitnehmen.">
-  <meta name="theme-color" content="#1d5641">
+  <meta name="theme-color" content="#141110">
   <meta property="og:type" content="restaurant">
   <meta property="og:title" content="Antica · Caffè Pizza Bar · Haidhausen">
   <meta property="og:description" content="Pizza, Pide, Pasta und Caffè in der Weißenburger Straße 27, München-Haidhausen.">
   <meta property="og:image" content="assets/img/pizza/margherita-800.webp">
   <meta property="og:locale" content="de_DE">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/pizza/margherita-800.webp" as="image" imagesrcset="assets/img/pizza/margherita-480.webp 480w, assets/img/pizza/margherita-800.webp 800w" imagesizes="(max-width: 900px) 82vw, 42vw">
@@ -116,9 +117,23 @@
     <div class="buehne-raster wrap">
       <div class="intro">
         <p class="intro-ort"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Weißenburger Str. 27 · Haidhausen</p>
-        <h1 id="titel" class="intro-titel">Nachmittags Caffè, abends Bar, <em>immer</em> Pizza.</h1>
+        <h1 id="titel" class="intro-marke" data-malen-start>
+          <span class="sr">Antica Caffè Pizza Bar</span>
+          <svg class="schild schild--buehne" data-malen viewBox="0 0 320 100" aria-hidden="true" focusable="false">
+            <g class="schild-zug" fill="none" stroke="url(#oro)" stroke-linecap="round" stroke-linejoin="round" filter="url(#pinsel)">
+          <path pathLength="1" stroke-width="8.5" d="M10 84 C16 62 24 36 33 9"/><path pathLength="1" stroke-width="10" d="M33 9 C38 34 44 60 50 86"/><path pathLength="1" stroke-width="5.5" d="M17 60 C25 56 34 55 47 58"/>
+          <path pathLength="1" stroke-width="8.5" d="M66 85 C65 62 66 38 67 14"/><path pathLength="1" stroke-width="6" d="M67 14 C77 38 88 60 99 82"/><path pathLength="1" stroke-width="9.5" d="M99 84 C99 60 100 34 102 6"/>
+          <path pathLength="1" stroke-width="7" d="M112 15 C126 11 141 10 158 12 L162 16"/><path pathLength="1" stroke-width="10" d="M135 13 C135 38 134 62 133 88 C133 93 137 95 141 92"/>
+          <path pathLength="1" stroke-width="9.5" d="M176 13 C176 38 177 60 176 85"/>
+          <path pathLength="1" stroke-width="9.5" d="M226 20 C214 6 193 10 191 44 C189 74 206 90 228 74"/>
+          <path pathLength="1" stroke-width="8.5" d="M240 84 C246 62 254 36 263 9"/><path pathLength="1" stroke-width="10" d="M263 9 C268 36 274 62 281 84 C284 92 294 93 300 84"/><path pathLength="1" stroke-width="5.5" d="M247 60 C255 56 264 55 277 58"/>
+        </g>
+          </svg>
+          <span class="intro-schild-unter" aria-hidden="true">Caffè <i></i> Pizza <i></i> Bar</span>
+          <span class="tricolore tricolore--buehne" aria-hidden="true"><i></i><i></i><i></i></span>
+        </h1>
+        <p class="intro-titel">Nachmittags Caffè, abends Bar, <em>immer</em> Pizza.</p>
         <div class="intro-rest">
-          <p class="intro-unter">Eine kleine Pizza Bar zwei Ecken vom Ostbahnhof. Draußen grüne Schirme, drinnen der Ofen und eine Vitrine voller Stücke für unterwegs.</p>
           <div class="intro-handeln">
             <a class="pille pille--voll" href="#karte"><svg class="ico" aria-hidden="true"><use href="#i-karte"/></svg>Zur Karte</a>
             <a class="pille pille--rand" href="tel:+498944142500">Tisch per Telefon</a>

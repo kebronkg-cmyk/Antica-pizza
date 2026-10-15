@@ -21,17 +21,17 @@ datenschutz.html      Vorlage – Platzhalter ausfüllen und prüfen lassen!
 favicon.svg
 assets/css/style.css  Design-Tokens oben in :root (Farben, Schriften)
 assets/js/main.js     Pizza-Bühne, Live-Öffnungsstatus, Tagesbogen, Karte-Reiter, Veggie-Filter
-assets/fonts/         Bodoni Moda, Bricolage Grotesque, Caveat (selbst gehostet, DSGVO-freundlich)
+assets/fonts/         Bodoni Moda, Instrument Serif, Bricolage Grotesque, Caveat (selbst gehostet, DSGVO-freundlich)
 assets/img/pizza/     Freigestellte Pizzen (WebP, 160/480/800 px)
 assets/img/fassade.jpg
 ```
 
 ## Designentscheidungen
 
-- **Schriftzug vom Ladenschild:** Das „ANTICA“ im Kopf und im Fuß ist ein eigenes SVG, nachgezeichnet nach dem handgemalten Schild. Blattgold-Verlauf und eine Pinselkante (SVG-Filter) machen es lebendig. Im Fuß malt es sich beim Hinscrollen Strich für Strich selbst.
-- **Farben vom Laden:** Schild schwarz-gold, die grünen Ayinger-Schirme, die türkisen Stühle, die orange Wand neben der Tür und die Trikolore unter dem Schriftzug. Jede Pizza auf der Bühne hat eine dieser Farben.
+- **Schriftzug vom Ladenschild:** Das „ANTICA“ ist ein eigenes SVG, nachgezeichnet nach dem handgemalten Schild, mit Blattgold-Verlauf und Pinselkante (SVG-Filter). Gleich beim Öffnen malt es sich auf der Bühne Strich für Strich selbst, danach läuft die Trikolore ein. Im Fuß passiert das noch einmal.
+- **Farben vom Laden:** Schild schwarz-gold, die grünen Ayinger-Schirme, die türkisen Stühle, die orange Wand neben der Tür und die Trikolore unter dem Schriftzug. Die Bühne startet schwarz-gold mit der Margherita, jede weitere Pizza bringt eine eigene Farbe mit (Bordeaux, Ocker, Orange, Türkis).
 - **Pizza-Bühne:** Fünf freigestellte Pizzen zum Antippen, Wischen oder per Pfeiltaste. Die neue Farbe wächst als Kreis von der Stelle, an der getippt wurde, die Pizza rollt herein. Mit der Maus über der Pizza hebt sich ein Stück an.
-- **Schrift:** *Bodoni Moda* (die Bodoni stammt aus Parma) für Überschriften, *Bricolage Grotesque* für Text, *Caveat* als Kreide-Handschrift wie auf der Tafel vor dem Laden.
+- **Schrift:** Auf der Bühne *Instrument Serif* neben dem Pinsel-Schriftzug, sonst *Bodoni Moda* (die Bodoni stammt aus Parma) für Überschriften, *Bricolage Grotesque* für Text, *Caveat* als Kreide-Handschrift wie auf der Tafel vor dem Laden.
 - **Details:** Ein Sonne-/Mond-Bogen zeigt live, ob gerade Caffè-, Pizza- oder Bar-Zeit ist. Tafel „Stück Pizza to go“, Postkarte mit Stempel, Gäste-Zettel mit Klebeband.
 - **Fotos:** Nur Bilder in brauchbarer Qualität. Die kleinen Gästefotos sind raus. Bessere eigene Fotos können später dazukommen.
 - **DSGVO:** Schriften lokal, keine Cookies, OpenStreetMap lädt erst nach Klick.
