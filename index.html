@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antica · Caffè Pizza Bar · Haidhausen München</title>
+  <meta name="description" content="Antica Caffè Pizza Bar in der Weißenburger Straße 27, München-Haidhausen: Pizza, Pide, Pasta, Caffè und Aperitivo, mit Schanigarten und Pizza zum Mitnehmen. Nur ein paar Schritte vom Ostbahnhof.">
+  <meta name="theme-color" content="#14110d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Antica · Caffè Pizza Bar · Haidhausen">
+  <meta property="og:description" content="Pizza, Pide, Pasta und Caffè in der Weißenburger Straße 27, München-Haidhausen.">
+  <meta property="og:image" content="assets/img/fassade.jpg">
+  <meta property="og:locale" content="de_DE">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Antica Caffè Pizza Bar",
+    "image": "assets/img/fassade.jpg",
+    "servesCuisine": ["Pizza", "Italienisch", "Pide"],
+    "priceRange": "€",
+    "telephone": "+49 89 44142500",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Weißenburger Str. 27",
+      "postalCode": "81667",
+      "addressLocality": "München",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.12855, "longitude": 11.59901 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "14:00", "closes": "23:00" }
+    ],
+    "acceptsReservations": "True",
+    "hasMenu": "#karte"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="top">
+    <div class="header__inner wrap">
+      <a class="brand" href="#top" aria-label="Antica · zur Startseite">
+        <span class="brand__word">Antica</span>
+        <span class="brand__sub">Caffè · Pizza · Bar</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Hauptnavigation">
+        <a href="#karte">Speisekarte</a>
+        <a href="#theke">Bar &amp; Theke</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#stimmen">Gäste</a>
+        <a href="#besuch">Besuch</a>
+        <a class="btn btn--gold nav__cta" href="tel:+498944142500">089 441 425 00</a>
+      </nav>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero__bg">
+        <img src="assets/img/fassade.jpg" alt="Die Fassade der Antica Caffè Pizza Bar in der Weißenburger Straße, mit schwarzem Schild in Gold, grünen Sonnenschirmen und Tischen auf dem Gehweg" fetchpriority="high">
+      </picture>
+      <div class="hero__shade"></div>
+      <div class="hero__content wrap">
+        <p class="eyebrow eyebrow--light"><span class="status" id="status" data-state="unknown"><i></i><span id="status-text">Öffnungszeiten</span></span></p>
+        <h1 id="hero-title" class="hero__title">
+          Pizza, Pide<br>&amp; Caffè <em>mitten<br>in Haidhausen.</em>
+        </h1>
+        <p class="hero__lead">Eine kleine Pizza Bar an der Weißenburger Straße. Draußen grüne Schirme, drinnen der Ofen. Man kann bleiben oder sich ein Stück für unterwegs holen.</p>
+        <div class="hero__actions">
+          <a class="btn btn--red" href="#karte">Zur Speisekarte</a>
+          <a class="btn btn--ghost" href="tel:+498944142500">Tisch reservieren</a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#intro" aria-label="Weiter nach unten"><span></span></a>
+    </section>
+
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Pizza aus dem Ofen</span><b>✦</b><span>Pide mit Sucuk</span><b>✦</b><span>Stück Pizza to go</span><b>✦</b><span>Caffè &amp; Cappuccino</span><b>✦</b><span>Aperitivo im Schanigarten</span><b>✦</b><span>Weißenburger Straße 27</span><b>✦</b>
+        <span>Pizza aus dem Ofen</span><b>✦</b><span>Pide mit Sucuk</span><b>✦</b><span>Stück Pizza to go</span><b>✦</b><span>Caffè &amp; Cappuccino</span><b>✦</b><span>Aperitivo im Schanigarten</span><b>✦</b><span>Weißenburger Straße 27</span><b>✦</b>
+      </div>
+    </div>
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro section" id="intro" aria-labelledby="intro-title">
+      <div class="wrap intro__grid">
+        <div class="intro__text reveal">
+          <p class="eyebrow">Willkommen bei Antica</p>
+          <h2 id="intro-title" class="h2">Eine Pizza Bar wie ein <em>Wohnzimmer</em> am Ostbahnhof.</h2>
+          <p>Bei Antica gibt es eine kurze Karte mit fairen Preisen. Die Pizza kommt mit dünnem Boden und luftigem Rand aus dem Ofen. Dazu gibt es Pide, die türkische Schwester der Pizza, gefüllt mit Käse, Spinat, Sucuk oder Pastırma.</p>
+          <p>Den Caffè kann man an der Bar trinken. Im Sommer sitzt man unter den grünen Schirmen oder im überdachten Holz-Schanigarten an der Weißenburger Straße.</p>
+          <ul class="facts">
+            <li><strong>ab 10 €</strong><span>Pizza Margherita</span></li>
+            <li><strong>Mo–Sa</strong><span>14 bis 23 Uhr</span></li>
+            <li><strong>5 Min.</strong><span>zu Fuß vom Ostbahnhof</span></li>
+          </ul>
+        </div>
+        <div class="intro__collage reveal">
+          <figure class="ph ph--a"><img src="assets/img/pizza-diavola.jpg" alt="Pizza mit Salami, Champignons und frischem Basilikum" loading="lazy"></figure>
+          <figure class="ph ph--b"><img src="assets/img/pizzaiolo.jpg" alt="Der Pizzaiolo am Ofen in der offenen Küche" loading="lazy"></figure>
+          <figure class="ph ph--c"><img src="assets/img/cappuccino.jpg" alt="Cappuccino auf dem Holztisch" loading="lazy"></figure>
+          <p class="note">grazie mille ♥</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPEISEKARTE ============ -->
+    <section class="menu section section--dark" id="karte" aria-labelledby="menu-title">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--gold">La carta</p>
+          <h2 id="menu-title" class="h2 h2--light">Speisekarte</h2>
+          <p class="section__lead">Alle Pizzen kommen mit Tomatensauce, Käse und Oregano.</p>
+        </header>
+
+        <div class="menu__controls reveal">
+          <div class="tabs" role="tablist" aria-label="Kategorien">
+            <button role="tab" aria-selected="true" aria-controls="tab-pizza" id="t-pizza" class="tab">Pizza</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-pide" id="t-pide" class="tab" tabindex="-1">Pide</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-pasta" id="t-pasta" class="tab" tabindex="-1">Pasta</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-drinks" id="t-drinks" class="tab" tabindex="-1">Getränke</button>
+          </div>
+          <label class="veg-toggle">
+            <input type="checkbox" id="veg-only">
+            <span class="veg-toggle__track"><span></span></span>
+            Nur vegetarisch
+          </label>
+        </div>
+
+        <div class="menu__body">
+          <!-- PIZZA -->
+          <div class="panel" role="tabpanel" id="tab-pizza" aria-labelledby="t-pizza">
+            <div class="panel__grid">
+              <ul class="dishes">
+                <li class="dish" data-veg><div class="dish__row"><h3>Margherita <span class="tag">veg</span></h3><i></i><span class="price">10,00</span></div><p>Der Klassiker mit Tomate, Käse und Oregano</p></li>
+                <li class="dish"><div class="dish__row"><h3>Tonno</h3><i></i><span class="price">12,50</span></div><p>Thunfisch und Zwiebeln</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Funghi <span class="tag">veg</span></h3><i></i><span class="price">12,50</span></div><p>Frische Champignons</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Mozzarella <span class="tag">veg</span></h3><i></i><span class="price">12,50</span></div><p>Frische Tomaten und Peperoni</p></li>
+                <li class="dish"><div class="dish__row"><h3>Sucuk</h3><i></i><span class="price">12,50</span></div><p>Knoblauchwurst und Zwiebeln</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Quattro Formaggi <span class="tag">veg</span></h3><i></i><span class="price">13,90</span></div><p>Edamer, Mozzarella, Feta und Gorgonzola</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Vegetarisch <span class="tag">veg</span></h3><i></i><span class="price">13,90</span></div><p>Gegrillte Aubergine, Zucchini und Paprika mit Feta und Champignons</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Vegetarisch II <span class="tag">veg</span></h3><i></i><span class="price">13,90</span></div><p>Paprika, Artischocken und Champignons</p></li>
+                <li class="dish"><div class="dish__row"><h3>Hackfleisch</h3><i></i><span class="price">13,90</span></div><p>Mit Rinderhackfleisch</p></li>
+              </ul>
+              <figure class="panel__img"><img src="assets/img/pizza-salami.jpg" alt="Pizza mit Salami, Mozzarella und Basilikum, frisch aufgeschnitten" loading="lazy"><figcaption>Dünner Boden, luftiger Rand</figcaption></figure>
+            </div>
+          </div>
+
+          <!-- PIDE -->
+          <div class="panel" role="tabpanel" id="tab-pide" aria-labelledby="t-pide" hidden>
+            <div class="panel__grid">
+              <ul class="dishes">
+                <li class="dish" data-veg><div class="dish__row"><h3>Pide mit Käse <span class="tag">veg</span></h3><i></i><span class="price">12,00</span></div><p>Das Schiffchen aus Hefeteig, gefüllt mit geschmolzenem Käse</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Pide mit Spinat <span class="tag">veg</span></h3><i></i><span class="price">13,00</span></div><p>Mit Spinat und Käse</p></li>
+                <li class="dish"><div class="dish__row"><h3>Pide mit Hackfleisch</h3><i></i><span class="price">14,00</span></div><p>Mit gewürztem Hackfleisch</p></li>
+                <li class="dish"><div class="dish__row"><h3>Pide mit Sucuk</h3><i></i><span class="price">14,00</span></div><p>Mit Knoblauchwurst</p></li>
+                <li class="dish"><div class="dish__row"><h3>Pide mit Pastırma</h3><i></i><span class="price">14,00</span></div><p>Mit luftgetrocknetem Rindfleisch</p></li>
+              </ul>
+              <figure class="panel__img"><img src="assets/img/pizza-spinat.jpg" alt="Pizza mit Spinat und Käse aus dem Ofen" loading="lazy"><figcaption>Aus demselben Ofen wie die Pizza</figcaption></figure>
+            </div>
+          </div>
+
+          <!-- PASTA -->
+          <div class="panel" role="tabpanel" id="tab-pasta" aria-labelledby="t-pasta" hidden>
+            <div class="panel__grid">
+              <ul class="dishes">
+                <li class="dish" data-veg><div class="dish__row"><h3>Penne Arrabbiata <span class="tag tag--hot">scharf</span> <span class="tag">veg</span></h3><i></i><span class="price">10,00</span></div><p>Scharfe Tomatensauce mit Oliven</p></li>
+                <li class="dish"><div class="dish__row"><h3>Spaghetti Bolognese</h3><i></i><span class="price">13,00</span></div><p>Rinderhackfleisch, Tomatensauce und Gemüse</p></li>
+                <li class="dish" data-veg><div class="dish__row"><h3>Spaghetti Quattro Formaggi <span class="tag">veg</span></h3><i></i><span class="price">13,00</span></div><p>Gouda, Mozzarella, Feta und Gorgonzola</p></li>
+              </ul>
+              <figure class="panel__img"><img src="assets/img/linguine-meeresfruechte.jpg" alt="Linguine mit Garnelen und Basilikum, dazu ein Glas Rotwein" loading="lazy"><figcaption>Gäste loben besonders die Spaghetti</figcaption></figure>
+            </div>
+          </div>
+
+          <!-- DRINKS -->
+          <div class="panel" role="tabpanel" id="tab-drinks" aria-labelledby="t-drinks" hidden>
+            <div class="panel__grid">
+              <div>
+                <h3 class="dishes__group">Alkoholfrei</h3>
+                <ul class="dishes">
+                  <li class="dish" data-veg><div class="dish__row"><h3>Coca-Cola <small>0,33 l</small></h3><i></i><span class="price">2,50</span></div></li>
+                  <li class="dish" data-veg><div class="dish__row"><h3>Fanta Orange <small>0,33 l</small></h3><i></i><span class="price">2,50</span></div></li>
+                  <li class="dish" data-veg><div class="dish__row"><h3>Uludağ Gazoz <small>0,33 l</small></h3><i></i><span class="price">2,50</span></div></li>
+                  <li class="dish" data-veg><div class="dish__row"><h3>Wasser still <small>0,5 l</small></h3><i></i><span class="price">2,40</span></div></li>
+                  <li class="dish" data-veg><div class="dish__row"><h3>Red Bull <small>0,25 l</small></h3><i></i><span class="price">3,20</span></div></li>
+                </ul>
+                <h3 class="dishes__group">Bar</h3>
+                <p class="bar-list">Espresso · Cappuccino · Weißbier · Ayinger · Wein rot &amp; weiß · Prosecco · Aperol Spritz · Grappa</p>
+                <p class="muted small">Preise für Caffè, Bier, Wein und Aperitivo gibt es vor Ort.</p>
+              </div>
+              <figure class="panel__img"><img src="assets/img/aperitivo.jpg" alt="Aperol Spritz und kleine Snacks auf einem Holztisch draußen" loading="lazy"><figcaption>Aperitivo vor der Tür</figcaption></figure>
+            </div>
+          </div>
+        </div>
+
+        <p class="menu__foot muted small">Preise in Euro, inkl. MwSt. Stand der Karte: Oktober 2025. Es gilt die aktuelle Karte im Restaurant. Fragen zu Allergenen beantworten wir gern vor Ort.</p>
+      </div>
+    </section>
+
+    <!-- ============ THEKE / BAR ============ -->
+    <section class="theke section" id="theke" aria-labelledby="theke-title">
+      <div class="wrap">
+        <header class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow">Caffè · Pizza · Bar</p>
+            <h2 id="theke-title" class="h2">Drei Gründe <em>reinzukommen</em>.</h2>
+          </div>
+          <p class="section__lead">Der Name steht groß auf dem Schild. Antica ist Caffè, Pizzeria und Bar zugleich.</p>
+        </header>
+
+        <div class="trio">
+          <article class="card reveal">
+            <figure><img src="assets/img/espresso.jpg" alt="Espresso in einer weißen Tasse auf dem Holztisch draußen" loading="lazy"></figure>
+            <div class="card__body">
+              <span class="card__num">01</span>
+              <h3>Caffè</h3>
+              <p>Espresso, Cappuccino oder ein Caffè zum Mitnehmen. Am Fenster oder draußen mit Blick auf die Weißenburger Straße.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <figure><img src="assets/img/vitrine.jpg" alt="Die Vitrine mit Pizzastücken, Panini, Tramezzini und Weinflaschen" loading="lazy"></figure>
+            <div class="card__body">
+              <span class="card__num">02</span>
+              <h3>Theke</h3>
+              <p>In der Vitrine liegen Pizza am Stück, belegte Panini, Tramezzini und Salate. Alles gibt es auch zum Mitnehmen.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <figure><img src="assets/img/weissbier.jpg" alt="Ein Glas Weißbier mit Flasche auf dem Holztisch" loading="lazy"></figure>
+            <div class="card__body">
+              <span class="card__num">03</span>
+              <h3>Bar</h3>
+              <p>Am Abend gibt es ein bayerisches Bier, ein Glas Wein, einen Aperol oder einen Grappa zum Abschluss. Mitten in Haidhausen.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="chalk reveal" role="note">
+          <p class="chalk__hand">Heute:</p>
+          <p class="chalk__big">Stück Pizza<br>to go</p>
+          <p class="chalk__small">Direkt aus der Vitrine, für unterwegs zum Ostbahnhof.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIE ============ -->
+    <section class="gallery section section--cream2" id="galerie" aria-labelledby="gal-title">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Galleria</p>
+          <h2 id="gal-title" class="h2">So sieht’s bei uns aus.</h2>
+          <p class="section__lead">Alle Bilder sind Schnappschüsse von Gästen. Zum Vergrößern einfach antippen.</p>
+        </header>
+        <div class="masonry" id="masonry">
+          <button class="m-item reveal" data-full="assets/img/pizza-rucola.jpg"><img src="assets/img/pizza-rucola.jpg" alt="Pizza mit Rucola, Kirschtomaten und Parmesan, dazu Weißwein" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/theke.jpg"><img src="assets/img/theke.jpg" alt="Die Theke mit Holzverkleidung und gefüllter Vitrine" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/pizza-terrasse.jpg"><img src="assets/img/pizza-terrasse.jpg" alt="Pizza mit Peperoni und Oliven draußen, daneben Basilikum und ein Glas Wein" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/antipasti.jpg"><img src="assets/img/antipasti.jpg" alt="Antipasti-Teller mit Rucola, Parmesan und Kirschtomaten" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/fassade-gaeste.jpg"><img src="assets/img/fassade-gaeste.jpg" alt="Gäste sitzen draußen vor dem Antica-Schild" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/pizza-salami-melanzane.jpg"><img src="assets/img/pizza-salami-melanzane.jpg" alt="Pizza mit Salami und gegrillter Aubergine" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/panini.jpg"><img src="assets/img/panini.jpg" alt="Panini und Pizza in der Vitrine" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/grappa-kaffee.jpg"><img src="assets/img/grappa-kaffee.jpg" alt="Grappa und Caffè auf dem Holztisch" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/pasta-tomate.jpg"><img src="assets/img/pasta-tomate.jpg" alt="Pasta mit Tomatensauce im tiefen Teller" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/pizza-scharf.jpg"><img src="assets/img/pizza-scharf.jpg" alt="Pizza mit Salami und Peperoni, dazu ein Bier" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/schanigarten.jpg"><img src="assets/img/schanigarten.jpg" alt="Der überdachte Holz-Schanigarten an der Straße" loading="lazy"></button>
+          <button class="m-item reveal" data-full="assets/img/pizza-peperoni-oliven.jpg"><img src="assets/img/pizza-peperoni-oliven.jpg" alt="Pizza mit grünen Oliven und Peperoni" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STIMMEN ============ -->
+    <section class="voices section section--dark" id="stimmen" aria-labelledby="voices-title">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--gold">Gäste-Stimmen</p>
+          <h2 id="voices-title" class="h2 h2--light">Was die Nachbarschaft sagt.</h2>
+        </header>
+        <div class="voices__grid">
+          <blockquote class="quote reveal">
+            <p>„Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!“</p>
+            <footer>Gast, via Restaurant Guru</footer>
+          </blockquote>
+          <blockquote class="quote quote--big reveal">
+            <p>„Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.“</p>
+            <footer>Gast, via Restaurant Guru</footer>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <p>„Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.“</p>
+            <footer>Gast, via Restaurant Guru</footer>
+          </blockquote>
+        </div>
+        <ul class="ratings reveal">
+          <li><strong>4,6</strong><span class="stars" style="--r:4.6" aria-hidden="true"></span><span>Google<br><small>laut Restaurant Guru</small></span></li>
+          <li><strong>4,7</strong><span class="stars" style="--r:4.7" aria-hidden="true"></span><span>Restaurant Guru<br><small>77 Bewertungen</small></span></li>
+          <li><strong>4,3</strong><span class="stars" style="--r:4.3" aria-hidden="true"></span><span>Intravel<br><small>84 Bewertungen</small></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ BESUCH ============ -->
+    <section class="visit section" id="besuch" aria-labelledby="visit-title">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Vieni a trovarci</p>
+          <h2 id="visit-title" class="h2">So findest du <em>uns</em>.</h2>
+        </header>
+
+        <div class="visit__grid">
+          <div class="visit__info reveal">
+            <div class="info-block">
+              <h3>Adresse</h3>
+              <address>Antica Caffè Pizza Bar<br>Weißenburger Straße 27<br>81667 München-Haidhausen</address>
+              <a class="link-arrow" href="https://www.google.com/maps/dir/?api=1&destination=Wei%C3%9Fenburger+Str.+27%2C+81667+M%C3%BCnchen" target="_blank" rel="noopener">Route planen</a>
+            </div>
+            <div class="info-block">
+              <h3>Reservierung</h3>
+              <p>Reservierung im Moment nur telefonisch.</p>
+              <a class="phone" href="tel:+498944142500">089 441 425 00</a>
+            </div>
+            <div class="info-block">
+              <h3>Öffnungszeiten</h3>
+              <table class="hours" id="hours">
+                <tbody>
+                  <tr data-day="1"><th scope="row">Montag</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="2"><th scope="row">Dienstag</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="3"><th scope="row">Mittwoch</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="4"><th scope="row">Donnerstag</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="5"><th scope="row">Freitag</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="6"><th scope="row">Samstag</th><td>14:00 – 23:00</td></tr>
+                  <tr data-day="0"><th scope="row">Sonntag</th><td>Ruhetag</td></tr>
+                </tbody>
+              </table>
+              <p class="muted small">An Feiertagen ist geschlossen. Ausnahmen sind möglich, im Zweifel bitte kurz anrufen.</p>
+            </div>
+          </div>
+
+          <div class="visit__map reveal">
+            <div class="map" id="map">
+              <img src="assets/img/fassade-gaeste.jpg" alt="" class="map__poster" loading="lazy">
+              <div class="map__overlay">
+                <p class="map__title">Weißenburger Str. 27</p>
+                <p class="small">Mit Klick wird eine Karte von OpenStreetMap geladen. Dabei wird deine IP-Adresse an OpenStreetMap übertragen.</p>
+                <button class="btn btn--gold" id="load-map">Karte anzeigen</button>
+              </div>
+            </div>
+            <ul class="transit">
+              <li><span class="pill pill--s">S</span><div><strong>Ostbahnhof</strong><small>S-Bahn &amp; U5 · ca. 5 Min. zu Fuß</small></div></li>
+              <li><span class="pill pill--t">T</span><div><strong>Orleansstraße</strong><small>Tram &amp; Bus · ca. 370 m</small></div></li>
+              <li><span class="pill pill--p">P</span><div><strong>Parkhaus am Ostbahnhof</strong><small>ca. 180 m</small></div></li>
+            </ul>
+            <ul class="features">
+              <li>Schanigarten</li><li>Zum Mitnehmen</li><li>Kartenzahlung &amp; NFC</li><li>Familienfreundlich</li><li>Platz für Feiern</li><li>Stück Pizza</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="band" aria-label="Reservieren">
+      <div class="wrap band__inner">
+        <p class="band__text">Hunger? <em>Ruf an</em> und wir halten dir einen Tisch frei.</p>
+        <a class="btn btn--dark" href="tel:+498944142500">089 441 425 00</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p class="brand brand--footer"><span class="brand__word">Antica</span><span class="brand__sub">Caffè · Pizza · Bar</span></p>
+        <p class="muted">Weißenburger Straße 27<br>81667 München-Haidhausen</p>
+      </div>
+      <div>
+        <h3 class="footer__h">Kontakt</h3>
+        <p><a href="tel:+498944142500">089 441 425 00</a></p>
+        <p class="muted small">Reservierung telefonisch</p>
+      </div>
+      <div>
+        <h3 class="footer__h">Geöffnet</h3>
+        <p>Mo–Sa 14–23 Uhr<br><span class="muted">So &amp; Feiertage Ruhetag</span></p>
+      </div>
+      <div>
+        <h3 class="footer__h">Rechtliches</h3>
+        <p><a href="impressum.html">Impressum</a><br><a href="datenschutz.html">Datenschutz</a></p>
+      </div>
+    </div>
+    <div class="wrap footer__base">
+      <p class="small muted">© <span id="year">2026</span> Antica Caffè Pizza Bar · Fatto con amore in Haidhausen</p>
+      <a class="small" href="#top">Nach oben ↑</a>
+    </div>
+  </footer>
+
+  <!-- Mobile action bar -->
+  <nav class="actionbar" aria-label="Schnellaktionen">
+    <a href="tel:+498944142500"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg>Anrufen</a>
+    <a href="#karte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v2H4zm0 6h16v2H4zm0 6h10v2H4z"/></svg>Karte</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Wei%C3%9Fenburger+Str.+27%2C+81667+M%C3%BCnchen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Route</a>
+  </nav>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Bildansicht">
+    <button class="lightbox__close" id="lb-close" aria-label="Schließen">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Vorheriges Bild">‹</button>
+    <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Nächstes Bild">›</button>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
