@@ -148,7 +148,7 @@
           <circle cx="200" cy="200" r="194" class="kranz-punkte"/>
           <circle cx="200" cy="200" r="160" class="kranz-linie"/>
           <text class="kranz-text"><textPath href="#kranz-bahn" textLength="1100">ANTICA ✦ CAFFÈ ✦ PIZZA ✦ BAR ✦ HAIDHAUSEN ✦ WEISSENBURGER STRASSE ✦ </textPath></text>
-          <g class="kranz-tricolore"><path d="M200 18 v14" stroke="#2f8a4f"/><path d="M200 368 v14" stroke="#c8321f"/><path d="M18 200 h14" stroke="#f4ecdc"/><path d="M368 200 h14" stroke="#f4ecdc"/></g>
+          <g class="kranz-tricolore"><path d="M200 18 v14" stroke="#2f8a4f"/><path d="M200 368 v14" stroke="#c8321f"/><path d="M18 200 h14" stroke="#f4f3f0"/><path d="M368 200 h14" stroke="#f4f3f0"/></g>
         </svg>
 
         <div class="siegel" aria-hidden="true">
@@ -193,6 +193,7 @@
 
   <!-- ═══ Ein Tag bei Antica ═══ -->
   <section class="tag" id="tag" aria-labelledby="tag-titel" data-tag>
+    <div class="markise" aria-hidden="true"></div>
     <div class="wrap">
       <header class="kopfzeile">
         <p class="hand" data-auf>Drei Wörter auf dem Schild</p>
@@ -315,29 +316,41 @@
 
   <!-- ═══ Gäste ═══ -->
   <section class="gaeste" id="gaeste" aria-labelledby="gaeste-titel">
-    <div class="wrap">
-      <header class="kopfzeile">
-        <p class="hand" data-auf>Aus der Nachbarschaft</p>
+    <div class="wrap gaeste-raster">
+      <div class="gaeste-kopf">
+        <p class="hand" data-auf>Dicono di noi</p>
         <h2 id="gaeste-titel" class="titel-gross" data-auf>Was Gäste <em>sagen</em>.</h2>
-      </header>
-      <div class="zettel-reihe">
-        <figure class="zettel zettel--wert" data-auf>
-          <p class="zettel-zahl">4,6</p>
-          <p class="zettel-sterne" aria-label="4,6 von 5 Sternen">★★★★★</p>
-          <figcaption>Google, laut Restaurant Guru<br><span>4,7 bei Restaurant Guru · 4,3 bei Intravel</span></figcaption>
+        <figure class="medaille" data-auf>
+          <svg class="medaille-kranz" viewBox="0 0 200 200" aria-hidden="true"><g fill="currentColor"><path d="M108.2 177.6 L91.4 177.5 L75.0 173.9 L59.8 166.9 L46.5 156.7 L35.6 144.0 L27.7 129.2 L23.1 113.1 L22.1 96.4 L24.7 79.8 L30.7 64.2 L40.0 50.2 L52.0 38.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(91.4 177.5) rotate(-117.7)"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(91.4 177.5) rotate(-49.7)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(75.0 173.9) rotate(-105.3)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(75.0 173.9) rotate(-37.3)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(59.8 166.9) rotate(-93.0)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(59.8 166.9) rotate(-25.0)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(46.5 156.7) rotate(-80.7)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(46.5 156.7) rotate(-12.7)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(35.6 144.0) rotate(-68.3)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(35.6 144.0) rotate(-0.3)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(27.7 129.2) rotate(-56.0)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(27.7 129.2) rotate(12.0)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(23.1 113.1) rotate(-43.7)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(23.1 113.1) rotate(24.3)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(22.1 96.4) rotate(-31.3)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(22.1 96.4) rotate(36.7)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(24.7 79.8) rotate(-19.0)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(24.7 79.8) rotate(49.0)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(30.7 64.2) rotate(-6.7)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(30.7 64.2) rotate(61.3)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(40.0 50.2) rotate(5.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(40.0 50.2) rotate(73.7)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(52.0 38.5) rotate(18.0)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(52.0 38.5) rotate(86.0)"/><ellipse cx="0" cy="-5.5" rx="2" ry="5.5" transform="translate(52.0 38.5) rotate(52.0)"/><path d="M91.8 177.6 L108.6 177.5 L125.0 173.9 L140.2 166.9 L153.5 156.7 L164.4 144.0 L172.3 129.2 L176.9 113.1 L177.9 96.4 L175.3 79.8 L169.3 64.2 L160.0 50.2 L148.0 38.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(108.6 177.5) rotate(49.7)"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(108.6 177.5) rotate(117.7)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(125.0 173.9) rotate(37.3)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(125.0 173.9) rotate(105.3)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(140.2 166.9) rotate(25.0)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(140.2 166.9) rotate(93.0)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(153.5 156.7) rotate(12.7)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(153.5 156.7) rotate(80.7)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(164.4 144.0) rotate(0.3)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(164.4 144.0) rotate(68.3)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(172.3 129.2) rotate(-12.0)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(172.3 129.2) rotate(56.0)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(176.9 113.1) rotate(-24.3)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(176.9 113.1) rotate(43.7)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(177.9 96.4) rotate(-36.7)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(177.9 96.4) rotate(31.3)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(175.3 79.8) rotate(-49.0)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(175.3 79.8) rotate(19.0)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(169.3 64.2) rotate(-61.3)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(169.3 64.2) rotate(6.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(160.0 50.2) rotate(-73.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(160.0 50.2) rotate(-5.7)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(148.0 38.5) rotate(-86.0)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(148.0 38.5) rotate(-18.0)"/><ellipse cx="0" cy="-5.5" rx="2" ry="5.5" transform="translate(148.0 38.5) rotate(-52.0)"/></g></svg>
+          <div class="medaille-mitte">
+            <p class="medaille-zahl">4,6</p>
+            <p class="medaille-sterne" aria-label="4,6 von 5 Sternen">★★★★★</p>
+          </div>
+          <figcaption>Google, laut Restaurant Guru<span>4,7 bei Restaurant Guru · 4,3 bei Intravel</span></figcaption>
         </figure>
-        <figure class="zettel" data-auf>
-          <blockquote><p>„Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!“</p></blockquote>
-          <figcaption>Gast, via Restaurant Guru</figcaption>
-        </figure>
-        <figure class="zettel" data-auf>
-          <blockquote><p>„Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.“</p></blockquote>
-          <figcaption>Gast, via Restaurant Guru</figcaption>
-        </figure>
-        <figure class="zettel" data-auf>
-          <blockquote><p>„Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.“</p></blockquote>
-          <figcaption>Gast, via Restaurant Guru</figcaption>
-        </figure>
+      </div>
+
+      <div class="stimmen" data-stimmen data-auf>
+        <span class="stimmen-zeichen" aria-hidden="true">«</span>
+        <div class="stimmen-buehne" aria-live="polite">
+          <figure class="stimme is-aktiv" id="stimme-1">
+            <blockquote><p>Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!</p></blockquote>
+            <figcaption>Gast · via Restaurant Guru</figcaption>
+          </figure>
+          <figure class="stimme" id="stimme-2">
+            <blockquote><p>Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.</p></blockquote>
+            <figcaption>Gast · via Restaurant Guru</figcaption>
+          </figure>
+          <figure class="stimme" id="stimme-3">
+            <blockquote><p>Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.</p></blockquote>
+            <figcaption>Gast · via Restaurant Guru</figcaption>
+          </figure>
+        </div>
+        <div class="stimmen-steuer" role="group" aria-label="Gästestimme wählen">
+          <button type="button" aria-controls="stimme-1" aria-pressed="true"><span>I</span></button>
+          <button type="button" aria-controls="stimme-2" aria-pressed="false"><span>II</span></button>
+          <button type="button" aria-controls="stimme-3" aria-pressed="false"><span>III</span></button>
+        </div>
       </div>
     </div>
   </section>
@@ -361,6 +374,7 @@
       </div>
 
       <div class="besuch-zeiten" data-auf>
+        <div class="neon" data-neon aria-hidden="true"><span class="neon-an">aperto</span><span class="neon-aus">chiuso</span></div>
         <h3 class="zeiten-titel">Öffnungszeiten</h3>
         <p class="zeiten-status" data-status="lang"></p>
         <table class="zeiten" id="zeiten">
@@ -430,12 +444,6 @@
   </div>
 </footer>
 
-<!-- Leiste für unterwegs (Handy) -->
-<nav class="leiste" aria-label="Schnellzugriff" data-leiste>
-  <a href="tel:+498944142500"><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg>Anrufen</a>
-  <a href="#karte"><svg class="ico" aria-hidden="true"><use href="#i-karte"/></svg>Karte</a>
-  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Wei%C3%9Fenburger+Str.+27%2C+81667+M%C3%BCnchen" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Route</a>
-</nav>
 
 <script src="assets/js/main.js" defer></script>
 </body>

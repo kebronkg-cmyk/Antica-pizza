@@ -42,6 +42,8 @@
       el.textContent = el.getAttribute('data-status') === 'lang' ? lang : kurz;
       el.setAttribute('data-zustand', zustand);
     });
+    var neon = $('[data-neon]');
+    if (neon) neon.setAttribute('data-zustand', zustand);
     $$('#zeiten tr').forEach(function (r) { r.classList.toggle('is-heute', +r.getAttribute('data-tag') === j.tag); });
     tagesbogen(j, z);
   }
@@ -70,7 +72,7 @@
   window.addEventListener('resize', function () { var j = jetztMuenchen(); tagesbogen(j, ZEITEN[j.tag]); });
 
   /* ── Kopf: fest nach der Bühne, beim Runterscrollen kurz weg ── */
-  var kopf = $('[data-kopf]'), buehne = $('[data-buehne]'), leiste = $('[data-leiste]');
+  var kopf = $('[data-kopf]'), buehne = $('[data-buehne]');
   var letzteY = 0;
   function beimScrollen() {
     var y = window.scrollY, h = 40;
@@ -79,7 +81,6 @@
       kopf.classList.toggle('is-weg', y > (buehne.offsetHeight) && y > letzteY + 2 && !menuOffen());
       if (y < letzteY - 2 || y < buehne.offsetHeight) kopf.classList.remove('is-weg');
     }
-    if (leiste) leiste.classList.toggle('is-da', y > window.innerHeight * 0.7);
     letzteY = y;
   }
   window.addEventListener('scroll', beimScrollen, { passive: true });
@@ -366,6 +367,8 @@
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add(e.target.hasAttribute('data-malen') ? 'is-gemalt' : 'is-da');
+        var n = e.target.querySelector && e.target.querySelector('[data-neon]');
+        if (n) setTimeout(function () { n.classList.add('is-an'); }, 500);
         if (e.target.hasAttribute('data-malen')) e.target.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt');
         io.unobserve(e.target);
       });
@@ -379,6 +382,29 @@
   } else {
     auf.forEach(function (el) { el.classList.add('is-da'); });
     malen.forEach(function (el) { el.classList.add('is-gemalt'); el.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt'); });
+  }
+
+  /* ── Gästestimmen: eine nach der anderen, wie Seiten einer Speisekarte ── */
+  var stimmen = $('[data-stimmen]');
+  if (stimmen) {
+    var knoepfe = $$('.stimmen-steuer button', stimmen), karten = $$('.stimme', stimmen);
+    var jetzt = 0, TAKT = 8000, uhr = null;
+    stimmen.style.setProperty('--takt', TAKT + 'ms');
+    var zeigeStimme = function (n) {
+      jetzt = (n + karten.length) % karten.length;
+      karten.forEach(function (k, i) { k.classList.toggle('is-aktiv', i === jetzt); });
+      knoepfe.forEach(function (b, i) {
+        b.setAttribute('aria-pressed', String(i === jetzt));
+        // Fortschrittsstrich neu starten
+        b.style.animation = 'none'; b.offsetWidth; b.style.animation = '';
+      });
+    };
+    var weiter = function () { if (!stimmen.classList.contains('is-pause')) zeigeStimme(jetzt + 1); };
+    var starten = function () { clearInterval(uhr); if (!ruhig) uhr = setInterval(weiter, TAKT); };
+    knoepfe.forEach(function (b, i) { b.addEventListener('click', function () { zeigeStimme(i); starten(); }); });
+    ['mouseenter', 'focusin'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.add('is-pause'); }); });
+    ['mouseleave', 'focusout'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.remove('is-pause'); }); });
+    starten();
   }
 
   /* ── Karte erst nach Klick laden (vorher keine Verbindung zu Dritten) ── */

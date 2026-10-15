@@ -32,9 +32,14 @@ assets/img/fassade.jpg
 - **Farben vom Laden:** Schild schwarz-gold, die grünen Ayinger-Schirme, die türkisen Stühle, die orange Wand neben der Tür und die Trikolore unter dem Schriftzug. Die Bühne startet schwarz-gold mit der Margherita, jede weitere Pizza bringt eine eigene Farbe mit (Bordeaux, Ocker, Orange, Türkis).
 - **Pizza-Bühne:** Fünf freigestellte Pizzen zum Antippen, Wischen oder per Pfeiltaste. Die neue Farbe wächst als Kreis von der Stelle, an der getippt wurde, die Pizza rollt herein. Mit der Maus über der Pizza hebt sich ein Stück an.
 - **Schrift:** Auf der Bühne *Instrument Serif* neben dem Pinsel-Schriftzug, sonst *Bodoni Moda* (die Bodoni stammt aus Parma) für Überschriften, *Bricolage Grotesque* für Text, *Caveat* als Kreide-Handschrift wie auf der Tafel vor dem Laden.
-- **Details:** Ein Sonne-/Mond-Bogen zeigt live, ob gerade Caffè-, Pizza- oder Bar-Zeit ist. Tafel „Stück Pizza to go“, Postkarte mit Stempel, Gäste-Zettel mit Klebeband.
+- **Kein Beige:** Helle Flächen sind Porzellan-Weiß, dazu Schwarz, Gold und Bordeaux.
+- **Details:** Gestreifte Markise mit Bogenkante über dem Tagesabschnitt, Sonne-/Mond-Bogen live nach Uhrzeit, Neon-Schild „aperto/chiuso“ nach Öffnungszeit, Gästestimmen mit «Guillemets», römischen Ziffern und Lorbeer-Medaille auf Majolika-Muster, Tafel „Stück Pizza to go“, Postkarte mit Stempel.
 - **Fotos:** Nur Bilder in brauchbarer Qualität. Die kleinen Gästefotos sind raus. Bessere eigene Fotos können später dazukommen.
 - **DSGVO:** Schriften lokal, keine Cookies, OpenStreetMap lädt erst nach Klick.
+
+## Archiv & Zurückholen
+
+Frühere Stände liegen komplett lauffähig unter `archiv/` (online z. B. `/archiv/stand-2-schwarz-gold/`). Wie man sie zurückholt, steht in `archiv/README.md`.
 
 ## Inhalte pflegen
 
