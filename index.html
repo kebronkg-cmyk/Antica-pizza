@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Antica · Caffè Pizza Bar · Haidhausen</title>
   <meta name="description" content="Antica Caffè Pizza Bar in der Weißenburger Straße 27, München-Haidhausen. Nachmittags Caffè, abends Bar, immer Pizza. Pizza aus dem Steinofen, Pasta fresca, Antipasti, Aperitivo. 4,6 Sterne auf Google.">
-  <meta name="theme-color" content="#c20000">
+  <meta name="theme-color" content="#000000">
   <meta property="og:type" content="restaurant">
   <meta property="og:title" content="Antica · Caffè Pizza Bar · Haidhausen">
   <meta property="og:description" content="Pizza aus dem Steinofen, Pasta und Aperitivo in der Weißenburger Straße 27, München-Haidhausen.">
@@ -13,10 +13,11 @@
   <meta property="og:locale" content="de_DE">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/teller-mandala-640.webp" as="image">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>document.documentElement.classList.add('js');document.documentElement.setAttribute('data-farbe','rosso')</script>
+  <script>document.documentElement.classList.add('js');document.documentElement.setAttribute('data-farbe','nero')</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -167,41 +168,39 @@
     </div>
   </div>
 
-  <!-- ═══ Ein Tag bei Antica ═══ -->
+  <!-- ═══ Caffè · Pizza · Bar ═══ -->
   <section class="tag" id="tag" aria-labelledby="tag-titel">
     <div class="markise" aria-hidden="true"></div>
     <div class="wrap">
-      <header class="kopfzeile">
+      <header class="kopfzeile kopfzeile--mitte">
         <p class="hand" data-auf>Drei Wörter auf dem Schild</p>
-        <h2 id="tag-titel" class="titel-gross" data-auf>Ein Laden, <em>drei</em> Tageszeiten.</h2>
+        <h2 id="tag-titel" class="titel-gross" data-auf>Caffè, Pizza, Bar. <em>Alles</em> unter einem Schild.</h2>
       </header>
 
-      <div class="bogen" aria-hidden="true">
-        <svg viewBox="0 0 1000 150" preserveAspectRatio="none"><path data-bogen d="M10 140 C 250 -20, 750 -20, 990 140" fill="none"/></svg>
-        <span class="bogen-gestirn" data-gestirn></span>
-      </div>
-
-      <ol class="drei" role="list">
-        <li class="drei-teil" data-von="14" data-bis="17" data-auf>
-          <p class="drei-zeit">ab 14 Uhr</p>
-          <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M28 44h52v14a26 26 0 0 1-52 0z"/><path d="M80 50h6a9 9 0 0 1 0 18h-8"/><path d="M18 86h74"/><path class="dampf" d="M44 34c-5-6 5-10 0-17M56 34c-5-6 5-10 0-17M68 34c-5-6 5-10 0-17"/></g></svg>
-          <h3>Caffè</h3>
-          <p>Espresso, Cappuccino oder ein Caffè zum Mitnehmen. Am besten draußen unter den grünen Schirmen, mit Blick auf die Weißenburger Straße.</p>
-          <span class="drei-jetzt">Gerade jetzt</span>
+      <ol class="boegen" role="list">
+        <li class="bogen-karte bogen-karte--caffe" data-auf>
+          <div class="bogen-form">
+            <span class="bogen-nr">I</span>
+            <svg class="bogen-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 44h52v14a26 26 0 0 1-52 0z"/><path d="M80 50h6a9 9 0 0 1 0 18h-8"/><path d="M18 86h74"/><path class="dampf" d="M44 34c-5-6 5-10 0-17M56 34c-5-6 5-10 0-17M68 34c-5-6 5-10 0-17"/></g></svg>
+            <h3>Caffè</h3>
+            <p>Espresso, Cappuccino, Latte Macchiato. Am Tisch, am Fenster oder draußen unter den grünen Schirmen.</p>
+          </div>
         </li>
-        <li class="drei-teil" data-von="17" data-bis="19.5" data-auf>
-            <p class="drei-zeit">ab 17 Uhr</p>
-            <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 30 L60 88 L108 30 C80 14 40 14 12 30z"/><path d="M20 39c26-11 54-11 80 0"/><circle cx="50" cy="48" r="5"/><circle cx="70" cy="56" r="4"/><circle cx="58" cy="70" r="3.5"/></g></svg>
+        <li class="bogen-karte bogen-karte--pizza" data-auf>
+          <div class="bogen-form">
+            <span class="bogen-nr">II</span>
+            <svg class="bogen-bild bogen-bild--pizza" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 30 L60 88 L108 30 C80 14 40 14 12 30z"/><path d="M20 39c26-11 54-11 80 0"/><circle cx="50" cy="48" r="5"/><circle cx="70" cy="56" r="4"/><circle cx="58" cy="70" r="3.5"/></g></svg>
             <h3>Pizza</h3>
-            <p>22 Pizzen aus dem Steinofen, von der Margherita bis zur Hauspizza Antica Ilyria. Dazu frische Pasta, Salate und Gerichte vom Grill.</p>
-          <span class="drei-jetzt">Gerade jetzt</span>
+            <p>22 Pizzen aus dem Steinofen, von der Margherita bis zur Hauspizza Antica Ilyria. Dazu Pasta fresca, Antipasti und Grill.</p>
+          </div>
         </li>
-        <li class="drei-teil" data-von="19.5" data-bis="21.5" data-auf>
-          <p class="drei-zeit">ab 19:30 Uhr</p>
-          <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14h34l-3 46a14 14 0 0 1-28 0z"/><path d="M36 34h30"/><path d="M51 74v14M38 88h26"/><circle cx="84" cy="30" r="9"/><path d="M84 21v18M75 30h18M78 24l12 12M90 24L78 36"/></g></svg>
-          <h3>Bar</h3>
-          <p>Aperol oder Sarti Spritz, ein Glas Lugana oder Primitivo, ein Augustiner. Zum Schluss ein Limoncello oder Grappa.</p>
-          <span class="drei-jetzt">Gerade jetzt</span>
+        <li class="bogen-karte bogen-karte--bar" data-auf>
+          <div class="bogen-form">
+            <span class="bogen-nr">III</span>
+            <svg class="bogen-bild bogen-bild--glas" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14h34l-3 46a14 14 0 0 1-28 0z"/><path d="M36 34h30"/><path d="M51 74v14M38 88h26"/><circle cx="84" cy="30" r="9"/><path d="M84 21v18M75 30h18M78 24l12 12M90 24L78 36"/></g></svg>
+            <h3>Bar</h3>
+            <p>Aperol oder Sarti Spritz, Lugana, Primitivo, ein Augustiner. Und wenn gespielt wird: Fußball live auf drei Fernsehern.</p>
+          </div>
         </li>
       </ol>
     </div>
@@ -217,18 +216,22 @@
       </header>
       <div class="galerie">
         <figure class="galerie-bild galerie-bild--gross" data-auf>
-          <div class="galerie-rahmen"><img src="assets/img/innen-regal.webp" width="761" height="1024" loading="lazy" decoding="async" alt="Der Gastraum: Marmortische mit Tischlampen, Bistrostühle, eine geschnitzte Holzwand und das beleuchtete Flaschenregal"></div>
+          <div class="galerie-rahmen galerie-rahmen--quer"><img src="assets/img/gastraum-1100.webp" srcset="assets/img/gastraum-640.webp 640w, assets/img/gastraum-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 52vw" width="1100" height="1195" loading="lazy" decoding="async" alt="Der Gastraum: Marmortische mit Tischlampen und Pflanzen, Bistrostühle, die geschnitzte Lattenwand und das Regal voller Aperol, Sarti und Campari"></div>
+          <img class="maske" data-maske src="assets/img/maske-760.webp" srcset="assets/img/maske-420.webp 420w, assets/img/maske-760.webp 760w" sizes="(max-width: 900px) 40vw, 18vw" width="760" height="639" loading="lazy" decoding="async" alt="Die venezianische Maske, die im Laden über der Tür hängt">
           <figcaption><span>I</span>Die Lattenwand und das Regal</figcaption>
-          <div class="neon neon--aperitivo" aria-hidden="true"><span>Aperitivo</span></div>
         </figure>
-        <figure class="galerie-bild galerie-bild--versetzt" data-auf>
-          <div class="galerie-rahmen"><img src="assets/img/innen-lampe.webp" width="761" height="1024" loading="lazy" decoding="async" alt="Runder Marmortisch mit Tischlampe und Pflanze an der verputzten Wand, daneben eine Wandlaterne"></div>
-          <figcaption><span>II</span>Marmor und Tischlampe</figcaption>
-        </figure>
-        <figure class="galerie-maske" data-auf>
-          <img class="maske" data-maske src="assets/img/maske-760.webp" srcset="assets/img/maske-420.webp 420w, assets/img/maske-760.webp 760w" sizes="(max-width: 900px) 50vw, 22vw" width="760" height="639" loading="lazy" decoding="async" alt="Die venezianische Maske aus dem Laden, rot und gold mit Schellen">
-          <figcaption>Über der Tür wacht die Maske aus Venedig.</figcaption>
-        </figure>
+        <div class="galerie-rechts">
+          <figure class="galerie-bild" data-auf>
+            <div class="galerie-rahmen"><img src="assets/img/innen-lampe.webp" width="761" height="1024" loading="lazy" decoding="async" alt="Runder Marmortisch mit Tischlampe und Pflanze an der verputzten Wand, daneben eine Wandlaterne"></div>
+            <figcaption><span>II</span>Marmor und Tischlampe</figcaption>
+            <div class="neon neon--aperitivo" aria-hidden="true"><span>Aperitivo</span></div>
+          </figure>
+          <div class="fussball" data-auf>
+            <div class="fussball-tvs" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="fussball-titel">Fußball live</p>
+            <p class="fussball-text">Drei ausfahrbare Fernseher. Wenn gespielt wird, fahren sie herunter, und die Bar schaut mit.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -517,7 +520,7 @@
         </table>
         <p class="klein">Reservieren geht telefonisch. An Feiertagen ist meist geschlossen, im Zweifel kurz anrufen.</p>
         <ul class="merkmale" role="list">
-          <li>Schanigarten</li><li>Zum Mitnehmen</li><li>Kartenzahlung</li><li>Familienfreundlich</li><li>Platz für Feiern</li>
+          <li>Schanigarten</li><li>Fußball live auf 3 TVs</li><li>Zum Mitnehmen</li><li>Kartenzahlung</li><li>Familienfreundlich</li><li>Platz für Feiern</li>
         </ul>
       </div>
     </div>

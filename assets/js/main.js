@@ -119,15 +119,15 @@
 
   /* ═══ Die Pizzen auf dem Teller ═══ */
   var PIZZEN = [
-    { name: 'Margherita', bild: 'margherita', preis: '9,80', veg: true, farbe: 'rosso', thema: '#c20000',
+    { name: 'Margherita', bild: 'margherita', preis: '9,80', veg: true, farbe: 'nero', thema: '#000000',
       satz: 'Tomatensauce, Mozzarella, Basilikum. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
-    { name: 'Salami', bild: 'salame', preis: '12,80', farbe: 'nero', thema: '#0f0d0c',
+    { name: 'Salami', bild: 'salame', preis: '12,80', farbe: 'rosso', thema: '#c20000',
       satz: 'Salami und Mozzarella, am Rand knusprig aus dem Steinofen.', zusatz: 'immer eine gute Idee' },
-    { name: 'Tonno', bild: 'tonno', preis: '14,80', farbe: 'azzurro', thema: '#0047ef',
+    { name: 'Tonno', bild: 'tonno', preis: '14,80', farbe: 'giallo', thema: '#ffcc00',
       satz: 'Thunfisch, Zwiebeln und Käse, großzügig verteilt bis an den Rand.', zusatz: 'vom Meer' },
-    { name: 'Verdure', bild: 'verdure', preis: '13,80', veg: true, farbe: 'giallo', thema: '#ffcc00',
-      satz: 'Gemischtes Gemüse vom Grill auf Tomate und Mozzarella.', zusatz: 'bunt wie der Teller' },
-    { name: '4 Formaggi', bild: 'formaggi', preis: '14,80', veg: true, farbe: 'mucca', thema: '#0f0d0c',
+    { name: 'Verdure', bild: 'verdure', preis: '13,80', veg: true, farbe: 'verde', thema: '#00b84f',
+      satz: 'Gemischtes Gemüse vom Grill auf Tomate und Mozzarella.', zusatz: 'frisch und bunt' },
+    { name: '4 Formaggi', bild: 'formaggi', preis: '14,80', veg: true, farbe: 'mucca', thema: '#000000',
       satz: 'Vier verschiedene Käsesorten auf einem goldenen Rand. Unsere Empfehlung.', zusatz: 'la migliore' }
   ];
 
@@ -157,7 +157,7 @@
     });
     var pizzen = $$('.pizza', teller);
     // Jede Pizza bekommt ein anderes Stück, das sich anheben lässt
-    var STUECKE = [[104, 146], [196, 238], [286, 328], [150, 192], [32, 74]];
+    var STUECKE = [[104, 146], [196, 238], [286, 328], [32, 74], [150, 192]];
     pizzen.forEach(function (el, i) {
       var s = STUECKE[i], mitte = (s[0] + s[1]) / 2 * Math.PI / 180;
       el.style.setProperty('--von', s[0] + 'deg');
