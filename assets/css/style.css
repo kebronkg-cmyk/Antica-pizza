@@ -52,6 +52,7 @@ html[data-farbe="rosso"]   { --buehne: #d40000; --buehne-bild: radial-gradient(8
 html[data-farbe="azzurro"] { --buehne: #0050ff; --buehne-bild: radial-gradient(85% 70% at 72% 38%, #4d94ff 0%, #1466ff 30%, #0047ef 58%, #002fa8 88%, #001f75 100%); }
 html[data-farbe="giallo"]  { --buehne: #ffd000; --buehne-bild: radial-gradient(85% 70% at 72% 38%, #fff27a 0%, #ffe01a 28%, #ffcc00 55%, #f5a800 88%, #e59200 100%); --b-text: #0f0d0c; --b-linie: rgba(15,13,12,.28); }
 html[data-farbe="mucca"]   { --buehne: #0f0d0c; --buehne-bild: none; }
+html[data-farbe="nero"]    { --buehne: #0f0d0c; --buehne-bild: radial-gradient(85% 70% at 72% 38%, #2b231c 0%, #17120f 45%, #0b0908 100%); }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--kopf-h) + 12px); }
@@ -577,3 +578,18 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .buehne-feld-neu[data-farbe-vorschau="azzurro"] { background: radial-gradient(85% 70% at 72% 38%, #4d94ff 0%, #1466ff 30%, #0047ef 58%, #002fa8 88%, #001f75 100%); }
 .buehne-feld-neu[data-farbe-vorschau="giallo"]  { background: radial-gradient(85% 70% at 72% 38%, #fff27a 0%, #ffe01a 28%, #ffcc00 55%, #f5a800 88%, #e59200 100%); }
 .buehne-feld-neu.is-fell { background: linear-gradient(100deg, rgba(10,8,7,.93), rgba(10,8,7,.84) 38%, rgba(10,8,7,.22) 62%, rgba(10,8,7,.5)), url("../img/kuhfell.webp") 0 0 / 560px 560px, #0f0d0c; }
+.buehne-feld-neu[data-farbe-vorschau="nero"] { background: radial-gradient(85% 70% at 72% 38%, #2b231c 0%, #17120f 45%, #0b0908 100%); }
+
+/* Hauspizza hervorgehoben */
+.speise--haus h3 { color: var(--oro-hell); }
+.haus { font: 600 11px/1 var(--f-text); letter-spacing: .1em; text-transform: uppercase; color: var(--nero); background: var(--oro); padding: 4px 8px; border-radius: 999px; vertical-align: 5px; margin-left: 8px; }
+
+/* Getränkekarte */
+.trink-raster { columns: 3 260px; column-gap: clamp(36px, 5vw, 80px); }
+.trink-gruppe { break-inside: avoid; margin-bottom: 34px; }
+.trink-gruppe .karte-gruppe { margin: 0 0 10px; }
+.trinken li { display: grid; grid-template-columns: 1fr auto 4.2em; gap: 12px; align-items: baseline; padding: 7px 0; border-bottom: 1px dashed rgba(246,245,242,.12); }
+.trinken span { font: 500 19px/1.25 var(--f-display); }
+.trinken small { font-size: 13px; opacity: .55; white-space: nowrap; }
+.trinken b { font: 500 18px/1 var(--f-display); color: var(--oro-hell); text-align: right; font-variant-numeric: lining-nums tabular-nums; }
+.karte-teil--bar ~ .karte-leer { display: none; }

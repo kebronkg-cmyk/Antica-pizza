@@ -9,7 +9,9 @@
 
   /* ── Öffnungszeiten: einzige Quelle für Status, Neon, Tabelle und Tagesbogen ──
      0 = Sonntag … 6 = Samstag, null = Ruhetag */
-  var ZEITEN = { 0: null, 1: [14, 23], 2: [14, 23], 3: [14, 23], 4: [14, 23], 5: [14, 23], 6: [14, 23] };
+  var ZEITEN = { 0: null, 1: [14, 21.5], 2: [14, 21.5], 3: [14, 21.5], 4: [14, 21.5], 5: [14, 21.5], 6: [14, 21.5] };
+  // 21.5 -> "21:30", 14 -> "14"
+  var uhr = function (h) { var m = Math.round((h % 1) * 60); return Math.floor(h) + (m ? ':' + (m < 10 ? '0' : '') + m : ''); };
   var TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
   // Uhrzeit in München, egal wo der Gast gerade ist
@@ -29,14 +31,14 @@
     var j = jetztMuenchen(), z = ZEITEN[j.tag], kurz, lang, zustand = 'zu';
     if (z && j.std >= z[0] && j.std < z[1]) {
       zustand = z[1] - j.std <= 0.75 ? 'bald' : 'offen';
-      kurz = 'Geöffnet bis ' + z[1] + ' Uhr';
-      lang = zustand === 'bald' ? 'Noch kurz geöffnet, bis ' + z[1] + ' Uhr' : 'Jetzt geöffnet, bis ' + z[1] + ' Uhr';
+      kurz = 'Geöffnet bis ' + uhr(z[1]) + ' Uhr';
+      lang = zustand === 'bald' ? 'Noch kurz geöffnet, bis ' + uhr(z[1]) + ' Uhr' : 'Jetzt geöffnet, bis ' + uhr(z[1]) + ' Uhr';
     } else if (z && j.std < z[0]) {
-      kurz = lang = 'Heute ab ' + z[0] + ' Uhr geöffnet';
+      kurz = lang = 'Heute ab ' + uhr(z[0]) + ' Uhr geöffnet';
     } else {
       for (var i = 1; i <= 7; i++) {
         var d = (j.tag + i) % 7;
-        if (ZEITEN[d]) { kurz = lang = 'Geschlossen · ' + (i === 1 ? 'morgen' : TAGE[d]) + ' ab ' + ZEITEN[d][0] + ' Uhr'; break; }
+        if (ZEITEN[d]) { kurz = lang = 'Geschlossen · ' + (i === 1 ? 'morgen' : TAGE[d]) + ' ab ' + uhr(ZEITEN[d][0]) + ' Uhr'; break; }
       }
     }
     $$('[data-status]').forEach(function (el) {
@@ -58,12 +60,12 @@
     if (!bogen || !gestirn) return;
     var svg = bogen.ownerSVGElement, box = svg.getBoundingClientRect();
     if (!box.width) return;
-    var f = offen ? (j.std - 14) / 9 : (j.std < 14 ? 0 : 1);
+    var f = offen ? (j.std - z[0]) / (z[1] - z[0]) : (z && j.std < z[0] ? 0 : 1);
     var p = bogen.getPointAtLength(bogen.getTotalLength() * Math.min(1, Math.max(0, f)));
     var vb = svg.viewBox.baseVal;
     gestirn.style.left = (p.x / vb.width * box.width) + 'px';
     gestirn.style.top = (p.y / vb.height * box.height) + 'px';
-    gestirn.classList.toggle('is-mond', !offen || j.std >= 20);
+    gestirn.classList.toggle('is-mond', !offen || j.std >= 19.5);
   }
   status();
   setInterval(status, 60 * 1000);
@@ -117,14 +119,16 @@
 
   /* ═══ Die Pizzen auf dem Teller ═══ */
   var PIZZEN = [
-    { name: 'Margherita', bild: 'margherita', preis: '10,00', veg: true, farbe: 'rosso', thema: '#c20000',
-      satz: 'Tomate, Mozzarella, Oregano. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
-    { name: 'Tonno', bild: 'tonno', preis: '12,50', farbe: 'azzurro', thema: '#0047ef',
-      satz: 'Mit Thunfisch und Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'vom Meer' },
-    { name: 'Vegetarisch', bild: 'verdure', preis: '13,90', veg: true, farbe: 'giallo', thema: '#ffcc00',
-      satz: 'Mit Grillgemüse: Aubergine, Zucchini und Paprika, dazu Feta und Champignons.', zusatz: 'bunt wie der Teller' },
-    { name: 'Quattro Formaggi', bild: 'formaggi', preis: '13,90', veg: true, farbe: 'mucca', thema: '#0f0d0c',
-      satz: 'Edamer, Mozzarella, Feta und Gorgonzola. Vier Käse auf einem goldenen Rand, unsere Empfehlung des Hauses.', zusatz: 'la migliore' }
+    { name: 'Margherita', bild: 'margherita', preis: '9,80', veg: true, farbe: 'rosso', thema: '#c20000',
+      satz: 'Tomatensauce, Mozzarella, Basilikum. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
+    { name: 'Salami', bild: 'salame', preis: '12,80', farbe: 'nero', thema: '#0f0d0c',
+      satz: 'Salami und Mozzarella, am Rand knusprig aus dem Steinofen.', zusatz: 'immer eine gute Idee' },
+    { name: 'Tonno', bild: 'tonno', preis: '14,80', farbe: 'azzurro', thema: '#0047ef',
+      satz: 'Thunfisch, Zwiebeln und Käse, großzügig verteilt bis an den Rand.', zusatz: 'vom Meer' },
+    { name: 'Verdure', bild: 'verdure', preis: '13,80', veg: true, farbe: 'giallo', thema: '#ffcc00',
+      satz: 'Gemischtes Gemüse vom Grill auf Tomate und Mozzarella.', zusatz: 'bunt wie der Teller' },
+    { name: '4 Formaggi', bild: 'formaggi', preis: '14,80', veg: true, farbe: 'mucca', thema: '#0f0d0c',
+      satz: 'Vier verschiedene Käsesorten auf einem goldenen Rand. Unsere Empfehlung.', zusatz: 'la migliore' }
   ];
 
   var tafel = $('[data-tafel]'), teller = $('[data-teller]'), kranz = $('[data-kranz]');
@@ -153,7 +157,7 @@
     });
     var pizzen = $$('.pizza', teller);
     // Jede Pizza bekommt ein anderes Stück, das sich anheben lässt
-    var STUECKE = [[104, 146], [286, 328], [150, 192], [32, 74]];
+    var STUECKE = [[104, 146], [196, 238], [286, 328], [150, 192], [32, 74]];
     pizzen.forEach(function (el, i) {
       var s = STUECKE[i], mitte = (s[0] + s[1]) / 2 * Math.PI / 180;
       el.style.setProperty('--von', s[0] + 'deg');
@@ -323,6 +327,7 @@
       r.tabIndex = an ? 0 : -1;
       document.getElementById(r.getAttribute('aria-controls')).hidden = !an;
     });
+    var vs = $('.veg-schalter'); if (vs) vs.style.visibility = t.id === 'r-trinken' ? 'hidden' : '';
     if (fokus) t.focus();
     karteLeer();
   }
