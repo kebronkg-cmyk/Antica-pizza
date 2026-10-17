@@ -652,4 +652,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .zitat { width: 80vw; }
   .flow { -webkit-mask: none; mask: none; }
 }
-@media (prefers-reduced-motion: reduce) { .flow-spur, 
+@media (prefers-reduced-motion: reduce) { .flow-spur { animation: none; } .flow-reihe { overflow-x: auto; } }
+/* Kleiner Kuh-Akzent: Fellband über dem Link zur ganzen Karte */
+.vorschau-fuss { position: relative; border-top: 0; padding-top: 40px; }
+.vorschau-fuss::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 16px; border-radius: 999px; background: url("../img/kuhfell.webp") 30% 22% / 640px 640px; box-shadow: 0 0 0 1px rgba(212,170,82,.5); }
