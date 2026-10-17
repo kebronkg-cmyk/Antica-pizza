@@ -380,19 +380,17 @@
   }
 
   /* ── Caffè / Pizza / Bar: Zeile wählt das Motiv im runden Fenster ── */
-  var liste = $('[data-salone-liste]'), fenster = $('[data-fenster]');
-  if (liste && fenster) {
-    var zeilen = $$('li', liste), motive = Array.prototype.slice.call(fenster.children);
+  var liste = $('[data-salone-liste]');
+  if (liste) {
+    var zeilen = $$('li', liste);
     var aktiv = 0, autoTakt = null;
     var waehle = function (n) {
       aktiv = n;
       zeilen.forEach(function (z, i) { z.classList.toggle('is-aktiv', i === n); });
-      motive.forEach(function (m, i) { m.classList.toggle('is-aktiv', i === n); });
     };
     zeilen.forEach(function (z, i) {
       ['mouseenter', 'focus', 'click'].forEach(function (ev) { z.addEventListener(ev, function () { clearInterval(autoTakt); waehle(i); }); });
     });
-    if (!ruhig) autoTakt = setInterval(function () { waehle((aktiv + 1) % zeilen.length); }, 3600);
   }
 
   /* ── Auftritte beim Scrollen, Neon geht an ── */
