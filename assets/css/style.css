@@ -338,39 +338,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .tafelchen-gross { font: 700 44px/.95 var(--f-hand); margin-top: 4px; color: #fff; }
 .karte-hinweis { max-width: 46ch; }
 
-/* ═══ Gäste ═══ */
-.gaeste { position: relative; overflow: hidden; padding: clamp(90px, 12vw, 170px) 0; background: #0b0908; color: var(--bianco); isolation: isolate; }
-.gaeste::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f0d68e' stroke-width='1'%3E%3Cpath d='M32 6c6 8 6 18 0 26c-6-8-6-18 0-26zM32 58c-6-8-6-18 0-26c6 8 6 18 0 26zM6 32c8-6 18-6 26 0c-8 6-18 6-26 0zM58 32c-8 6-18 6-26 0c8-6 18-6 26 0z'/%3E%3Ccircle cx='32' cy='32' r='3'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='64' cy='0' r='6'/%3E%3Ccircle cx='0' cy='64' r='6'/%3E%3Ccircle cx='64' cy='64' r='6'/%3E%3C/g%3E%3C/svg%3E"); }
-.gaeste-tafel { position: relative; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(36px, 5vw, 80px); align-items: center; background: var(--nero); padding: clamp(36px, 5vw, 72px); border: 1px solid rgba(212,170,82,.6); box-shadow: 0 50px 90px -40px rgba(0,0,0,.9); }
-.gaeste-tafel::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(212,170,82,.25); pointer-events: none; }
-.google .hand { color: var(--oro-hell); }
-.google-titel { font: 400 clamp(28px, 2.6vw, 38px)/1 var(--f-titel); margin: 8px 0 12px; opacity: .92; }
-.medaille { position: relative; width: clamp(210px, 19vw, 260px); aspect-ratio: 1; display: grid; place-items: center; color: var(--oro); margin: 6px 0 4px; }
-.medaille-kranz { position: absolute; inset: 0; width: 100%; height: 100%; }
-.medaille-mitte { text-align: center; margin-top: -8%; }
-.medaille-zahl { font: italic 500 clamp(58px, 5.4vw, 78px)/.9 var(--f-display); color: var(--oro-hell); }
-.google-sterne { margin-top: 8px; font-size: 15px; letter-spacing: 4px; line-height: 1; padding-left: 4px; }
-.google-sterne span { display: inline-block; --pz: calc(var(--wert) / 5 * 100%); background: linear-gradient(90deg, var(--oro-hell) var(--pz), rgba(246,245,242,.22) var(--pz)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.google-sterne span::before { content: "★★★★★"; }
-.google-quelle { margin: 12px 0 22px; font: 700 11px/1.6 var(--f-text); letter-spacing: .16em; text-transform: uppercase; }
-.google-quelle span { font-weight: 400; letter-spacing: .03em; text-transform: none; font-size: 13px; opacity: .65; }
-.stimmen { position: relative; padding: 0; }
-.stimmen-buehne { display: grid; }
-.stimme { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .8s var(--ease-out), transform 1s var(--ease-out), visibility 0s .8s; }
-.stimme.is-aktiv { opacity: 1; visibility: visible; transform: none; transition: opacity .9s .15s var(--ease-out), transform 1.1s .15s var(--ease-out), visibility 0s; }
-.stimme blockquote { margin: 0; }
-.stimme blockquote p { font: italic 400 clamp(24px, 2.3vw, 34px)/1.32 var(--f-buehne); text-wrap: pretty; }
-.stimme figcaption { display: flex; align-items: center; gap: 12px; margin-top: 22px; font: 700 11px/1.4 var(--f-text); letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
-.stimme-sterne { color: var(--oro-hell); letter-spacing: 2px; font-size: 13px; }
-.stimmen-steuer { display: flex; gap: 6px; margin-top: clamp(26px, 3vw, 40px); }
-.stimmen-steuer button { position: relative; border: 0; background: none; padding: 8px 14px 12px; font: italic 500 20px/1 var(--f-display); color: var(--bianco); opacity: .5; transition: opacity .3s; }
-.stimmen-steuer button:hover { opacity: .85; }
-.stimmen-steuer button[aria-pressed="true"] { opacity: 1; color: var(--oro-hell); }
-.stimmen-steuer button::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; }
-.stimmen-steuer button[aria-pressed="true"]::after { animation: fortschritt var(--takt, 8s) linear forwards; }
-.stimmen.is-pause .stimmen-steuer button[aria-pressed="true"]::after { animation-play-state: paused; }
-@keyframes fortschritt { to { transform: scaleX(1); } }
-
 /* ═══ Besuch ═══ */
 .besuch { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 9vw, 120px); background: var(--porcellana); }
 .besuch-raster { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
@@ -502,10 +469,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .speisen { columns: 1; }
   .rand-pizza { display: none; }
   .karte-hinweise { justify-items: center; text-align: center; }
-  .gaeste-tafel { grid-template-columns: 1fr; text-align: center; }
   .google { display: grid; justify-items: center; }
-  .stimmen-steuer { justify-content: center; }
-  .stimme figcaption { justify-content: center; }
   .besuch-raster, .besuch-unten { grid-template-columns: 1fr; }
   .besuch-zeiten .neon { position: static; display: block; margin-bottom: 14px; }
   .fuss-spalten { grid-template-columns: 1fr 1fr; }
@@ -579,34 +543,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .vorschau { grid-template-columns: 1fr; }
 }
 
-/* ═══ Caffè · Pizza · Bar · Drinnen (zusammengeführt) ═══ */
-.salone { position: relative; overflow: hidden; color: var(--bianco); padding: clamp(120px, 13vw, 180px) 0 clamp(90px, 11vw, 150px); background: radial-gradient(80% 60% at 75% 35%, #2a1b12, var(--espresso) 72%); }
-.salone .hand { color: var(--oro-hell); }
-.salone .titel-gross em { color: var(--aperol); }
-.haus-raster { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(40px, 6vw, 100px); align-items: center; }
-.haus-satz { margin: 22px 0 34px; font-size: clamp(16px, 1.2vw, 18px); opacity: .82; max-width: 44ch; }
-.haus-liste { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(212,170,82,.3); }
-.haus-liste li { display: grid; grid-template-columns: 52px 1fr; gap: 6px; padding: 20px 0; border-bottom: 1px solid rgba(212,170,82,.3); }
-.haus-nr { font: italic 400 18px/1.6 var(--f-titel); color: var(--oro); }
-.haus-liste h3 { font: italic 400 clamp(30px, 2.6vw, 40px)/1 var(--f-titel); margin-bottom: 6px; }
-.haus-liste li:nth-child(2) h3 { color: #ff4a35; }
-.haus-liste p { font-size: 15.5px; opacity: .78; max-width: 46ch; }
-/* Collage: verspielt, aber ruhig */
-.collage { position: relative; aspect-ratio: 1 / 1.08; }
-.c-bild { position: absolute; margin: 0; padding: 10px; background: #f6f5f2; box-shadow: 0 34px 60px -24px rgba(0,0,0,.8); transition: transform .9s var(--ease-out); }
-.c-bild img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.c-bild--gross { left: 0; top: 4%; width: 66%; aspect-ratio: 1100 / 1195; transform: rotate(-3deg); z-index: 1; }
-.c-bild--tisch { right: 0; bottom: 0; width: 44%; aspect-ratio: 3 / 4; transform: rotate(4deg); z-index: 2; }
-.c-bild--tisch img { object-position: 30% 70%; }
-.js .c-bild--gross[data-auf].is-da { transform: rotate(-3deg); }
-.js .c-bild--tisch[data-auf].is-da { transform: rotate(4deg); }
-.c-bild:hover, .js .c-bild[data-auf].is-da:hover { transform: rotate(0) scale(1.03); z-index: 4; }
-.c-pizza { position: absolute; left: 44%; bottom: -4%; width: 30%; aspect-ratio: 1; margin: 0; z-index: 3; filter: drop-shadow(0 22px 22px rgba(0,0,0,.6)); animation: pizza-drehen 40s linear infinite; }
-.c-pizza img { position: absolute; }
-.c-pizza img:first-child { inset: 0; width: 100%; height: 100%; border-radius: 50%; }
-.c-pizza img:last-child { inset: 12.5%; width: 75%; height: 75%; }
-@keyframes pizza-drehen { to { transform: rotate(360deg); } }
-.c-notiz { position: absolute; right: 4%; top: 2%; font: 600 26px/1 var(--f-hand); color: var(--oro-hell); transform: rotate(6deg); }
 /* Maske ganz oben rechts in der Ecke, unter der Markise */
 .maske { position: absolute; top: 34px; right: -2.5%; z-index: 4; width: clamp(150px, 17vw, 250px); height: auto; transform-origin: 70% 0; transform: rotate(14deg); filter: drop-shadow(0 22px 22px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(212,170,82,.16)); cursor: pointer; transition: transform .6s var(--ease-out); }
 .maske:hover { transform: rotate(8deg); }
@@ -622,8 +558,71 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .vorschau-fuss { gap: 14px 28px; }
 @media (max-width: 900px) {
   .haus-raster { grid-template-columns: 1fr; }
-  .collage { max-width: 520px; width: 100%; margin: 10px auto 30px; }
   .maske { width: 120px; top: 30px; right: -4%; }
-  .salone .titel-gross { padding-right: 70px; }
   .aperitivo-bild { width: 100%; -webkit-mask: none; mask: none; opacity: .45; }
 }
+
+/* ═══ Caffè · Pizza · Bar · Drinnen ═══ */
+.salone { position: relative; overflow: hidden; color: var(--bianco); padding: clamp(130px, 13vw, 190px) 0 clamp(90px, 11vw, 150px); background: radial-gradient(70% 60% at 25% 45%, #2b1c12, var(--espresso) 70%); isolation: isolate; }
+.salone .hand { color: var(--oro-hell); }
+.salone .titel-gross em { color: var(--aperol); }
+.salone-wasserzeichen { position: absolute; left: -2%; bottom: -4%; z-index: -1; font: italic 400 clamp(160px, 24vw, 380px)/.8 var(--f-titel); color: transparent; -webkit-text-stroke: 1px rgba(212,170,82,.16); pointer-events: none; white-space: nowrap; }
+.salone-raster { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(50px, 7vw, 120px); align-items: center; }
+.salone-foto { position: relative; margin: 0; }
+.salone-foto > img { display: block; width: 100%; height: auto; box-shadow: 0 40px 80px -30px rgba(0,0,0,.9); }
+.salone-foto::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 1px solid rgba(212,170,82,.55); pointer-events: none; z-index: -1; }
+.salone-foto figcaption { position: absolute; left: -8px; bottom: -40px; font: 600 26px/1 var(--f-hand); color: var(--oro-hell); transform: rotate(-4deg); }
+/* Rundes Fenster am Foto, wechselt mit Caffè / Pizza / Bar */
+.salone-fenster { position: absolute; right: -16%; bottom: 10%; width: 46%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 40%, #e00a00, #7a0000); box-shadow: 0 0 0 6px var(--espresso), 0 0 0 7px var(--oro), 0 30px 50px -20px rgba(0,0,0,.9); }
+.salone-fenster > img, .fenster-pizza { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity .7s var(--ease-out), transform 1.2s var(--ease-out); }
+.salone-fenster .is-aktiv { opacity: 1; transform: none; }
+.fenster-pizza img { position: absolute; }
+.fenster-pizza img:first-child { inset: 8%; width: 84%; height: 84%; border-radius: 50%; }
+.fenster-pizza img:last-child { inset: 18%; width: 64%; height: 64%; animation: pizza-drehen 30s linear infinite; }
+@keyframes pizza-drehen { to { transform: rotate(360deg); } }
+.salone-satz { margin: 22px 0 30px; font-size: clamp(16px, 1.2vw, 18px); opacity: .8; max-width: 44ch; }
+.salone-liste { list-style: none; padding: 0; margin: 0; }
+.salone-liste li { position: relative; display: grid; grid-template-columns: 54px 1fr; column-gap: 8px; padding: 18px 0 18px; border-top: 1px solid rgba(212,170,82,.25); cursor: default; outline: none; }
+.salone-liste li:last-child { border-bottom: 1px solid rgba(212,170,82,.25); }
+.salone-liste li::before { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--oro-hell); transition: width .8s var(--ease-out); }
+.salone-liste li.is-aktiv::before { width: 100%; }
+.salone-nr { grid-row: 1 / span 2; font: italic 400 18px/2.4 var(--f-titel); color: var(--oro); }
+.salone-liste h3 { font: italic 400 clamp(38px, 3.6vw, 56px)/1 var(--f-titel); color: rgba(246,245,242,.42); transition: color .5s, transform .6s var(--ease-out); }
+.salone-liste li.is-aktiv h3 { color: var(--bianco); transform: translateX(8px); }
+.salone-liste li:nth-child(2).is-aktiv h3 { color: #ff4a35; }
+.salone-liste li:nth-child(3).is-aktiv h3 { color: var(--oro-hell); }
+.salone-liste p { display: grid; grid-template-rows: 0fr; font-size: 15.5px; opacity: 0; max-width: 44ch; transition: opacity .5s, margin .5s; margin: 0; }
+.salone-liste li.is-aktiv p { opacity: .8; margin-top: 10px; }
+
+/* ═══ Gäste ═══ */
+.gaeste { position: relative; overflow: hidden; padding: clamp(90px, 11vw, 160px) 0; background: radial-gradient(60% 70% at 20% 50%, rgba(212,0,0,.22), transparent 70%), #070606; color: var(--bianco); }
+.gaeste-raster { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 100px); align-items: center; }
+.gaeste .hand { color: var(--oro-hell); }
+.riesen-zahl { font: italic 400 clamp(150px, 19vw, 280px)/.82 var(--f-titel); letter-spacing: -.04em; margin: 14px 0 6px -.04em; background: linear-gradient(170deg, #fbe7a8 10%, #d4aa52 50%, #8a6526 95%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 18px 30px rgba(0,0,0,.6)); }
+.google-sterne { font-size: 26px; letter-spacing: 6px; line-height: 1; }
+.google-sterne span { display: inline-block; --pz: calc(var(--wert) / 5 * 100%); background: linear-gradient(90deg, var(--oro-hell) var(--pz), rgba(246,245,242,.2) var(--pz)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.google-sterne span::before { content: "★★★★★"; }
+.gaeste-quelle { margin: 18px 0 26px; font-size: 13.5px; opacity: .6; max-width: 40ch; }
+.zitat-fenster { position: relative; height: clamp(440px, 46vw, 560px); overflow: hidden; -webkit-mask: linear-gradient(transparent, #000 18%, #000 82%, transparent); mask: linear-gradient(transparent, #000 18%, #000 82%, transparent); }
+.zitat-spur { display: grid; gap: 22px; animation: zitate-laufen 36s linear infinite; }
+.zitat-fenster:hover .zitat-spur { animation-play-state: paused; }
+@keyframes zitate-laufen { to { transform: translateY(calc(-50% - 11px)); } }
+.zitat { margin: 0; padding: 28px 32px; border: 1px solid rgba(212,170,82,.3); background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); border-radius: 4px; }
+.zitat:nth-child(even) { margin-left: clamp(0px, 5vw, 70px); }
+.zitat-sterne { color: var(--oro-hell); letter-spacing: 3px; font-size: 13px; margin-bottom: 12px; }
+.zitat blockquote { margin: 0; }
+.zitat blockquote p { font: italic 400 clamp(21px, 1.8vw, 27px)/1.35 var(--f-buehne); }
+.zitat figcaption { margin-top: 14px; font: 700 11px/1.4 var(--f-text); letter-spacing: .18em; text-transform: uppercase; opacity: .6; }
+
+@media (max-width: 900px) {
+  .salone-raster, .gaeste-raster { grid-template-columns: 1fr; }
+  .salone-foto { max-width: 480px; margin: 0 auto 50px; width: 86%; }
+  .salone-fenster { right: -12%; width: 44%; }
+  .salone-liste p { opacity: .8; margin-top: 8px; }
+  .salone-liste h3 { color: var(--bianco); }
+  .salone-liste li:nth-child(2) h3 { color: #ff4a35; }
+  .salone-liste li:nth-child(3) h3 { color: var(--oro-hell); }
+  .gaeste-wert { text-align: center; }
+  .zitat:nth-child(even) { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .zitat-spur { animation: none; } }

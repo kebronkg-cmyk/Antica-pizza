@@ -169,25 +169,29 @@
   </div>
 
   <!-- ═══ Caffè · Pizza · Bar · Drinnen ═══ -->
-  <section class="salone" id="drinnen" aria-labelledby="haus-titel">
+  <section class="salone" id="drinnen" aria-labelledby="salone-titel">
     <div class="markise" aria-hidden="true"></div>
     <img class="maske" data-maske src="assets/img/maske-760.webp" srcset="assets/img/maske-420.webp 440w, assets/img/maske-760.webp 820w" sizes="(max-width: 900px) 38vw, 20vw" width="820" height="690" loading="lazy" decoding="async" alt="">
-    <div class="wrap haus-raster">
-      <div class="haus-text">
+    <p class="salone-wasserzeichen" aria-hidden="true">Dentro</p>
+    <div class="wrap salone-raster">
+      <figure class="salone-foto" data-auf>
+        <img src="assets/img/gastraum-voll-896.webp" srcset="assets/img/gastraum-voll-560.webp 560w, assets/img/gastraum-voll-896.webp 896w" sizes="(max-width: 900px) 92vw, 44vw" width="896" height="1195" loading="lazy" decoding="async" alt="Der Gastraum: Holzbalken mit Fischfiguren, die geschnitzte Lattenwand, Marmortische mit Tischlampen, Bistrostühle und das Regal voller Aperol und Sarti">
+        <div class="salone-fenster" data-fenster aria-hidden="true">
+          <img class="is-aktiv" src="assets/img/caffe-tisch.webp" alt="" width="480" height="600" loading="lazy" decoding="async">
+          <span class="fenster-pizza"><img src="assets/img/teller-mandala-400.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><img src="assets/img/pizza/margherita-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span>
+          <img src="assets/img/regal-900.webp" alt="" width="900" height="774" loading="lazy" decoding="async">
+        </div>
+        <figcaption>la nostra sala</figcaption>
+      </figure>
+      <div class="salone-text">
         <p class="hand" data-auf>Drei Wörter auf dem Schild</p>
-        <h2 id="haus-titel" class="titel-gross" data-auf>Caffè, Pizza, Bar. <em>Alles</em> unter einem Schild.</h2>
-        <p class="haus-satz" data-auf>Drinnen alte Holzbalken, eine geschnitzte Lattenwand, Marmortische und ein Regal voller Aperol bis unter die Decke. Draußen grüne Schirme an der Weißenburger Straße.</p>
-        <ol class="haus-liste" role="list">
-          <li data-auf><span class="haus-nr">I</span><div><h3>Caffè</h3><p>Espresso, Cappuccino, Latte Macchiato. Am Marmortisch oder draußen in der Sonne.</p></div></li>
-          <li data-auf><span class="haus-nr">II</span><div><h3>Pizza</h3><p>22 Pizzen aus dem Steinofen, dazu Pasta fresca, Antipasti und Grill.</p></div></li>
-          <li data-auf><span class="haus-nr">III</span><div><h3>Bar</h3><p>Spritz, Lugana, Primitivo, Augustiner. Bei großen Spielen fahren drei Fernseher herunter, und es läuft Fußball live.</p></div></li>
+        <h2 id="salone-titel" class="titel-gross" data-auf>Caffè, Pizza, Bar. <em>Alles</em> unter einem Schild.</h2>
+        <p class="salone-satz" data-auf>Alte Holzbalken, eine geschnitzte Lattenwand, Marmortische und ein Regal voller Aperol bis unter die Decke. Draußen grüne Schirme an der Weißenburger Straße.</p>
+        <ol class="salone-liste" role="list" data-salone-liste>
+          <li class="is-aktiv" data-i="0" tabindex="0" data-auf><span class="salone-nr">I</span><h3>Caffè</h3><p>Espresso, Cappuccino, Latte Macchiato. Am Marmortisch oder draußen in der Sonne.</p></li>
+          <li data-i="1" tabindex="0" data-auf><span class="salone-nr">II</span><h3>Pizza</h3><p>22 Pizzen aus dem Steinofen, dazu Pasta fresca, Antipasti und Grill.</p></li>
+          <li data-i="2" tabindex="0" data-auf><span class="salone-nr">III</span><h3>Bar</h3><p>Spritz, Lugana, Primitivo, Augustiner. Bei großen Spielen fahren drei Fernseher herunter, und es läuft Fußball live.</p></li>
         </ol>
-      </div>
-      <div class="collage" aria-label="Eindrücke aus dem Laden">
-        <figure class="c-bild c-bild--gross" data-auf><img src="assets/img/gastraum-1100.webp" srcset="assets/img/gastraum-640.webp 640w, assets/img/gastraum-1100.webp 1100w" sizes="(max-width: 900px) 80vw, 34vw" width="1100" height="1195" loading="lazy" decoding="async" alt="Der Gastraum: Marmortische mit Tischlampen und Pflanzen, Bistrostühle, die geschnitzte Lattenwand und das Regal voller Aperol"></figure>
-        <figure class="c-bild c-bild--tisch" data-auf><img src="assets/img/tisch-tv-600.webp" width="600" height="800" loading="lazy" decoding="async" alt="Runder Marmortisch mit Tischlampe an der hellen Wand, darüber einer der Fernseher"></figure>
-        <figure class="c-pizza" data-auf aria-hidden="true"><img src="assets/img/teller-mandala-400.webp" alt="" width="400" height="400" loading="lazy" decoding="async"><img src="assets/img/pizza/margherita-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></figure>
-        <p class="c-notiz" aria-hidden="true">la nostra sala</p>
       </div>
     </div>
   </section>
@@ -264,42 +268,23 @@
 
   <!-- ═══ Gäste ═══ -->
   <section class="gaeste" id="gaeste" aria-labelledby="gaeste-titel">
-    <div class="wrap">
-      <div class="gaeste-tafel" data-auf>
-        <div class="google">
-          <p class="hand">Dicono di noi</p>
-          <h2 id="gaeste-titel" class="google-titel">Auf Google</h2>
-          <figure class="medaille">
-            <svg class="medaille-kranz" viewBox="0 0 200 200" aria-hidden="true"><g fill="currentColor"><path d="M108.2 177.6 L91.4 177.5 L75.0 173.9 L59.8 166.9 L46.5 156.7 L35.6 144.0 L27.7 129.2 L23.1 113.1 L22.1 96.4 L24.7 79.8 L30.7 64.2 L40.0 50.2 L52.0 38.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(91.4 177.5) rotate(-117.7)"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(91.4 177.5) rotate(-49.7)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(75.0 173.9) rotate(-105.3)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(75.0 173.9) rotate(-37.3)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(59.8 166.9) rotate(-93.0)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(59.8 166.9) rotate(-25.0)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(46.5 156.7) rotate(-80.7)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(46.5 156.7) rotate(-12.7)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(35.6 144.0) rotate(-68.3)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(35.6 144.0) rotate(-0.3)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(27.7 129.2) rotate(-56.0)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(27.7 129.2) rotate(12.0)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(23.1 113.1) rotate(-43.7)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(23.1 113.1) rotate(24.3)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(22.1 96.4) rotate(-31.3)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(22.1 96.4) rotate(36.7)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(24.7 79.8) rotate(-19.0)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(24.7 79.8) rotate(49.0)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(30.7 64.2) rotate(-6.7)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(30.7 64.2) rotate(61.3)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(40.0 50.2) rotate(5.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(40.0 50.2) rotate(73.7)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(52.0 38.5) rotate(18.0)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(52.0 38.5) rotate(86.0)"/><ellipse cx="0" cy="-5.5" rx="2" ry="5.5" transform="translate(52.0 38.5) rotate(52.0)"/><path d="M91.8 177.6 L108.6 177.5 L125.0 173.9 L140.2 166.9 L153.5 156.7 L164.4 144.0 L172.3 129.2 L176.9 113.1 L177.9 96.4 L175.3 79.8 L169.3 64.2 L160.0 50.2 L148.0 38.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(108.6 177.5) rotate(49.7)"/><ellipse cx="0" cy="-10.1" rx="3.6" ry="10.1" transform="translate(108.6 177.5) rotate(117.7)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(125.0 173.9) rotate(37.3)"/><ellipse cx="0" cy="-9.7" rx="3.5" ry="9.7" transform="translate(125.0 173.9) rotate(105.3)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(140.2 166.9) rotate(25.0)"/><ellipse cx="0" cy="-9.2" rx="3.3" ry="9.2" transform="translate(140.2 166.9) rotate(93.0)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(153.5 156.7) rotate(12.7)"/><ellipse cx="0" cy="-8.8" rx="3.2" ry="8.8" transform="translate(153.5 156.7) rotate(80.7)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(164.4 144.0) rotate(0.3)"/><ellipse cx="0" cy="-8.4" rx="3.0" ry="8.4" transform="translate(164.4 144.0) rotate(68.3)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(172.3 129.2) rotate(-12.0)"/><ellipse cx="0" cy="-8.0" rx="2.9" ry="8.0" transform="translate(172.3 129.2) rotate(56.0)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(176.9 113.1) rotate(-24.3)"/><ellipse cx="0" cy="-7.6" rx="2.7" ry="7.6" transform="translate(176.9 113.1) rotate(43.7)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(177.9 96.4) rotate(-36.7)"/><ellipse cx="0" cy="-7.2" rx="2.6" ry="7.2" transform="translate(177.9 96.4) rotate(31.3)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(175.3 79.8) rotate(-49.0)"/><ellipse cx="0" cy="-6.8" rx="2.4" ry="6.8" transform="translate(175.3 79.8) rotate(19.0)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(169.3 64.2) rotate(-61.3)"/><ellipse cx="0" cy="-6.3" rx="2.3" ry="6.3" transform="translate(169.3 64.2) rotate(6.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(160.0 50.2) rotate(-73.7)"/><ellipse cx="0" cy="-5.9" rx="2.1" ry="5.9" transform="translate(160.0 50.2) rotate(-5.7)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(148.0 38.5) rotate(-86.0)"/><ellipse cx="0" cy="-5.5" rx="2.0" ry="5.5" transform="translate(148.0 38.5) rotate(-18.0)"/><ellipse cx="0" cy="-5.5" rx="2" ry="5.5" transform="translate(148.0 38.5) rotate(-52.0)"/></g></svg>
-            <div class="medaille-mitte">
-              <p class="medaille-zahl">4,6</p>
-              <p class="google-sterne" aria-label="4,6 von 5 Sternen"><span style="--wert:4.6"></span></p>
-            </div>
-          </figure>
-          <p class="google-quelle">Google-Bewertung laut Restaurant Guru<br><span>4,7 bei Restaurant Guru · 4,3 bei Intravel</span></p>
-          <a class="leise-link" href="https://www.google.com/maps/search/?api=1&amp;query=Antica+Pizza+Bar+Wei%C3%9Fenburger+Str.+27+M%C3%BCnchen" target="_blank" rel="noopener">Alle Bewertungen auf Google <svg class="ico" aria-hidden="true"><use href="#i-extern"/></svg></a>
-        </div>
-
-        <div class="stimmen" data-stimmen>
-          <div class="stimmen-buehne" aria-live="polite">
-            <figure class="stimme is-aktiv" id="stimme-1">
-              <blockquote><p>Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!</p></blockquote>
-              <figcaption><span class="stimme-sterne" aria-hidden="true">★★★★★</span>Gast · via Restaurant Guru</figcaption>
-            </figure>
-            <figure class="stimme" id="stimme-2">
-              <blockquote><p>Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.</p></blockquote>
-              <figcaption><span class="stimme-sterne" aria-hidden="true">★★★★★</span>Gast · via Restaurant Guru</figcaption>
-            </figure>
-            <figure class="stimme" id="stimme-3">
-              <blockquote><p>Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.</p></blockquote>
-              <figcaption><span class="stimme-sterne" aria-hidden="true">★★★★★</span>Gast · via Restaurant Guru</figcaption>
-            </figure>
-          </div>
-          <div class="stimmen-steuer" role="group" aria-label="Gästestimme wählen">
-            <button type="button" aria-controls="stimme-1" aria-pressed="true"><span>I</span></button>
-            <button type="button" aria-controls="stimme-2" aria-pressed="false"><span>II</span></button>
-            <button type="button" aria-controls="stimme-3" aria-pressed="false"><span>III</span></button>
-          </div>
+    <div class="wrap gaeste-raster">
+      <div class="gaeste-wert" data-auf>
+        <p class="hand">Dicono di noi</p>
+        <h2 id="gaeste-titel" class="sr">Bewertungen</h2>
+        <p class="riesen-zahl" aria-label="4,6 von 5 Sternen auf Google">4,6</p>
+        <p class="google-sterne" aria-hidden="true"><span style="--wert:4.6"></span></p>
+        <p class="gaeste-quelle">Google-Bewertung laut Restaurant Guru · 4,7 bei Restaurant Guru · 4,3 bei Intravel</p>
+        <a class="leise-link" href="https://www.google.com/maps/search/?api=1&amp;query=Antica+Pizza+Bar+Wei%C3%9Fenburger+Str.+27+M%C3%BCnchen" target="_blank" rel="noopener">Alle Bewertungen auf Google <svg class="ico" aria-hidden="true"><use href="#i-extern"/></svg></a>
+      </div>
+      <div class="zitat-fenster" data-auf>
+        <div class="zitat-spur">
+            <figure class="zitat"><p class="zitat-sterne">★★★★★</p><blockquote><p>Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
+            <figure class="zitat"><p class="zitat-sterne">★★★★★</p><blockquote><p>Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
+            <figure class="zitat"><p class="zitat-sterne">★★★★★</p><blockquote><p>Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
+            <figure class="zitat" aria-hidden="true"><p class="zitat-sterne">★★★★★</p><blockquote><p>Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
+            <figure class="zitat" aria-hidden="true"><p class="zitat-sterne">★★★★★</p><blockquote><p>Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
+            <figure class="zitat" aria-hidden="true"><p class="zitat-sterne">★★★★★</p><blockquote><p>Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.</p></blockquote><figcaption>Gast · via Restaurant Guru</figcaption></figure>
         </div>
       </div>
     </div>

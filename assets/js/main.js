@@ -379,25 +379,20 @@
     maske.addEventListener('animationend', function (e) { if (e.animationName === 'maske-klingeln') maske.classList.remove('is-klingelt'); });
   }
 
-  /* ── Gästestimmen: eine nach der anderen ── */
-  var stimmen = $('[data-stimmen]');
-  if (stimmen) {
-    var sKnoepfe = $$('.stimmen-steuer button', stimmen), karten = $$('.stimme', stimmen);
-    var jetzt = 0, TAKT = 8000, uhr = null;
-    stimmen.style.setProperty('--takt', TAKT + 'ms');
-    var zeigeStimme = function (n) {
-      jetzt = (n + karten.length) % karten.length;
-      karten.forEach(function (k, i) { k.classList.toggle('is-aktiv', i === jetzt); });
-      sKnoepfe.forEach(function (b, i) { b.setAttribute('aria-pressed', String(i === jetzt)); });
+  /* ── Caffè / Pizza / Bar: Zeile wählt das Motiv im runden Fenster ── */
+  var liste = $('[data-salone-liste]'), fenster = $('[data-fenster]');
+  if (liste && fenster) {
+    var zeilen = $$('li', liste), motive = Array.prototype.slice.call(fenster.children);
+    var aktiv = 0, autoTakt = null;
+    var waehle = function (n) {
+      aktiv = n;
+      zeilen.forEach(function (z, i) { z.classList.toggle('is-aktiv', i === n); });
+      motive.forEach(function (m, i) { m.classList.toggle('is-aktiv', i === n); });
     };
-    var starten = function () {
-      clearInterval(uhr);
-      if (!ruhig) uhr = setInterval(function () { if (!stimmen.classList.contains('is-pause')) zeigeStimme(jetzt + 1); }, TAKT);
-    };
-    sKnoepfe.forEach(function (b, i) { b.addEventListener('click', function () { zeigeStimme(i); starten(); }); });
-    ['mouseenter', 'focusin'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.add('is-pause'); }); });
-    ['mouseleave', 'focusout'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.remove('is-pause'); }); });
-    starten();
+    zeilen.forEach(function (z, i) {
+      ['mouseenter', 'focus', 'click'].forEach(function (ev) { z.addEventListener(ev, function () { clearInterval(autoTakt); waehle(i); }); });
+    });
+    if (!ruhig) autoTakt = setInterval(function () { waehle((aktiv + 1) % zeilen.length); }, 3600);
   }
 
   /* ── Auftritte beim Scrollen, Neon geht an ── */
