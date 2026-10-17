@@ -4,6 +4,7 @@ Gesicherte Stände der Website, jeweils komplett lauffähig.
 
 | Ordner | Stand | Commit | Ansehen |
 |---|---|---|---|
+| `stand-12-chaos/` | Abschnitt 2 als Collage, rote Bewertungen mit Karten | `9618d76` | `/archiv/stand-12-chaos/` |
 | `stand-11-weiss/` | Weißer Abschnitt 2 mit einem Foto und Liste | `9dd505d` | `/archiv/stand-11-weiss/` |
 | `stand-10-dunkel/` | Dunkler Abschnitt 2 mit rundem Fenster, rote Bewertungen-Glut | `5898930` | `/archiv/stand-10-dunkel/` |
 | `stand-9-salone/` | Zusammengeführter Abschnitt mit Fotocollage, Google-Kasten mit Lorbeer | `fdd70e0` | `/archiv/stand-9-salone/` |
