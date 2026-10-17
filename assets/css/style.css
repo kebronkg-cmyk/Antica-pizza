@@ -287,26 +287,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .kopfzeile--mitte { justify-items: center; text-align: center; }
 .kopfzeile--mitte .titel-gross { max-width: 18ch; }
 .kopfzeile--mitte .hand { transform-origin: center; }
-.boegen { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 34px); align-items: end; }
-.bogen-karte { position: relative; }
-.bogen-karte:nth-child(2) { transform: translateY(-34px); }
-.js .bogen-karte:nth-child(2)[data-auf].is-da { transform: translateY(-34px); }
-.bogen-form { position: relative; padding: clamp(56px, 6vw, 84px) clamp(24px, 2.6vw, 38px) clamp(30px, 3vw, 42px); border-radius: 999px 999px 18px 18px; text-align: center; overflow: hidden; isolation: isolate; transition: transform .7s var(--ease-out), box-shadow .7s var(--ease-out); }
-.bogen-form::before { content: ""; position: absolute; inset: 9px; z-index: -1; border-radius: 999px 999px 12px 12px; border: 1px solid currentColor; opacity: .3; transition: opacity .5s, inset .6s var(--ease-out); }
-.bogen-form:hover { transform: translateY(-8px); box-shadow: 0 30px 50px -26px rgba(0,0,0,.55); }
-.bogen-form:hover::before { opacity: .7; inset: 6px; }
-.bogen-karte--caffe .bogen-form { background: #000; color: var(--oro-hell); }
-.bogen-karte--pizza .bogen-form { background: radial-gradient(90% 70% at 50% 25%, #ff3a1f, #d40000 45%, #9a0000); color: #fff; }
-.bogen-karte--bar .bogen-form { background: linear-gradient(170deg, #f3dc94, #d4aa52 55%, #a87e34); color: #120d08; }
-.bogen-nr { display: block; font: italic 400 18px/1 var(--f-titel); opacity: .7; }
-.bogen-bild { width: 96px; height: 80px; margin: 16px auto 12px; color: currentColor; }
-.bogen-form:hover .bogen-bild--pizza { animation: wippen .8s var(--ease-out); }
-.bogen-form:hover .bogen-bild--glas { animation: anstossen .9s ease-in-out; }
-@keyframes wippen { 30% { transform: rotate(-10deg) translateY(-4px); } 60% { transform: rotate(6deg); } 100% { transform: none; } }
-@keyframes anstossen { 25% { transform: rotate(12deg); } 50% { transform: rotate(-8deg); } 75% { transform: rotate(4deg); } 100% { transform: none; } }
-.bogen-form h3 { font: italic 400 clamp(44px, 4.2vw, 64px)/1 var(--f-titel); margin-bottom: 14px; }
-.bogen-form p { font-size: 16px; line-height: 1.55; opacity: .88; max-width: 30ch; margin: 0 auto; }
-.bogen-karte--caffe .bogen-form p { color: rgba(246,245,242,.85); }
 .dampf { stroke-dasharray: 22; animation: dampf 3s ease-in-out infinite; }
 @keyframes dampf { 0% { stroke-dashoffset: 22; opacity: 0; } 40% { opacity: 1; } 100% { stroke-dashoffset: -22; opacity: 0; } }
 
@@ -323,26 +303,8 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .galerie-rahmen--quer { aspect-ratio: 1100 / 1195; }
 .galerie-rahmen img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); transition: transform 1.6s var(--ease-out); }
 .galerie-bild:hover .galerie-rahmen img { transform: scale(1.07); }
-.galerie-rechts { display: grid; gap: clamp(40px, 5vw, 70px); margin-top: clamp(40px, 7vw, 120px); }
 .galerie-bild figcaption { display: flex; align-items: baseline; gap: 14px; margin-top: 24px; font: italic 400 clamp(18px, 1.4vw, 22px)/1.3 var(--f-buehne); color: rgba(246,245,242,.8); }
 .galerie-bild figcaption span { font: italic 400 16px/1 var(--f-titel); color: var(--oro); }
-/* Die Maske hängt oben in der Ecke des großen Bildes, wie im Laden über der Tür */
-.maske { position: absolute; top: -12%; left: -12%; z-index: 3; width: 30%; height: auto; transform-origin: 50% 8%; animation: maske-schwingen 6s ease-in-out infinite; filter: drop-shadow(0 22px 22px rgba(0,0,0,.65)); cursor: pointer; }
-.maske.is-klingelt { animation: maske-klingeln .9s ease-in-out; }
-@keyframes maske-schwingen { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
-@keyframes maske-klingeln { 0% { transform: rotate(0); } 15% { transform: rotate(-9deg); } 30% { transform: rotate(8deg); } 45% { transform: rotate(-6deg); } 60% { transform: rotate(4deg); } 80% { transform: rotate(-2deg); } 100% { transform: rotate(0); } }
-/* Fußball live: drei Fernseher fahren herunter */
-.fussball { position: relative; padding: 28px 30px 30px; border: 1px solid rgba(212,170,82,.45); }
-.fussball-tvs { display: flex; gap: 12px; height: 54px; margin-bottom: 20px; border-top: 2px solid rgba(246,245,242,.25); }
-.fussball-tvs i { position: relative; flex: 1; max-width: 86px; background: linear-gradient(160deg, #1f6b3a, #0d3d1f); border: 3px solid #1a1716; border-radius: 3px; transform-origin: top; transform: scaleY(0); transition: transform .9s var(--ease-out); box-shadow: 0 10px 18px -8px rgba(0,0,0,.7); }
-.fussball-tvs i::before { content: ""; position: absolute; left: 50%; top: 18%; bottom: 18%; width: 1px; background: rgba(255,255,255,.55); }
-.fussball-tvs i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; margin: -6px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; }
-.fussball.is-da .fussball-tvs i { transform: scaleY(1); }
-.fussball.is-da .fussball-tvs i:nth-child(2) { transition-delay: .2s; }
-.fussball.is-da .fussball-tvs i:nth-child(3) { transition-delay: .4s; }
-.fussball-titel { font: italic 400 clamp(30px, 2.6vw, 40px)/1 var(--f-titel); color: var(--oro-hell); }
-.fussball-text { margin-top: 10px; font-size: 16px; opacity: .82; max-width: 34ch; }
-.neon--aperitivo { position: absolute; left: -10%; bottom: 16%; z-index: 2; font-size: clamp(44px, 4.6vw, 70px); transform: rotate(-6deg); }
 .neon--aperitivo span { color: #fff1e0; text-shadow: 0 0 2px #fff, 0 0 8px #ffa45c, 0 0 20px var(--aperol), 0 0 42px #ff4800, 0 0 80px rgba(255,90,0,.7); }
 .neon--aperitivo.is-an span { animation: flackern 2.4s steps(1) 1, summen 3.4s 2.4s ease-in-out infinite; }
 
@@ -558,11 +520,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .drinnen-kopf { grid-template-columns: 1fr; }
   .drinnen-satz { grid-column: 1; grid-row: auto; margin-top: 18px; }
   .galerie { grid-template-columns: 1fr; }
-  .galerie-rechts { margin-top: 20px; grid-template-columns: 1fr 1fr; align-items: start; }
-  .boegen { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; gap: 26px; }
-  .bogen-karte:nth-child(2), .js .bogen-karte:nth-child(2)[data-auf].is-da { transform: none; }
-  .maske { width: 30%; left: -3%; top: -7%; }
-  .neon--aperitivo { left: -2%; bottom: 18%; }
   .speisen { columns: 1; }
   .rand-pizza { display: none; }
   .karte-hinweise { justify-items: center; text-align: center; }
@@ -575,8 +532,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .fuss-spalten { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
-  .galerie-rechts { grid-template-columns: 1fr; }
-  .galerie .neon--aperitivo { left: 4%; bottom: auto; top: 66%; font-size: 48px; }
   .waehler-tab { font-size: 11px; padding-inline: 2px; flex: 1; min-width: 0; }
   .waehler { gap: 2px; }
   .waehler-tab img { width: 54px; }
@@ -613,3 +568,92 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 /* Kuhfell: Vorschau und fertige Fläche sind identisch aufgebaut, dadurch springt nichts */
 .buehne-feld-neu.is-fell, .buehne-fell { background: var(--fell-schleier), url("../img/kuhfell.webp") 0 0 / 640px 640px, #000; }
 :root { --fell-schleier: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,0) 14%), linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.78) 34%, rgba(0,0,0,.08) 56%, rgba(0,0,0,0) 100%), linear-gradient(to top, rgba(0,0,0,.8), transparent 30%); }
+
+/* ═══ Caffè · Pizza · Bar: drei Medaillons wie auf einer alten Caffè-Karte ═══ */
+.trio { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: clamp(40px, 5vw, 70px) 0 clamp(20px, 3vw, 40px); border-top: 1px solid rgba(15,13,12,.14); border-bottom: 1px solid rgba(15,13,12,.14); }
+.trio::before, .trio::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: rgba(15,13,12,.14); }
+.trio::before { top: 5px; }
+.trio::after { bottom: 5px; }
+.trio-teil { text-align: center; padding: 0 clamp(18px, 3vw, 48px); }
+.trio-teil + .trio-teil { border-left: 1px solid rgba(15,13,12,.12); }
+.oval { position: relative; width: min(230px, 76%); aspect-ratio: 4 / 5; margin: 0 auto 26px; border-radius: 50%; overflow: hidden; outline: 1px solid var(--oro); outline-offset: 8px; background: #0b0908; }
+.oval img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-out); }
+.trio-teil:hover .oval img { transform: scale(1.08); }
+.oval--pizza { background: radial-gradient(circle at 50% 40%, #e00a00, #8c0000); }
+.oval--pizza img { position: absolute; left: 6%; top: 18%; width: 88%; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 14px 14px rgba(0,0,0,.4)); }
+.oval--pizza img + img { left: 17%; top: 29%; width: 66%; }
+.trio-teil:hover .oval--pizza img { transform: rotate(40deg); }
+.trio-nr { font: italic 400 16px/1 var(--f-titel); color: var(--oro-tief); }
+.trio-teil h3 { font: italic 400 clamp(44px, 4vw, 60px)/1.05 var(--f-titel); margin: 6px 0 12px; }
+.trio-teil:nth-child(2) h3 { color: var(--rosso); }
+.trio-teil p:last-child { font-size: 16px; opacity: .78; max-width: 30ch; margin: 0 auto; }
+
+/* ═══ Drinnen: Maske hängt oben rechts an einer goldenen Schnur ═══ */
+.drinnen { position: relative; }
+.maske-haken { position: absolute; top: 0; right: clamp(16px, 6vw, 110px); z-index: 5; width: clamp(170px, 19vw, 280px); display: grid; justify-items: center; transform-origin: 50% 0; animation: maske-schwingen 7s ease-in-out infinite; pointer-events: none; }
+.maske-haken::before { content: ""; width: 14px; height: 14px; border-radius: 50%; margin-top: -7px; background: radial-gradient(circle at 35% 35%, #f3dc94, #8a6526); box-shadow: 0 2px 4px rgba(0,0,0,.5); }
+.maske-schnur { width: 6px; height: clamp(50px, 6vw, 90px); }
+.maske { width: 100%; height: auto; margin-top: -10px; filter: drop-shadow(0 26px 24px rgba(0,0,0,.7)) drop-shadow(0 0 30px rgba(212,170,82,.18)); pointer-events: auto; cursor: pointer; }
+.maske-haken.is-klingelt { animation: maske-klingeln 1s ease-in-out; }
+@keyframes maske-schwingen { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes maske-klingeln { 0% { transform: rotate(0); } 15% { transform: rotate(-10deg); } 30% { transform: rotate(8deg); } 45% { transform: rotate(-6deg); } 60% { transform: rotate(4deg); } 80% { transform: rotate(-2deg); } 100% { transform: rotate(0); } }
+.drinnen-kopf { padding-right: clamp(0px, 18vw, 300px); }
+.galerie-bild--tv { margin-top: clamp(40px, 7vw, 120px); }
+.tv-bild { aspect-ratio: 3 / 4; }
+.tv-bild img { object-position: 50% 0; }
+.tv-schirm { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tv-programm { opacity: 0; transition: opacity .25s; }
+.galerie-bild--tv.is-an .tv-programm { opacity: 1; }
+.tv-rauschen { opacity: 0; }
+.galerie-bild--tv.is-schaltet .tv-rauschen { animation: rauschen .45s steps(4) 1; }
+@keyframes rauschen { 0% { opacity: .9; } 25% { opacity: .2; } 50% { opacity: .8; } 75% { opacity: .3; } 100% { opacity: 0; } }
+.tv-ball { animation: ball 6s ease-in-out infinite; }
+@keyframes ball { 0% { transform: translate(0,0); } 20% { transform: translate(-150px,-70px); } 40% { transform: translate(90px,-120px); } 60% { transform: translate(230px,40px); } 80% { transform: translate(-60px,120px); } 100% { transform: translate(0,0); } }
+.tv-spieler circle { animation: spieler 6s ease-in-out infinite; }
+.tv-spieler circle:nth-child(2n) { animation-direction: reverse; }
+@keyframes spieler { 50% { transform: translate(30px, -20px); } }
+.tv-live-punkt { animation: blink 1.2s infinite; }
+@keyframes blink { 50% { opacity: .2; } }
+.tv-knopf { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border: 0; border-radius: 999px; background: rgba(10,8,7,.82); color: var(--bianco); font: 600 13px/1 var(--f-text); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background-color .3s; }
+.tv-knopf:hover { background: #000; }
+.tv-knopf-punkt { width: 9px; height: 9px; border-radius: 50%; background: #6b6460; }
+.galerie-bild--tv.is-an .tv-knopf-punkt { background: #ff2d1a; box-shadow: 0 0 10px #ff2d1a; }
+
+/* ═══ Aperitivo-Band mit dem Regal ═══ */
+.aperitivo { position: relative; overflow: hidden; min-height: clamp(380px, 46vw, 620px); display: grid; align-items: center; color: #fff; isolation: isolate; }
+.aperitivo-bild { position: absolute; inset: -12% 0; z-index: -2; background: url("../img/regal-1600.webp") center / cover no-repeat; transform: translateY(var(--px, 0)); will-change: transform; }
+.aperitivo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8,6,5,.88) 0%, rgba(8,6,5,.6) 42%, rgba(8,6,5,.1) 75%); }
+.aperitivo-inhalt { display: grid; gap: 26px; justify-items: start; padding-block: 60px; }
+.neon--aperitivo { font-size: clamp(64px, 8vw, 128px); transform: rotate(-4deg); }
+.neon--aperitivo span { color: #fff1e0; text-shadow: 0 0 2px #fff, 0 0 10px #ffa45c, 0 0 24px var(--aperol), 0 0 50px #ff4800, 0 0 90px rgba(255,90,0,.7); }
+.neon--aperitivo.is-an span { animation: flackern 2.4s steps(1) 1, summen 3.4s 2.4s ease-in-out infinite; }
+.aperitivo-liste { min-width: min(380px, 100%); }
+.aperitivo-liste li { display: flex; justify-content: space-between; gap: 24px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+.aperitivo-liste span { font: 400 22px/1.2 var(--f-titel); }
+.aperitivo-liste b { font: 400 21px/1.2 var(--f-titel); color: var(--oro-hell); font-variant-numeric: lining-nums; }
+
+/* ═══ Karten-Vorschau ═══ */
+.vorschau { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(36px, 6vw, 96px); padding-top: 10px; }
+.speisen--eins { columns: 1; margin-bottom: 30px; }
+.vorschau .karte-gruppe { margin-bottom: 6px; }
+.vorschau-fuss { display: flex; align-items: center; gap: 24px 36px; flex-wrap: wrap; margin-top: clamp(30px, 4vw, 50px); padding-top: 30px; border-top: 1px solid rgba(212,170,82,.3); }
+.pille--gross { min-height: 56px; padding: 0 28px; font-size: 16px; }
+
+/* ═══ Eigene Seite: Speisekarte ═══ */
+.seite-karte .kopf { position: sticky; }
+.seite-karte .kopf .marke { opacity: 1; transform: none; pointer-events: auto; }
+.karte--seite { padding-top: clamp(40px, 5vw, 70px); }
+.zurueck-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--oro-hell); }
+.zurueck-link .ico { transform: scaleX(-1); }
+.karte-hinweis--seite { margin-top: 40px; }
+.karte-hinweis--seite a { color: var(--oro-hell); }
+
+@media (max-width: 900px) {
+  .trio { grid-template-columns: 1fr; gap: 44px; }
+  .trio-teil + .trio-teil { border-left: 0; border-top: 1px solid rgba(15,13,12,.12); padding-top: 44px; }
+  .maske-haken { width: 130px; right: 12px; }
+  .drinnen-kopf { padding-right: 120px; }
+  .galerie-bild--tv { margin-top: 10px; }
+  .vorschau { grid-template-columns: 1fr; }
+  .aperitivo::before { background: linear-gradient(0deg, rgba(8,6,5,.9) 10%, rgba(8,6,5,.45) 70%); }
+}

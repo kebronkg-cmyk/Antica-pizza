@@ -15,6 +15,7 @@ Deployen geht überall, wo statische Dateien laufen: GitHub Pages, Netlify, Clou
 ## Struktur
 
 ```
+speisekarte.html      Die ganze Karte mit allen Preisen (Reiter + Veggie-Filter)
 index.html            One-Pager: Bühne, Laufband, Tageszeiten, Drinnen, Karte, Google-Stimmen, Besuch
 assets/css/style.css  Design-Tokens oben in :root, Bühnenfarben unter html[data-farbe=…]
 assets/js/main.js     Bühne, Farbwahl, Öffnungsstatus + Neon, Tagesbogen, Karte, Stimmen
@@ -29,8 +30,10 @@ archiv/               Frühere Stände, komplett lauffähig
 - **Schriftzug 1:1 vom Schild:** aus dem Fassadenfoto vektorisiert, zeichnet sich beim Öffnen selbst; im Fuß als goldenes Neon.
 - **Bühne:** fünf Pizzen von der Karte, jede mit eigener Farbe, die sich vom Tipp-Punkt aus ausbreitet: Margherita Schwarz (tiefes Schwarz ohne Grauschleier), Salami Ferrari-Rot, Tonno Gelb, Verdure Grün, zum Schluss 4 Formaggi auf sauberem Kuhfell. Teller: der Majolika-Teller aus dem Laden.
 - **Überschriften:** DM Serif Display, elegant und etwas kräftiger als die feine Bodoni.
-- **Caffè · Pizza · Bar:** drei Bögen wie Ladenfenster, in Schwarz, Rot und Gold.
-- **Drinnen:** großes Foto vom Gastraum, die venezianische Maske hängt an der Bildecke; zweites Foto mit Tischlampe; Hinweis auf Fußball live mit drei ausfahrbaren Fernsehern.
+- **Caffè · Pizza · Bar:** drei ovale Bild-Medaillons mit Goldrand wie auf einer alten Caffè-Karte.
+- **Drinnen:** großes Gastraumfoto; auf dem echten Fernseher im zweiten Foto läuft beim Hinscrollen ein Fußballspiel mit LIVE-Einblendung und laufender Uhr (Knopf zum Ein-/Ausschalten). Die farblich bearbeitete venezianische Maske hängt an einer goldenen Schnur oben rechts in der Ecke.
+- **Aperitivo:** breites Band mit dem Regalfoto, Neon-Schriftzug und den Aperitivo-Preisen.
+- **Karte:** Vorschau mit Lieblingen auf der Startseite, die ganze Karte auf `speisekarte.html`.
 - **Google:** Navigation und eigener Abschnitt mit Lorbeer-Medaille.
 - **DSGVO:** Schriften lokal, keine Cookies; OpenStreetMap lädt erst nach Klick.
 
