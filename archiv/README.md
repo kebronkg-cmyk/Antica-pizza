@@ -4,6 +4,7 @@ Gesicherte Stände der Website, jeweils komplett lauffähig.
 
 | Ordner | Stand | Commit | Ansehen |
 |---|---|---|---|
+| `stand-11-weiss/` | Weißer Abschnitt 2 mit einem Foto und Liste | `9dd505d` | `/archiv/stand-11-weiss/` |
 | `stand-10-dunkel/` | Dunkler Abschnitt 2 mit rundem Fenster, rote Bewertungen-Glut | `5898930` | `/archiv/stand-10-dunkel/` |
 | `stand-9-salone/` | Zusammengeführter Abschnitt mit Fotocollage, Google-Kasten mit Lorbeer | `fdd70e0` | `/archiv/stand-9-salone/` |
 | `stand-8-tv/` | Medaillons, TV mit Fußball, Maske an Schnur, Aperitivo-Band | `9ccbc43` | `/archiv/stand-8-tv/` |
