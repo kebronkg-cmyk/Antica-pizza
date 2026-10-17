@@ -556,65 +556,46 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .maske { width: 120px; top: 30px; right: -4%; }
   }
 
-/* ═══ Caffè · Pizza · Bar · Drinnen: geordnetes Chaos auf Weiß, Trattoria-Akzente ═══ */
+/* ═══ Caffè · Pizza · Bar · Drinnen ═══ */
 .salone { position: relative; overflow: hidden; color: var(--tinte); padding: clamp(140px, 13vw, 190px) 0 clamp(90px, 10vw, 140px); background: var(--porcellana); }
 .salone .hand { color: var(--rosso); }
 .salone .titel-gross em { color: var(--rosso); }
-.salone-kopf { max-width: 760px; }
+.salone .maske { position: absolute; top: 70px; right: -3%; z-index: 4; width: clamp(150px, 22vw, 340px); transform: rotate(12deg); filter: drop-shadow(0 20px 18px rgba(60,20,0,.3)); }
+.salone-kopf { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(30px, 5vw, 90px); align-items: end; padding-right: clamp(0px, 14vw, 240px); }
 .salone-kopf .titel-gross { max-width: 14ch; }
-/* Die Maske hängt groß in der rechten oberen Ecke */
-.salone .maske { position: absolute; top: 70px; right: -3%; z-index: 4; width: clamp(200px, 24vw, 360px); transform: rotate(12deg); filter: drop-shadow(0 20px 18px rgba(60,20,0,.3)); }
-/* Komposition: die Fotos liegen auf einer rot-weiß karierten Tischdecke */
-.buehnenbild { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: clamp(36px, 5vw, 80px); align-items: center; margin-top: clamp(40px, 5vw, 70px); }
-.bb-text { grid-column: 1; grid-row: 1; }
-.bb-tisch { grid-column: 2; grid-row: 1; position: relative; display: grid; grid-template-columns: repeat(12, 1fr); align-items: start;
-  padding: clamp(22px, 3vw, 44px) clamp(22px, 3vw, 44px) clamp(40px, 5vw, 72px); border-radius: 6px;
-  background-color: #fff; background-image: linear-gradient(90deg, rgba(212,0,0,.5) 50%, transparent 50%), linear-gradient(rgba(212,0,0,.5) 50%, transparent 50%);
-  background-size: 34px 34px; background-blend-mode: multiply;
-  box-shadow: inset 0 0 0 8px #fff, inset 0 0 0 9px rgba(212,0,0,.45), 0 30px 60px -34px rgba(120,0,0,.45); }
-.bb-foto { position: relative; margin: 0; overflow: hidden; outline: 8px solid #fff; box-shadow: 0 30px 50px -24px rgba(15,10,6,.6); }
-.bb-foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s var(--ease-out); }
-.bb-foto:hover img { transform: scale(1.04); }
-.bb-foto--raum { grid-column: 1 / 8; grid-row: 1; aspect-ratio: 896 / 1195; z-index: 1; transform: rotate(-1.5deg); }
-.bb-foto--tisch { grid-column: 7 / 13; grid-row: 1; aspect-ratio: 3 / 4; z-index: 2; margin-top: 32%; transform: rotate(2deg); }
-.bb-foto--tisch img { object-position: 30% 75%; }
-.bb-pizza { position: absolute; left: -5%; bottom: -7%; width: 27%; height: auto; aspect-ratio: 1; z-index: 3; filter: drop-shadow(0 20px 16px rgba(60,20,0,.4)); animation: pizza-drehen 50s linear infinite; }
+.salone-intro { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: #3a332e; max-width: 36ch; padding-bottom: 8px; }
+/* Zwei Fotos im vollen Format nebeneinander */
+.duo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.6vw, 22px); margin-top: clamp(50px, 6vw, 90px); padding-bottom: 22px; }
+.duo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--rosso) 0 26px, #fff 26px 52px); box-shadow: 0 0 0 1px rgba(212,0,0,.45); }
+.duo-bild { position: relative; margin: 0 0 30px; }
+.duo-bild img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.duo-bild figcaption { position: absolute; left: 0; bottom: -30px; display: flex; gap: 12px; align-items: baseline; font: 600 13px/1 var(--f-text); letter-spacing: .14em; text-transform: uppercase; color: #6b625b; }
+.duo-bild figcaption span { color: var(--rosso); }
+.duo-bild + .duo-bild figcaption { left: auto; right: 0; flex-direction: row-reverse; }
+.duo-pizza { position: absolute; left: 50%; bottom: -6px; width: clamp(130px, 15vw, 230px); height: auto; aspect-ratio: 1; margin-left: calc(clamp(130px, 15vw, 230px) / -2); z-index: 3; filter: drop-shadow(0 18px 16px rgba(60,20,0,.4)); animation: pizza-drehen 50s linear infinite; }
 @keyframes pizza-drehen { to { transform: rotate(360deg); } }
-.bb-notiz { font: 600 clamp(24px, 2vw, 30px)/1 var(--f-hand); color: var(--rosso); transform: rotate(-3deg); transform-origin: left; display: inline-block; }
-.bb-linie { display: block; height: 8px; margin: 18px 0 22px; background: repeating-linear-gradient(90deg, var(--rosso) 0 22px, #fff 22px 44px); box-shadow: 0 0 0 1px rgba(212,0,0,.5); border-radius: 2px; }
-.bb-satz { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: #3a332e; max-width: 34ch; }
-
-/* Drei Worte mit Markisen-Streifen */
-.drei-worte { list-style: none; padding: 0; margin: clamp(110px, 11vw, 160px) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); }
-.drei-worte li { position: relative; padding: 34px 28px 30px; border: 1px solid rgba(212,0,0,.35); border-radius: 4px; background: #fff; }
-.drei-worte li::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 10px; border-radius: 4px 4px 0 0; background: repeating-linear-gradient(90deg, var(--rosso) 0 22px, #fff 22px 44px); }
+/* Drei Worte: ruhige Spalten */
+.drei-worte { list-style: none; padding: 0; margin: clamp(80px, 9vw, 130px) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.drei-worte li { padding: 6px clamp(18px, 3vw, 44px) 0; border-left: 1px solid rgba(15,13,12,.14); }
+.drei-worte li:first-child { padding-left: 0; border-left: 0; }
 .drei-worte span { font: 600 12px/1 var(--f-text); letter-spacing: .14em; color: var(--rosso); }
-.drei-worte h3 { font: 400 clamp(36px, 3.4vw, 52px)/1.05 var(--f-titel); margin: 12px 0 10px; }
+.drei-worte h3 { font: 400 clamp(38px, 3.6vw, 56px)/1.05 var(--f-titel); margin: 12px 0 12px; }
 .drei-worte li:nth-child(2) h3 { color: var(--rosso); }
-.drei-worte p { font-size: 16px; color: #4a423c; max-width: 34ch; }
-
-/* Tablet und Handy: Tisch über die volle Breite, Text darunter */
-@media (max-width: 1180px) {
-  .salone .maske { width: clamp(150px, 24vw, 250px); top: 60px; }
-  .salone-kopf { max-width: 72%; }
-  .salone-kopf .titel-gross { max-width: none; }
-  .buehnenbild { grid-template-columns: 1fr; gap: clamp(56px, 8vw, 80px); }
-  .bb-tisch { grid-column: 1; grid-row: 1; }
-  .bb-text { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: auto 1fr; column-gap: 32px; align-items: center; }
-  .bb-notiz { grid-column: 1; grid-row: 1; }
-  .bb-linie { grid-column: 2; grid-row: 1; margin: 0; }
-  .bb-satz { grid-column: 1 / -1; grid-row: 2; margin-top: 22px; max-width: 58ch; font-size: clamp(17px, 2.2vw, 20px); }
-  .bb-pizza { width: 26%; left: -3%; bottom: -8%; }
-  .drei-worte { margin-top: 70px; }
-  .drei-worte h3 { font-size: clamp(32px, 4.2vw, 44px); }
+.drei-worte p { font-size: 16px; line-height: 1.6; color: #4a423c; max-width: 32ch; }
+@media (max-width: 1024px) {
+  .salone-kopf { grid-template-columns: 1fr; gap: 22px; padding-right: 26%; }
+  .salone .maske { width: clamp(140px, 24vw, 240px); top: 60px; }
 }
-@media (max-width: 760px) {
-  .drei-worte { grid-template-columns: 1fr; }
-  .salone .maske { width: 130px; top: 50px; right: -4%; }
-  .salone-kopf { max-width: 78%; }
-  .bb-tisch { background-size: 24px 24px; padding: 16px 16px 34px; box-shadow: inset 0 0 0 6px #fff, inset 0 0 0 7px rgba(212,0,0,.45); }
-  .bb-foto { outline-width: 5px; }
-  .bb-text { column-gap: 20px; }
+@media (max-width: 640px) {
+  .salone-kopf { padding-right: 0; }
+  .salone-kopf .titel-gross { padding-right: 90px; }
+  .salone .maske { width: 120px; top: 50px; right: -4%; }
+  .duo { grid-template-columns: 1fr; gap: 10px; }
+  .duo-bild figcaption { font-size: 11px; letter-spacing: .1em; }
+  .duo-pizza { width: 120px; left: auto; right: -8px; margin-left: 0; bottom: 4px; }
+  .duo-bild + .duo-bild figcaption { left: 0; right: auto; flex-direction: row; }
+  .drei-worte { grid-template-columns: 1fr; margin-top: 70px; }
+  .drei-worte li, .drei-worte li:first-child { padding: 24px 0; border-left: 0; border-top: 1px solid rgba(15,13,12,.14); }
 }
 
 /* ═══ Gäste: Schwarz mit Italien-Akzenten, einreihiger Flow ═══ */
@@ -654,16 +635,13 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .flow { -webkit-mask: none; mask: none; }
 }
 @media (prefers-reduced-motion: reduce) { .flow-spur { animation: none; } .flow-reihe { overflow-x: auto; } }
-/* Kleiner Kuh-Akzent: Fellband über dem Link zur ganzen Karte */
-.vorschau-fuss { position: relative; border-top: 0; padding-top: 40px; }
-.vorschau-fuss::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 16px; border-radius: 999px; background: url("../img/kuhfell.webp") 30% 22% / 640px 640px; box-shadow: 0 0 0 1px rgba(212,170,82,.5); }
 
 /* ═══ Weinwand: ein durchgehender Hintergrund für Aperitivo und Karten-Vorschau ═══ */
 .weinwand { position: relative; isolation: isolate; overflow: hidden; background: #070605; }
 .weinwand-bild { position: absolute; inset: 0; z-index: -2; background: url("../img/regal-voll-1300.webp") 72% 30% / cover no-repeat; }
 .weinwand::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(90deg, rgba(7,6,5,.94) 0%, rgba(7,6,5,.86) 42%, rgba(7,6,5,.55) 70%, rgba(7,6,5,.4) 100%),
-              linear-gradient(to bottom, rgba(7,6,5,.15) 0%, rgba(7,6,5,.45) 35%, rgba(7,6,5,.85) 60%, rgba(7,6,5,.92) 100%); }
+  background: linear-gradient(90deg, rgba(7,6,5,.86) 0%, rgba(7,6,5,.6) 40%, rgba(7,6,5,.25) 70%, rgba(7,6,5,.15) 100%),
+              linear-gradient(to bottom, rgba(7,6,5,0) 0%, rgba(7,6,5,.2) 40%, rgba(7,6,5,.55) 65%, rgba(7,6,5,.7) 100%); }
 @media (max-width: 900px) {
-  .weinwand::before { background: linear-gradient(to bottom, rgba(7,6,5,.55), rgba(7,6,5,.88) 30%, rgba(7,6,5,.94)); }
+  .weinwand::before { background: linear-gradient(to bottom, rgba(7,6,5,.35), rgba(7,6,5,.7) 35%, rgba(7,6,5,.8)); }
 }
