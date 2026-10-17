@@ -5,8 +5,9 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var html = document.documentElement;
 
-  /* ── Öffnungszeiten: einzige Quelle für Status, Tabelle und Tagesbogen ──
+  /* ── Öffnungszeiten: einzige Quelle für Status, Neon, Tabelle und Tagesbogen ──
      0 = Sonntag … 6 = Samstag, null = Ruhetag */
   var ZEITEN = { 0: null, 1: [14, 23], 2: [14, 23], 3: [14, 23], 4: [14, 23], 5: [14, 23], 6: [14, 23] };
   var TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
@@ -42,8 +43,7 @@
       el.textContent = el.getAttribute('data-status') === 'lang' ? lang : kurz;
       el.setAttribute('data-zustand', zustand);
     });
-    var neon = $('[data-neon]');
-    if (neon) neon.setAttribute('data-zustand', zustand);
+    $$('[data-neon]').forEach(function (n) { n.setAttribute('data-zustand', zustand); });
     $$('#zeiten tr').forEach(function (r) { r.classList.toggle('is-heute', +r.getAttribute('data-tag') === j.tag); });
     tagesbogen(j, z);
   }
@@ -58,33 +58,33 @@
     if (!bogen || !gestirn) return;
     var svg = bogen.ownerSVGElement, box = svg.getBoundingClientRect();
     if (!box.width) return;
-    // 14 Uhr links, 23 Uhr rechts; außerhalb der Zeiten parkt der Mond am Rand
     var f = offen ? (j.std - 14) / 9 : (j.std < 14 ? 0 : 1);
     var p = bogen.getPointAtLength(bogen.getTotalLength() * Math.min(1, Math.max(0, f)));
     var vb = svg.viewBox.baseVal;
     gestirn.style.left = (p.x / vb.width * box.width) + 'px';
     gestirn.style.top = (p.y / vb.height * box.height) + 'px';
     gestirn.classList.toggle('is-mond', !offen || j.std >= 20);
-    gestirn.title = offen ? 'Jetzt in Haidhausen' : 'Gerade geschlossen';
   }
   status();
   setInterval(status, 60 * 1000);
   window.addEventListener('resize', function () { var j = jetztMuenchen(); tagesbogen(j, ZEITEN[j.tag]); });
 
-  /* ── Kopf: fest nach der Bühne, beim Runterscrollen kurz weg ── */
+  // Hängendes Neon in der Bühne flackert beim Laden an
+  $$('.buehne [data-neon]').forEach(function (n) { setTimeout(function () { n.classList.add('is-an'); }, 900); });
+
+  /* ── Kopf: fest nach dem ersten Scrollen, beim Runterscrollen kurz weg ── */
   var kopf = $('[data-kopf]'), buehne = $('[data-buehne]');
   var letzteY = 0;
   function beimScrollen() {
-    var y = window.scrollY, h = 40;
+    var y = window.scrollY;
     if (kopf && buehne) {
-      kopf.classList.toggle('is-fest', y > h);
-      kopf.classList.toggle('is-weg', y > (buehne.offsetHeight) && y > letzteY + 2 && !menuOffen());
+      kopf.classList.toggle('is-fest', y > 40);
+      kopf.classList.toggle('is-weg', y > buehne.offsetHeight && y > letzteY + 2 && !menuOffen());
       if (y < letzteY - 2 || y < buehne.offsetHeight) kopf.classList.remove('is-weg');
     }
     letzteY = y;
   }
   window.addEventListener('scroll', beimScrollen, { passive: true });
-  beimScrollen();
 
   /* ── Menü auf dem Handy ── */
   var menuKnopf = $('[data-menu]'), menu = $('[data-menu-flaeche]');
@@ -92,6 +92,7 @@
   function menuSetzen(auf) {
     menuKnopf.setAttribute('aria-expanded', String(auf));
     menu.classList.toggle('is-offen', auf);
+    html.classList.toggle('menu-offen', auf);
     document.body.style.overflow = auf ? 'hidden' : '';
   }
   if (menuKnopf && menu) {
@@ -99,6 +100,7 @@
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) menuSetzen(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOffen()) { menuSetzen(false); menuKnopf.focus(); } });
   }
+  beimScrollen();
 
   /* ── Aktiver Navi-Punkt ── */
   var navLinks = $$('.kopf-nav a');
@@ -111,38 +113,108 @@
     navLinks.forEach(function (l) { var s = $(l.getAttribute('href')); if (s) navObs.observe(s); });
   }
 
-  /* ═══ Die Bühne ═══ */
+  /* ═══ Farbwahl der Bühne ═══ */
+  var FARBEN = [
+    { id: 'nero', name: 'Nero Antica', wert: '#0f0d0c' },
+    { id: 'rosso', name: 'Rosso Ferrari', wert: '#d40000' },
+    { id: 'arancio', name: 'Arancio Aperol', wert: '#ff5a00' },
+    { id: 'giallo', name: 'Giallo Modena', wert: '#ffcc00' },
+    { id: 'rosa', name: 'Rosa Sarti', wert: '#e4006e' },
+    { id: 'azzurro', name: 'Azzurro', wert: '#0047bb' },
+    { id: 'mucca', name: 'Mucca (Kuhfell)', wert: '#0f0d0c' }
+  ];
+  var farbwahl = $('[data-farbwahl]'), feld = $('[data-feld]'), themaFarbe = $('meta[name="theme-color"]');
+  var farbeJetzt = html.getAttribute('data-farbe') || 'nero';
+  if (!FARBEN.some(function (f) { return f.id === farbeJetzt; })) farbeJetzt = 'nero';
+
+  function farbeSetzen(id, von) {
+    var f = FARBEN.filter(function (x) { return x.id === id; })[0];
+    if (!f || !buehne) return;
+    var anwenden = function () {
+      if (id === 'nero') html.removeAttribute('data-farbe'); else html.setAttribute('data-farbe', id);
+      if (themaFarbe) themaFarbe.setAttribute('content', f.wert);
+    };
+    $$('.farbe', farbwahl).forEach(function (b) { b.setAttribute('aria-checked', String(b.dataset.farbe === id)); b.tabIndex = b.dataset.farbe === id ? 0 : -1; });
+    try { localStorage.setItem('antica-farbe', id); } catch (e) {}
+    if (id === farbeJetzt || ruhig || !von || !Element.prototype.animate) { farbeJetzt = id; anwenden(); return; }
+    farbeJetzt = id;
+    // Die neue Farbe breitet sich kreisförmig vom Farbknopf aus
+    var r = buehne.getBoundingClientRect();
+    var x = von.x - r.left, y = von.y - r.top;
+    var R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
+    var flut = document.createElement('div');
+    flut.className = 'buehne-feld-neu';
+    flut.style.background = id === 'mucca' ? 'url(assets/img/kuhfell.svg) 0 0 / 560px 560px, #0f0d0c' : f.wert;
+    ($('.buehne-fell', buehne) || feld).after(flut);
+    flut.animate([{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + R + 'px at ' + x + 'px ' + y + 'px)' }],
+      { duration: 800, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' }).finished.then(function () {
+      anwenden();
+      setTimeout(function () { flut.remove(); }, 60);
+    });
+    setTimeout(anwenden, 380);
+  }
+  if (farbwahl) {
+    FARBEN.forEach(function (f) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'farbe' + (f.id === 'mucca' ? ' farbe--mucca' : '');
+      b.setAttribute('role', 'radio');
+      b.dataset.farbe = f.id;
+      b.style.setProperty('--f', f.wert);
+      b.setAttribute('aria-label', f.name);
+      b.innerHTML = '<span class="farbe-name" aria-hidden="true">' + f.name + '</span>';
+      b.addEventListener('click', function () {
+        var bb = b.getBoundingClientRect();
+        farbeSetzen(f.id, { x: bb.left + bb.width / 2, y: bb.top + bb.height / 2 });
+      });
+      farbwahl.appendChild(b);
+    });
+    var knoepfe = $$('.farbe', farbwahl);
+    farbwahl.addEventListener('keydown', function (e) {
+      var i = knoepfe.indexOf(document.activeElement); if (i < 0) return;
+      var n = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? i + 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? i - 1 : null;
+      if (n === null) return;
+      e.preventDefault();
+      n = (n + knoepfe.length) % knoepfe.length;
+      knoepfe[n].focus(); knoepfe[n].click();
+    });
+    farbeSetzen(farbeJetzt);
+  }
+
+  /* ═══ Die Pizzen auf dem Teller ═══ */
   var PIZZEN = [
-    { name: 'Margherita', bild: 'margherita', farbe: '#141110', preis: '10,00', veg: true,
+    { name: 'Margherita', bild: 'margherita', preis: '10,00', veg: true,
       satz: 'Tomate, Mozzarella, Oregano. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
-    { name: 'Sucuk', bild: 'salame', farbe: '#6b1c15', preis: '12,50',
-      satz: 'Würzige Knoblauchwurst und Zwiebeln. Die Pizza, für die Stammgäste extra vorbeikommen.', zusatz: 'kräftig' },
-    { name: 'Quattro Formaggi', bild: 'formaggi', farbe: '#7d5c1e', preis: '13,90', veg: true,
+    { name: 'Sucuk', bild: 'salame', preis: '12,50',
+      satz: 'Mit Knoblauchwurst und Zwiebeln. Kräftig, würzig, die Lieblingspizza vieler Stammgäste.', zusatz: 'kräftig' },
+    { name: 'Quattro Formaggi', bild: 'formaggi', preis: '13,90', veg: true,
       satz: 'Edamer, Mozzarella, Feta und Gorgonzola. Vier Käse, ein goldener Rand.', zusatz: 'für Käseliebhaber' },
-    { name: 'Tonno', bild: 'tonno', farbe: '#b04512', preis: '12,50',
-      satz: 'Thunfisch und rote Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'einfach gut' },
-    { name: 'Vegetarisch', bild: 'verdure', farbe: '#1f6b70', preis: '13,90', veg: true,
-      satz: 'Gegrillte Aubergine, Zucchini und Paprika mit Feta und Champignons.', zusatz: 'türkis wie die Stühle draußen' }
+    { name: 'Tonno', bild: 'tonno', preis: '12,50',
+      satz: 'Mit Thunfisch und Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'einfach gut' },
+    { name: 'Vegetarisch', bild: 'verdure', preis: '13,90', veg: true,
+      satz: 'Mit Grillgemüse: Aubergine, Zucchini und Paprika, dazu Feta und Champignons.', zusatz: 'bunt wie der Teller' }
   ];
 
-  var feld = $('[data-feld]'), tafel = $('[data-tafel]'), teller = $('[data-teller]'), kranz = $('[data-kranz]');
+  var tafel = $('[data-tafel]'), teller = $('[data-teller]'), kranz = $('[data-kranz]');
   var gerichtEl = $('[data-gericht]'), waehler = $('[data-waehler]'), hinweis = $('[data-hinweis]');
-  var themaFarbe = $('meta[name="theme-color"]');
 
   if (buehne && teller && waehler) {
     var bildSrc = function (b, w) { return 'assets/img/pizza/' + b + '-' + w + '.webp'; };
     var srcset = function (b) { return bildSrc(b, 480) + ' 480w, ' + bildSrc(b, 800) + ' 800w'; };
+    var erstesTeller = $('.pizza-teller', teller);
 
-    // Restliche Pizzen auf den Teller legen (die erste steht schon im HTML)
     PIZZEN.forEach(function (p, i) {
       if (i === 0) return;
       var d = document.createElement('div');
       d.className = 'pizza';
       d.setAttribute('data-pizza', i);
+      var t = erstesTeller.cloneNode(true);
+      t.removeAttribute('fetchpriority');
+      d.appendChild(t);
       ['pizza-rest', 'pizza-stueck'].forEach(function (k) {
         var img = new Image(800, 800);
         img.className = k; img.alt = ''; img.decoding = 'async'; img.draggable = false;
-        img.sizes = '(max-width: 900px) 82vw, 42vw'; img.srcset = srcset(p.bild); img.src = bildSrc(p.bild, 800);
+        img.sizes = '(max-width: 900px) 64vw, 32vw'; img.srcset = srcset(p.bild); img.src = bildSrc(p.bild, 800);
         d.appendChild(img);
       });
       teller.appendChild(d);
@@ -159,7 +231,6 @@
       st.style.setProperty('--dy', (-Math.cos(mitte) * 6.2).toFixed(2) + '%');
     });
 
-    // Wähler
     waehler.innerHTML = PIZZEN.map(function (p, i) {
       return '<button type="button" class="waehler-tab" role="tab" id="w-' + p.bild + '" aria-controls="gericht-text" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '" data-i="' + i + '">' +
         '<img src="' + bildSrc(p.bild, 160) + '" alt="" width="160" height="160" decoding="async"><span>' + p.name + '</span></button>';
@@ -178,12 +249,11 @@
 
     var akt = 0, laeuft = false, warte = null, gewechselt = false, dreh = 0;
     gerichtEl.innerHTML = gerichtHTML(PIZZEN[0]);
-    feld.style.background = PIZZEN[0].farbe;
 
-    var zeige = function (neu, von, richtung) {
+    var zeige = function (neu, richtung) {
       neu = (neu + PIZZEN.length) % PIZZEN.length;
       if (neu === akt) return;
-      if (laeuft) { warte = [neu, von, richtung]; return; }
+      if (laeuft) { warte = [neu, richtung]; return; }
       var alt = akt, p = PIZZEN[neu];
       akt = neu;
       richtung = richtung || (neu > alt ? 1 : -1);
@@ -191,44 +261,29 @@
 
       tabs.forEach(function (t, i) { t.setAttribute('aria-selected', String(i === neu)); t.tabIndex = i === neu ? 0 : -1; });
       gerichtEl.setAttribute('aria-labelledby', tabs[neu].id);
-      if (themaFarbe) themaFarbe.setAttribute('content', p.farbe);
       dreh -= 50 * richtung;
       if (kranz) kranz.style.setProperty('--dreh', dreh + 'deg');
 
       var altP = pizzen[alt], neuP = pizzen[neu];
       if (ruhig || !Element.prototype.animate) {
         altP.classList.remove('is-aktiv'); neuP.classList.add('is-aktiv');
-        feld.style.background = p.farbe; gerichtEl.innerHTML = gerichtHTML(p);
+        gerichtEl.innerHTML = gerichtHTML(p);
         return;
       }
       laeuft = true;
 
-      // Neue Farbe wächst als Kreis von dort, wo getippt wurde
-      var r = buehne.getBoundingClientRect();
-      var x = (von ? von.x : r.left + r.width * 0.72) - r.left;
-      var y = (von ? von.y : r.top + r.height / 2) - r.top;
-      var R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
-      var flut = document.createElement('div');
-      flut.className = 'buehne-feld-neu';
-      flut.style.background = p.farbe;
-      feld.after(flut);
-      flut.animate([{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + R + 'px at ' + x + 'px ' + y + 'px)' }],
-        { duration: 850, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
-
-      // Alte Pizza rollt in Laufrichtung raus, neue rollt von der anderen Seite rein
+      // Der ganze Teller wird abgeräumt, der nächste rollt von der anderen Seite herein
       var raus = altP.animate([
         { transform: 'none', opacity: 1 },
-        { transform: 'translateX(' + (-24 * richtung) + '%) rotate(' + (-80 * richtung) + 'deg) scale(.78)', opacity: 0 }
+        { transform: 'translateX(' + (-26 * richtung) + '%) rotate(' + (-80 * richtung) + 'deg) scale(.8)', opacity: 0 }
       ], { duration: 480, easing: 'cubic-bezier(.5,0,.75,0)', fill: 'forwards' });
       neuP.classList.add('is-aktiv');
       var rein = neuP.animate([
-        { transform: 'translateX(' + (28 * richtung) + '%) rotate(' + (100 * richtung) + 'deg) scale(.8)', opacity: 0 },
+        { transform: 'translateX(' + (30 * richtung) + '%) rotate(' + (100 * richtung) + 'deg) scale(.82)', opacity: 0 },
         { transform: 'none', opacity: 1 }
       ], { duration: 1000, delay: 260, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
 
-      // Text: alter geht nach oben, neuer kommt von unten
-      var zeilen = Array.prototype.slice.call(gerichtEl.children);
-      zeilen.forEach(function (z, i) {
+      Array.prototype.slice.call(gerichtEl.children).forEach(function (z, i) {
         z.animate([{ transform: 'none', opacity: 1 }, { transform: 'translateY(-14px)', opacity: 0 }], { duration: 240, delay: i * 30, easing: 'ease-in', fill: 'forwards' });
       });
       setTimeout(function () {
@@ -239,37 +294,33 @@
       }, 360);
 
       Promise.all([raus.finished, rein.finished]).then(function () {
-        feld.style.background = p.farbe;
-        flut.remove();
         altP.classList.remove('is-aktiv');
         raus.cancel();
         laeuft = false;
-        if (warte) { var w = warte; warte = null; zeige(w[0], w[1], w[2]); }
+        if (warte) { var w = warte; warte = null; zeige(w[0], w[1]); }
       });
     };
 
-    var mitteVon = function (el) { var b = el.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 }; };
-
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { zeige(i, mitteVon(t)); });
+      t.addEventListener('click', function () { zeige(i); });
       t.addEventListener('keydown', function (e) {
         var n = null;
         if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
         if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
         if (e.key === 'Home') n = 0;
         if (e.key === 'End') n = tabs.length - 1;
-        if (n !== null) { e.preventDefault(); tabs[n].focus(); zeige(n, mitteVon(tabs[n]), n > i ? 1 : -1); }
+        if (n !== null) { e.preventDefault(); tabs[n].focus(); zeige(n, n > i ? 1 : -1); }
       });
     });
     $$('[data-schritt]', buehne).forEach(function (b) {
-      b.addEventListener('click', function () { var s = +b.dataset.schritt; zeige(akt + s, mitteVon(b), s); });
+      b.addEventListener('click', function () { var s = +b.dataset.schritt; zeige(akt + s, s); });
     });
 
-    // Wischen: die Pizza folgt dem Finger ein Stück, dreht sich mit
+    // Wischen: der Teller folgt dem Finger ein Stück und dreht sich mit
     var start = null;
     tafel.addEventListener('pointerdown', function (e) {
-      if (e.target.closest('button') || laeuft) return;
-      start = { x: e.clientX, y: e.clientY, id: e.pointerId, dx: 0 };
+      if (e.target.closest('button, a') || laeuft) return;
+      start = { x: e.clientX, id: e.pointerId, dx: 0 };
     });
     tafel.addEventListener('pointermove', function (e) {
       if (!start || e.pointerId !== start.id) return;
@@ -289,7 +340,7 @@
       tafel.classList.remove('is-zieht');
       if (Math.abs(dx) > 55) {
         p.style.transform = '';
-        zeige(akt + (dx < 0 ? 1 : -1), e ? { x: e.clientX, y: e.clientY } : null, dx < 0 ? 1 : -1);
+        zeige(akt + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
       } else if (p.style.transform) {
         var jetzt = p.style.transform;
         p.style.transform = '';
@@ -300,11 +351,11 @@
     tafel.addEventListener('pointercancel', loslassen);
 
     document.addEventListener('keydown', function (e) {
-      if (e.target.closest('input, textarea, [role="tablist"]')) return;
+      if (e.target.closest('input, textarea, [role="tablist"], [role="radiogroup"]')) return;
       var b = buehne.getBoundingClientRect();
       if (b.bottom < 100 || b.top > window.innerHeight - 100) return;
-      if (e.key === 'ArrowRight') zeige(akt + 1, null, 1);
-      if (e.key === 'ArrowLeft') zeige(akt - 1, null, -1);
+      if (e.key === 'ArrowRight') zeige(akt + 1, 1);
+      if (e.key === 'ArrowLeft') zeige(akt - 1, -1);
     });
   }
 
@@ -344,32 +395,67 @@
     });
   }
 
-  /* ── Pizza am Kartenrand dreht sich beim Scrollen ── */
-  var randPizza = $('[data-rand-pizza]');
-  if (randPizza && !ruhig) {
-    var randLaeuft = false;
+  /* ── Beim Scrollen: Teller am Kartenrand dreht sich, Fellteppich schwingt ── */
+  var randPizza = $('[data-rand-pizza]'), teppich = $('[data-teppich]');
+  if (!ruhig && (randPizza || teppich)) {
+    var tickt = false;
     window.addEventListener('scroll', function () {
-      if (randLaeuft) return;
-      randLaeuft = true;
+      if (tickt) return;
+      tickt = true;
       requestAnimationFrame(function () {
-        var b = randPizza.getBoundingClientRect();
-        randPizza.style.setProperty('--rad', ((window.innerHeight - b.top) * 0.18).toFixed(1) + 'deg');
-        randLaeuft = false;
+        var h = window.innerHeight;
+        if (randPizza) randPizza.style.setProperty('--rad', ((h - randPizza.getBoundingClientRect().top) * 0.18).toFixed(1) + 'deg');
+        if (teppich) {
+          var b = teppich.getBoundingClientRect(), f = (b.top + b.height / 2 - h / 2) / h;
+          teppich.style.setProperty('--teppich', (-9 + f * 10).toFixed(2) + 'deg');
+        }
+        tickt = false;
       });
     }, { passive: true });
   }
 
-  /* ── Auftritte beim Scrollen und das Schild, das sich selbst malt ── */
-  $$('[data-malen]').forEach(function (svg) { $$('.schild-zug path', svg).forEach(function (p, i) { p.style.setProperty('--i', i); }); });
-  var auf = $$('[data-auf]'), malen = $$('[data-malen]');
+  /* ── Die Maske klingelt beim Antippen ── */
+  var maske = $('[data-maske]');
+  if (maske) {
+    maske.addEventListener('click', function () {
+      maske.classList.remove('is-klingelt'); void maske.offsetWidth; maske.classList.add('is-klingelt');
+    });
+    maske.addEventListener('animationend', function (e) { if (e.animationName === 'maske-klingeln') maske.classList.remove('is-klingelt'); });
+  }
+
+  /* ── Gästestimmen: eine nach der anderen ── */
+  var stimmen = $('[data-stimmen]');
+  if (stimmen) {
+    var sKnoepfe = $$('.stimmen-steuer button', stimmen), karten = $$('.stimme', stimmen);
+    var jetzt = 0, TAKT = 8000, uhr = null;
+    stimmen.style.setProperty('--takt', TAKT + 'ms');
+    var zeigeStimme = function (n) {
+      jetzt = (n + karten.length) % karten.length;
+      karten.forEach(function (k, i) { k.classList.toggle('is-aktiv', i === jetzt); });
+      sKnoepfe.forEach(function (b, i) { b.setAttribute('aria-pressed', String(i === jetzt)); });
+    };
+    var starten = function () {
+      clearInterval(uhr);
+      if (!ruhig) uhr = setInterval(function () { if (!stimmen.classList.contains('is-pause')) zeigeStimme(jetzt + 1); }, TAKT);
+    };
+    sKnoepfe.forEach(function (b, i) { b.addEventListener('click', function () { zeigeStimme(i); starten(); }); });
+    ['mouseenter', 'focusin'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.add('is-pause'); }); });
+    ['mouseleave', 'focusout'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.remove('is-pause'); }); });
+    starten();
+  }
+
+  /* ── Auftritte beim Scrollen, Neon geht an ── */
+  var auf = $$('[data-auf]'), neonSpaeter = $$('.besuch-zeiten, .neon--aperitivo, .fuss-schild');
+  function zuenden(el) {
+    var n = el.matches('.neon--aperitivo, .fuss-schild') ? el : el.querySelector('[data-neon]');
+    if (n) setTimeout(function () { n.classList.add('is-an'); }, 400);
+  }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
-        e.target.classList.add(e.target.hasAttribute('data-malen') ? 'is-gemalt' : 'is-da');
-        var n = e.target.querySelector && e.target.querySelector('[data-neon]');
-        if (n) setTimeout(function () { n.classList.add('is-an'); }, 500);
-        if (e.target.hasAttribute('data-malen')) e.target.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt');
+        e.target.classList.add('is-da');
+        zuenden(e.target);
         io.unobserve(e.target);
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
@@ -378,33 +464,10 @@
       el.style.transitionDelay = Math.min(geschwister, 4) * 80 + 'ms';
       io.observe(el);
     });
-    malen.forEach(function (el) { io.observe(el); });
+    neonSpaeter.forEach(function (el) { if (!el.hasAttribute('data-auf')) io.observe(el); });
   } else {
     auf.forEach(function (el) { el.classList.add('is-da'); });
-    malen.forEach(function (el) { el.classList.add('is-gemalt'); el.closest('.fuss-schild, .intro-marke').classList.add('is-gemalt'); });
-  }
-
-  /* ── Gästestimmen: eine nach der anderen, wie Seiten einer Speisekarte ── */
-  var stimmen = $('[data-stimmen]');
-  if (stimmen) {
-    var knoepfe = $$('.stimmen-steuer button', stimmen), karten = $$('.stimme', stimmen);
-    var jetzt = 0, TAKT = 8000, uhr = null;
-    stimmen.style.setProperty('--takt', TAKT + 'ms');
-    var zeigeStimme = function (n) {
-      jetzt = (n + karten.length) % karten.length;
-      karten.forEach(function (k, i) { k.classList.toggle('is-aktiv', i === jetzt); });
-      knoepfe.forEach(function (b, i) {
-        b.setAttribute('aria-pressed', String(i === jetzt));
-        // Fortschrittsstrich neu starten
-        b.style.animation = 'none'; b.offsetWidth; b.style.animation = '';
-      });
-    };
-    var weiter = function () { if (!stimmen.classList.contains('is-pause')) zeigeStimme(jetzt + 1); };
-    var starten = function () { clearInterval(uhr); if (!ruhig) uhr = setInterval(weiter, TAKT); };
-    knoepfe.forEach(function (b, i) { b.addEventListener('click', function () { zeigeStimme(i); starten(); }); });
-    ['mouseenter', 'focusin'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.add('is-pause'); }); });
-    ['mouseleave', 'focusout'].forEach(function (ev) { stimmen.addEventListener(ev, function () { stimmen.classList.remove('is-pause'); }); });
-    starten();
+    neonSpaeter.forEach(zuenden);
   }
 
   /* ── Karte erst nach Klick laden (vorher keine Verbindung zu Dritten) ── */

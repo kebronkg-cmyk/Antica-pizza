@@ -15,27 +15,25 @@ Deployen geht überall, wo statische Dateien laufen: GitHub Pages, Netlify, Clou
 ## Struktur
 
 ```
-index.html            One-Pager: Pizza-Bühne, Laufband, Tageszeiten, Speisekarte, Gäste, Besuch
-impressum.html        Vorlage – Platzhalter [gelb markiert] ausfüllen!
-datenschutz.html      Vorlage – Platzhalter ausfüllen und prüfen lassen!
-favicon.svg
-assets/css/style.css  Design-Tokens oben in :root (Farben, Schriften)
-assets/js/main.js     Pizza-Bühne, Live-Öffnungsstatus, Tagesbogen, Karte-Reiter, Veggie-Filter
-assets/fonts/         Bodoni Moda, Instrument Serif, Bricolage Grotesque, Caveat (selbst gehostet, DSGVO-freundlich)
-assets/img/pizza/     Freigestellte Pizzen (WebP, 160/480/800 px)
-assets/img/fassade.jpg
+index.html            One-Pager: Bühne, Laufband, Tageszeiten, Drinnen, Karte, Google-Stimmen, Besuch
+assets/css/style.css  Design-Tokens oben in :root, Bühnenfarben unter html[data-farbe=…]
+assets/js/main.js     Bühne, Farbwahl, Öffnungsstatus + Neon, Tagesbogen, Karte, Stimmen
+assets/fonts/         Bodoni Moda, Instrument Serif, Bricolage Grotesque, Caveat, Rye (Western)
+assets/img/pizza/     Freigestellte Pizzen
+assets/img/           Mandala-Teller, Maske, Innenraum- und Regalfotos, kuhfell.svg, Fassade
+archiv/               Frühere Stände, komplett lauffähig
 ```
 
 ## Designentscheidungen
 
-- **Schriftzug vom Ladenschild:** Das „ANTICA“ ist ein eigenes SVG, nachgezeichnet nach dem handgemalten Schild, mit Blattgold-Verlauf und Pinselkante (SVG-Filter). Gleich beim Öffnen malt es sich auf der Bühne Strich für Strich selbst, danach läuft die Trikolore ein. Im Fuß passiert das noch einmal.
-- **Farben vom Laden:** Schild schwarz-gold, die grünen Ayinger-Schirme, die türkisen Stühle, die orange Wand neben der Tür und die Trikolore unter dem Schriftzug. Die Bühne startet schwarz-gold mit der Margherita, jede weitere Pizza bringt eine eigene Farbe mit (Bordeaux, Ocker, Orange, Türkis).
-- **Pizza-Bühne:** Fünf freigestellte Pizzen zum Antippen, Wischen oder per Pfeiltaste. Die neue Farbe wächst als Kreis von der Stelle, an der getippt wurde, die Pizza rollt herein. Mit der Maus über der Pizza hebt sich ein Stück an.
-- **Schrift:** Auf der Bühne *Instrument Serif* neben dem Pinsel-Schriftzug, sonst *Bodoni Moda* (die Bodoni stammt aus Parma) für Überschriften, *Bricolage Grotesque* für Text, *Caveat* als Kreide-Handschrift wie auf der Tafel vor dem Laden.
-- **Kein Beige:** Helle Flächen sind Porzellan-Weiß, dazu Schwarz, Gold und Bordeaux.
-- **Details:** Gestreifte Markise mit Bogenkante über dem Tagesabschnitt, Sonne-/Mond-Bogen live nach Uhrzeit, Neon-Schild „aperto/chiuso“ nach Öffnungszeit, Gästestimmen mit «Guillemets», römischen Ziffern und Lorbeer-Medaille auf Majolika-Muster, Tafel „Stück Pizza to go“, Postkarte mit Stempel.
-- **Fotos:** Nur Bilder in brauchbarer Qualität. Die kleinen Gästefotos sind raus. Bessere eigene Fotos können später dazukommen.
-- **DSGVO:** Schriften lokal, keine Cookies, OpenStreetMap lädt erst nach Klick.
+- **Schriftzug 1:1 vom Schild:** „ANTICA – CAFFE PIZZA BAR“ ist direkt aus dem Fassadenfoto vektorisiert. Er zeichnet sich beim Öffnen selbst; im Fuß leuchtet er als goldenes Neon.
+- **Farben:** Schwarz und Blattgold als Basis, Akzent **Rosso Corsa (Ferrari-Rot, #D40000)**. Bühnenfarbe umschaltbar: Nero, Rosso Ferrari, Arancio Aperol, Giallo Modena, Rosa Sarti, Azzurro, Mucca (Kuhfell). Die Wahl wird gemerkt.
+- **Teller:** Die Pizzen liegen auf dem bunten Majolika-Teller aus dem Laden (aus dem Foto entzerrt).
+- **Kuhfell:** eigenes, kachelbares Holstein-Fell (SVG), langsam wandernd, an mehreren Stellen.
+- **Western:** Sheriffstern mit der Google-Note, Steckbrief „Wanted: Pizza Sucuk“, Lassoseil, Hufeisen.
+- **Neon:** hängendes „aperto/chiuso“ (live nach Öffnungszeit), „Aperitivo“, Neon-Schriftzug im Fuß.
+- **Drinnen:** Collage aus den eigenen Fotos plus freigestellte venezianische Maske (schwingt, klingelt beim Antippen).
+- **DSGVO:** Schriften lokal, keine Cookies; OpenStreetMap lädt erst nach Klick.
 
 ## Archiv & Zurückholen
 
@@ -73,3 +71,4 @@ Frühere Stände liegen komplett lauffähig unter `archiv/` (online z. B. `/arch
 |---|---|---|
 | pizza/*.webp | Margherita, Sucuk, Quattro Formaggi, Tonno, Vegetarisch (freigestellt) | vom Auftraggeber geliefertes Bild |
 | fassade.jpg | Ladenfront mit Schirmen | mux.de |
+| teller-mandala-*, maske-*, bar-*, innen-* | Teller, Maske, Regal, Innenraum | eigene Fotos des Auftraggebers |
