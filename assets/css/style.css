@@ -290,24 +290,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .dampf { stroke-dasharray: 22; animation: dampf 3s ease-in-out infinite; }
 @keyframes dampf { 0% { stroke-dashoffset: 22; opacity: 0; } 40% { opacity: 1; } 100% { stroke-dashoffset: -22; opacity: 0; } }
 
-/* ═══ Drinnen ═══ */
-.drinnen { position: relative; overflow: hidden; color: var(--bianco); padding: clamp(100px, 12vw, 170px) 0 clamp(100px, 12vw, 170px); background: radial-gradient(80% 60% at 70% 30%, #2a1b12, var(--espresso) 72%); }
-.drinnen .titel-gross em { color: var(--aperol); }
-.drinnen .hand { color: var(--oro-hell); }
-.drinnen-kopf { position: relative; z-index: 4; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); column-gap: clamp(40px, 6vw, 100px); align-items: end; margin-bottom: clamp(50px, 6vw, 90px); }
-.drinnen-kopf .hand, .drinnen-kopf .titel-gross { grid-column: 1; }
-.drinnen-satz { grid-column: 2; grid-row: 1 / span 2; align-self: end; font-size: clamp(16px, 1.25vw, 19px); opacity: .82; max-width: 42ch; }
-.galerie { position: relative; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
-.galerie-bild { position: relative; margin: 0; }
-.galerie-rahmen { position: relative; overflow: hidden; aspect-ratio: 761 / 1024; outline: 1px solid rgba(212,170,82,.5); outline-offset: 10px; }
-.galerie-rahmen--quer { aspect-ratio: 1100 / 1195; }
-.galerie-rahmen img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); transition: transform 1.6s var(--ease-out); }
-.galerie-bild:hover .galerie-rahmen img { transform: scale(1.07); }
-.galerie-bild figcaption { display: flex; align-items: baseline; gap: 14px; margin-top: 24px; font: italic 400 clamp(18px, 1.4vw, 22px)/1.3 var(--f-buehne); color: rgba(246,245,242,.8); }
-.galerie-bild figcaption span { font: italic 400 16px/1 var(--f-titel); color: var(--oro); }
-.neon--aperitivo span { color: #fff1e0; text-shadow: 0 0 2px #fff, 0 0 8px #ffa45c, 0 0 20px var(--aperol), 0 0 42px #ff4800, 0 0 80px rgba(255,90,0,.7); }
-.neon--aperitivo.is-an span { animation: flackern 2.4s steps(1) 1, summen 3.4s 2.4s ease-in-out infinite; }
-
 /* ═══ Karte ═══ */
 .karte { position: relative; overflow: hidden; background: var(--nero); color: var(--bianco); padding: clamp(90px, 11vw, 150px) 0 clamp(60px, 8vw, 110px); }
 .karte::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 50% at 15% 0%, rgba(212,170,82,.12), transparent 70%); }
@@ -362,7 +344,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .gaeste-tafel { position: relative; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(36px, 5vw, 80px); align-items: center; background: var(--nero); padding: clamp(36px, 5vw, 72px); border: 1px solid rgba(212,170,82,.6); box-shadow: 0 50px 90px -40px rgba(0,0,0,.9); }
 .gaeste-tafel::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(212,170,82,.25); pointer-events: none; }
 .google .hand { color: var(--oro-hell); }
-.google-titel { font: 400 clamp(36px, 3.6vw, 52px)/1 var(--f-titel); margin: 10px 0 18px; }
+.google-titel { font: 400 clamp(28px, 2.6vw, 38px)/1 var(--f-titel); margin: 8px 0 12px; opacity: .92; }
 .medaille { position: relative; width: clamp(210px, 19vw, 260px); aspect-ratio: 1; display: grid; place-items: center; color: var(--oro); margin: 6px 0 4px; }
 .medaille-kranz { position: absolute; inset: 0; width: 100%; height: 100%; }
 .medaille-mitte { text-align: center; margin-top: -8%; }
@@ -517,9 +499,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .stueck-zettel { display: none; }
   .drei { grid-template-columns: 1fr; }
   .bogen { display: none; }
-  .drinnen-kopf { grid-template-columns: 1fr; }
-  .drinnen-satz { grid-column: 1; grid-row: auto; margin-top: 18px; }
-  .galerie { grid-template-columns: 1fr; }
   .speisen { columns: 1; }
   .rand-pizza { display: none; }
   .karte-hinweise { justify-items: center; text-align: center; }
@@ -569,60 +548,8 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .buehne-feld-neu.is-fell, .buehne-fell { background: var(--fell-schleier), url("../img/kuhfell.webp") 0 0 / 640px 640px, #000; }
 :root { --fell-schleier: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,0) 14%), linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.78) 34%, rgba(0,0,0,.08) 56%, rgba(0,0,0,0) 100%), linear-gradient(to top, rgba(0,0,0,.8), transparent 30%); }
 
-/* ═══ Caffè · Pizza · Bar: drei Medaillons wie auf einer alten Caffè-Karte ═══ */
-.trio { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); padding: clamp(40px, 5vw, 70px) 0 clamp(20px, 3vw, 40px); border-top: 1px solid rgba(15,13,12,.14); border-bottom: 1px solid rgba(15,13,12,.14); }
-.trio::before, .trio::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: rgba(15,13,12,.14); }
-.trio::before { top: 5px; }
-.trio::after { bottom: 5px; }
-.trio-teil { text-align: center; padding: 0 clamp(18px, 3vw, 48px); }
-.trio-teil + .trio-teil { border-left: 1px solid rgba(15,13,12,.12); }
-.oval { position: relative; width: min(230px, 76%); aspect-ratio: 4 / 5; margin: 0 auto 26px; border-radius: 50%; overflow: hidden; outline: 1px solid var(--oro); outline-offset: 8px; background: #0b0908; }
-.oval img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-out); }
-.trio-teil:hover .oval img { transform: scale(1.08); }
-.oval--pizza { background: radial-gradient(circle at 50% 40%, #e00a00, #8c0000); }
-.oval--pizza img { position: absolute; left: 6%; top: 18%; width: 88%; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 14px 14px rgba(0,0,0,.4)); }
-.oval--pizza img + img { left: 17%; top: 29%; width: 66%; }
-.trio-teil:hover .oval--pizza img { transform: rotate(40deg); }
-.trio-nr { font: italic 400 16px/1 var(--f-titel); color: var(--oro-tief); }
-.trio-teil h3 { font: italic 400 clamp(44px, 4vw, 60px)/1.05 var(--f-titel); margin: 6px 0 12px; }
-.trio-teil:nth-child(2) h3 { color: var(--rosso); }
-.trio-teil p:last-child { font-size: 16px; opacity: .78; max-width: 30ch; margin: 0 auto; }
-
-/* ═══ Drinnen: Maske hängt oben rechts an einer goldenen Schnur ═══ */
-.drinnen { position: relative; }
-.maske-haken { position: absolute; top: 0; right: clamp(16px, 6vw, 110px); z-index: 5; width: clamp(170px, 19vw, 280px); display: grid; justify-items: center; transform-origin: 50% 0; animation: maske-schwingen 7s ease-in-out infinite; pointer-events: none; }
-.maske-haken::before { content: ""; width: 14px; height: 14px; border-radius: 50%; margin-top: -7px; background: radial-gradient(circle at 35% 35%, #f3dc94, #8a6526); box-shadow: 0 2px 4px rgba(0,0,0,.5); }
-.maske-schnur { width: 6px; height: clamp(50px, 6vw, 90px); }
-.maske { width: 100%; height: auto; margin-top: -10px; filter: drop-shadow(0 26px 24px rgba(0,0,0,.7)) drop-shadow(0 0 30px rgba(212,170,82,.18)); pointer-events: auto; cursor: pointer; }
-.maske-haken.is-klingelt { animation: maske-klingeln 1s ease-in-out; }
-@keyframes maske-schwingen { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
-@keyframes maske-klingeln { 0% { transform: rotate(0); } 15% { transform: rotate(-10deg); } 30% { transform: rotate(8deg); } 45% { transform: rotate(-6deg); } 60% { transform: rotate(4deg); } 80% { transform: rotate(-2deg); } 100% { transform: rotate(0); } }
-.drinnen-kopf { padding-right: clamp(0px, 18vw, 300px); }
-.galerie-bild--tv { margin-top: clamp(40px, 7vw, 120px); }
-.tv-bild { aspect-ratio: 3 / 4; }
-.tv-bild img { object-position: 50% 0; }
-.tv-schirm { position: absolute; inset: 0; width: 100%; height: 100%; }
-.tv-programm { opacity: 0; transition: opacity .25s; }
-.galerie-bild--tv.is-an .tv-programm { opacity: 1; }
-.tv-rauschen { opacity: 0; }
-.galerie-bild--tv.is-schaltet .tv-rauschen { animation: rauschen .45s steps(4) 1; }
-@keyframes rauschen { 0% { opacity: .9; } 25% { opacity: .2; } 50% { opacity: .8; } 75% { opacity: .3; } 100% { opacity: 0; } }
-.tv-ball { animation: ball 6s ease-in-out infinite; }
-@keyframes ball { 0% { transform: translate(0,0); } 20% { transform: translate(-150px,-70px); } 40% { transform: translate(90px,-120px); } 60% { transform: translate(230px,40px); } 80% { transform: translate(-60px,120px); } 100% { transform: translate(0,0); } }
-.tv-spieler circle { animation: spieler 6s ease-in-out infinite; }
-.tv-spieler circle:nth-child(2n) { animation-direction: reverse; }
-@keyframes spieler { 50% { transform: translate(30px, -20px); } }
-.tv-live-punkt { animation: blink 1.2s infinite; }
-@keyframes blink { 50% { opacity: .2; } }
-.tv-knopf { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border: 0; border-radius: 999px; background: rgba(10,8,7,.82); color: var(--bianco); font: 600 13px/1 var(--f-text); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background-color .3s; }
-.tv-knopf:hover { background: #000; }
-.tv-knopf-punkt { width: 9px; height: 9px; border-radius: 50%; background: #6b6460; }
-.galerie-bild--tv.is-an .tv-knopf-punkt { background: #ff2d1a; box-shadow: 0 0 10px #ff2d1a; }
-
 /* ═══ Aperitivo-Band mit dem Regal ═══ */
-.aperitivo { position: relative; overflow: hidden; min-height: clamp(380px, 46vw, 620px); display: grid; align-items: center; color: #fff; isolation: isolate; }
-.aperitivo-bild { position: absolute; inset: -12% 0; z-index: -2; background: url("../img/regal-1600.webp") center / cover no-repeat; transform: translateY(var(--px, 0)); will-change: transform; }
-.aperitivo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8,6,5,.88) 0%, rgba(8,6,5,.6) 42%, rgba(8,6,5,.1) 75%); }
+.aperitivo { position: relative; background: #050403; overflow: hidden; min-height: clamp(380px, 46vw, 620px); display: grid; align-items: center; color: #fff; isolation: isolate; }
 .aperitivo-inhalt { display: grid; gap: 26px; justify-items: start; padding-block: 60px; }
 .neon--aperitivo { font-size: clamp(64px, 8vw, 128px); transform: rotate(-4deg); }
 .neon--aperitivo span { color: #fff1e0; text-shadow: 0 0 2px #fff, 0 0 10px #ffa45c, 0 0 24px var(--aperol), 0 0 50px #ff4800, 0 0 90px rgba(255,90,0,.7); }
@@ -649,11 +576,54 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .karte-hinweis--seite a { color: var(--oro-hell); }
 
 @media (max-width: 900px) {
-  .trio { grid-template-columns: 1fr; gap: 44px; }
-  .trio-teil + .trio-teil { border-left: 0; border-top: 1px solid rgba(15,13,12,.12); padding-top: 44px; }
-  .maske-haken { width: 130px; right: 12px; }
-  .drinnen-kopf { padding-right: 120px; }
-  .galerie-bild--tv { margin-top: 10px; }
   .vorschau { grid-template-columns: 1fr; }
-  .aperitivo::before { background: linear-gradient(0deg, rgba(8,6,5,.9) 10%, rgba(8,6,5,.45) 70%); }
+}
+
+/* ═══ Caffè · Pizza · Bar · Drinnen (zusammengeführt) ═══ */
+.salone { position: relative; overflow: hidden; color: var(--bianco); padding: clamp(120px, 13vw, 180px) 0 clamp(90px, 11vw, 150px); background: radial-gradient(80% 60% at 75% 35%, #2a1b12, var(--espresso) 72%); }
+.salone .hand { color: var(--oro-hell); }
+.salone .titel-gross em { color: var(--aperol); }
+.haus-raster { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(40px, 6vw, 100px); align-items: center; }
+.haus-satz { margin: 22px 0 34px; font-size: clamp(16px, 1.2vw, 18px); opacity: .82; max-width: 44ch; }
+.haus-liste { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(212,170,82,.3); }
+.haus-liste li { display: grid; grid-template-columns: 52px 1fr; gap: 6px; padding: 20px 0; border-bottom: 1px solid rgba(212,170,82,.3); }
+.haus-nr { font: italic 400 18px/1.6 var(--f-titel); color: var(--oro); }
+.haus-liste h3 { font: italic 400 clamp(30px, 2.6vw, 40px)/1 var(--f-titel); margin-bottom: 6px; }
+.haus-liste li:nth-child(2) h3 { color: #ff4a35; }
+.haus-liste p { font-size: 15.5px; opacity: .78; max-width: 46ch; }
+/* Collage: verspielt, aber ruhig */
+.collage { position: relative; aspect-ratio: 1 / 1.08; }
+.c-bild { position: absolute; margin: 0; padding: 10px; background: #f6f5f2; box-shadow: 0 34px 60px -24px rgba(0,0,0,.8); transition: transform .9s var(--ease-out); }
+.c-bild img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.c-bild--gross { left: 0; top: 4%; width: 66%; aspect-ratio: 1100 / 1195; transform: rotate(-3deg); z-index: 1; }
+.c-bild--tisch { right: 0; bottom: 0; width: 44%; aspect-ratio: 3 / 4; transform: rotate(4deg); z-index: 2; }
+.c-bild--tisch img { object-position: 30% 70%; }
+.js .c-bild--gross[data-auf].is-da { transform: rotate(-3deg); }
+.js .c-bild--tisch[data-auf].is-da { transform: rotate(4deg); }
+.c-bild:hover, .js .c-bild[data-auf].is-da:hover { transform: rotate(0) scale(1.03); z-index: 4; }
+.c-pizza { position: absolute; left: 44%; bottom: -4%; width: 30%; aspect-ratio: 1; margin: 0; z-index: 3; filter: drop-shadow(0 22px 22px rgba(0,0,0,.6)); animation: pizza-drehen 40s linear infinite; }
+.c-pizza img { position: absolute; }
+.c-pizza img:first-child { inset: 0; width: 100%; height: 100%; border-radius: 50%; }
+.c-pizza img:last-child { inset: 12.5%; width: 75%; height: 75%; }
+@keyframes pizza-drehen { to { transform: rotate(360deg); } }
+.c-notiz { position: absolute; right: 4%; top: 2%; font: 600 26px/1 var(--f-hand); color: var(--oro-hell); transform: rotate(6deg); }
+/* Maske ganz oben rechts in der Ecke, unter der Markise */
+.maske { position: absolute; top: 34px; right: -2.5%; z-index: 4; width: clamp(150px, 17vw, 250px); height: auto; transform-origin: 70% 0; transform: rotate(14deg); filter: drop-shadow(0 22px 22px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(212,170,82,.16)); cursor: pointer; transition: transform .6s var(--ease-out); }
+.maske:hover { transform: rotate(8deg); }
+.maske.is-klingelt { animation: maske-klingeln 1s ease-in-out; }
+@keyframes maske-klingeln { 0% { transform: rotate(14deg); } 15% { transform: rotate(4deg); } 30% { transform: rotate(20deg); } 45% { transform: rotate(8deg); } 60% { transform: rotate(17deg); } 80% { transform: rotate(12deg); } 100% { transform: rotate(14deg); } }
+/* Aperitivo: ganzes Regalfoto, nicht so nah */
+.aperitivo-bild { position: absolute; top: -10%; bottom: -10%; right: 0; width: min(62%, 900px); z-index: -2; background: url("../img/regal-voll-1300.webp") center / cover no-repeat; transform: translateY(var(--px, 0)); will-change: transform; -webkit-mask: linear-gradient(90deg, transparent, #000 35%); mask: linear-gradient(90deg, transparent, #000 35%); }
+.aperitivo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(5,4,3,.95) 30%, rgba(5,4,3,.4) 60%, rgba(5,4,3,.15)); }
+/* Dezente Textlinks */
+.leise-link { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--f-text); letter-spacing: .04em; color: var(--oro-hell); text-decoration: none; padding-bottom: 5px; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: gap .3s var(--ease-out), opacity .3s; opacity: .9; }
+.leise-link:hover { gap: 12px; opacity: 1; }
+.leise-link .ico { width: 1em; height: 1em; }
+.vorschau-fuss { gap: 14px 28px; }
+@media (max-width: 900px) {
+  .haus-raster { grid-template-columns: 1fr; }
+  .collage { max-width: 520px; width: 100%; margin: 10px auto 30px; }
+  .maske { width: 120px; top: 30px; right: -4%; }
+  .salone .titel-gross { padding-right: 70px; }
+  .aperitivo-bild { width: 100%; -webkit-mask: none; mask: none; opacity: .45; }
 }

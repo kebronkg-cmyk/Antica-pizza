@@ -4,6 +4,7 @@ Gesicherte Stände der Website, jeweils komplett lauffähig.
 
 | Ordner | Stand | Commit | Ansehen |
 |---|---|---|---|
+| `stand-8-tv/` | Medaillons, TV mit Fußball, Maske an Schnur, Aperitivo-Band | `9ccbc43` | `/archiv/stand-8-tv/` |
 | `stand-7-boegen/` | Bögen Caffè/Pizza/Bar, Maske an Bildecke, TV-Kasten, volle Karte auf der Startseite | `ef0e4bc` | `/archiv/stand-7-boegen/` |
 | `stand-6-karte/` | Echte Karte, Blau statt Grün, Tageszeiten-Bogen, Bodoni-Überschriften | `e15de4d` | `/archiv/stand-6-karte/` |
 | `stand-5-elegant/` | Pizzafarben, Galerie, Lorbeer, Karte noch nach speisekarte.de | `6357a22` | `/archiv/stand-5-elegant/` |

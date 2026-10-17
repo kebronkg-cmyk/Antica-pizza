@@ -342,6 +342,8 @@
       if (n) { e.preventDefault(); reiterWaehlen(n, true); }
     });
   });
+  // speisekarte.html#bar öffnet direkt die Getränke
+  if (location.hash === '#bar' && $('#r-trinken')) reiterWaehlen($('#r-trinken'));
   if (nurVeg) {
     nurVeg.addEventListener('change', function () {
       $$('.speise').forEach(function (s) { s.classList.toggle('is-weg', nurVeg.checked && !s.hasAttribute('data-veg')); });
@@ -371,34 +373,10 @@
   /* ── Die Maske klingelt beim Antippen ── */
   var maske = $('[data-maske]');
   if (maske) {
-    var haken = maske.parentNode;
     maske.addEventListener('click', function () {
-      haken.classList.remove('is-klingelt'); void haken.offsetWidth; haken.classList.add('is-klingelt');
+      maske.classList.remove('is-klingelt'); void maske.offsetWidth; maske.classList.add('is-klingelt');
     });
-    haken.addEventListener('animationend', function (e) { if (e.animationName === 'maske-klingeln') haken.classList.remove('is-klingelt'); });
-  }
-
-  /* ── Der Fernseher im Foto: schaltet auf Fußball um, sobald man hinsieht ── */
-  var tv = $('[data-tv]');
-  if (tv) {
-    var tvKnopf = $('[data-tv-knopf]', tv), tvText = $('[data-tv-text]', tv), tvUhr = $('.tv-uhr', tv);
-    var minute = 0, tvTakt = null;
-    var tvSetzen = function (an) {
-      tv.classList.remove('is-schaltet'); void tv.offsetWidth; tv.classList.add('is-schaltet');
-      tv.classList.toggle('is-an', an);
-      tvKnopf.setAttribute('aria-pressed', String(an));
-      tvText.textContent = an ? 'Fußball läuft' : 'Fußball einschalten';
-      clearInterval(tvTakt);
-      if (an && !ruhig) tvTakt = setInterval(function () { minute = (minute + 1) % 91; tvUhr.textContent = minute + ':00'; }, 700);
-    };
-    tvKnopf.addEventListener('click', function () { tvSetzen(!tv.classList.contains('is-an')); });
-    tvSetzen(false);
-    if ('IntersectionObserver' in window) {
-      var tvObs = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting) { setTimeout(function () { tvSetzen(true); }, 700); tvObs.disconnect(); }
-      }, { threshold: 0.5 });
-      tvObs.observe(tv);
-    }
+    maske.addEventListener('animationend', function (e) { if (e.animationName === 'maske-klingeln') maske.classList.remove('is-klingelt'); });
   }
 
   /* ── Gästestimmen: eine nach der anderen ── */
