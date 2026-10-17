@@ -20,19 +20,18 @@ assets/css/style.css  Design-Tokens oben in :root, Bühnenfarben unter html[data
 assets/js/main.js     Bühne, Farbwahl, Öffnungsstatus + Neon, Tagesbogen, Karte, Stimmen
 assets/fonts/         Bodoni Moda, Instrument Serif, Bricolage Grotesque, Caveat, Rye (Western)
 assets/img/pizza/     Freigestellte Pizzen
-assets/img/           Mandala-Teller, Maske, Innenraum- und Regalfotos, kuhfell.svg, Fassade
+assets/img/           Mandala-Teller, Maske, Innenraumfotos, kuhfell.webp, Fassade
 archiv/               Frühere Stände, komplett lauffähig
 ```
 
 ## Designentscheidungen
 
 - **Schriftzug 1:1 vom Schild:** „ANTICA – CAFFE PIZZA BAR“ ist direkt aus dem Fassadenfoto vektorisiert. Er zeichnet sich beim Öffnen selbst; im Fuß leuchtet er als goldenes Neon.
-- **Farben:** Schwarz und Blattgold als Basis, Akzent **Rosso Corsa (Ferrari-Rot, #D40000)**. Bühnenfarbe umschaltbar: Nero, Rosso Ferrari, Arancio Aperol, Giallo Modena, Rosa Sarti, Azzurro, Mucca (Kuhfell). Die Wahl wird gemerkt.
-- **Teller:** Die Pizzen liegen auf dem bunten Majolika-Teller aus dem Laden (aus dem Foto entzerrt).
-- **Kuhfell:** eigenes, kachelbares Holstein-Fell (SVG), langsam wandernd, an mehreren Stellen.
-- **Western:** Sheriffstern mit der Google-Note, Steckbrief „Wanted: Pizza Sucuk“, Lassoseil, Hufeisen.
-- **Neon:** hängendes „aperto/chiuso“ (live nach Öffnungszeit), „Aperitivo“, Neon-Schriftzug im Fuß.
-- **Drinnen:** Collage aus den eigenen Fotos plus freigestellte venezianische Maske (schwingt, klingelt beim Antippen).
+- **Bühne:** Vier Pizzen von der Karte, jede bringt ihre Farbe mit, die sich beim Wechsel vom Tipp-Punkt aus über die ganze Fläche ausbreitet: Margherita in Ferrari-Rot (Lack mit Glanz), Tonno in Azzurro, Vegetarisch in Giallo, zum Schluss die Empfehlung Quattro Formaggi auf Kuhfell. Die Pizzen liegen auf dem Majolika-Teller aus dem Laden.
+- **Kuhfell:** nur noch auf der Bühne bei der letzten Pizza; als fertiges Bild (`kuhfell.webp`), das per GPU wandert, damit nichts ruckelt.
+- **Drinnen:** zwei große Fotos aus dem Laden in feinen Goldrahmen, dazu die freigestellte venezianische Maske.
+- **Google:** in der Navigation und als eigener Abschnitt mit Lorbeer-Medaille und Link.
+- **Neon:** „aperto/chiuso“ an der Pizza (live nach Öffnungszeit), „Aperitivo“, Öffnungszeiten, Schriftzug im Fuß.
 - **DSGVO:** Schriften lokal, keine Cookies; OpenStreetMap lädt erst nach Klick.
 
 ## Archiv & Zurückholen
@@ -71,4 +70,4 @@ Frühere Stände liegen komplett lauffähig unter `archiv/` (online z. B. `/arch
 |---|---|---|
 | pizza/*.webp | Margherita, Sucuk, Quattro Formaggi, Tonno, Vegetarisch (freigestellt) | vom Auftraggeber geliefertes Bild |
 | fassade.jpg | Ladenfront mit Schirmen | mux.de |
-| teller-mandala-*, maske-*, bar-*, innen-* | Teller, Maske, Regal, Innenraum | eigene Fotos des Auftraggebers |
+| teller-mandala-*, maske-*, innen-* | Teller, Maske, Regal, Innenraum | eigene Fotos des Auftraggebers |

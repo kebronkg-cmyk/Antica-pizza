@@ -113,86 +113,18 @@
     navLinks.forEach(function (l) { var s = $(l.getAttribute('href')); if (s) navObs.observe(s); });
   }
 
-  /* ═══ Farbwahl der Bühne ═══ */
-  var FARBEN = [
-    { id: 'nero', name: 'Nero Antica', wert: '#0f0d0c' },
-    { id: 'rosso', name: 'Rosso Ferrari', wert: '#d40000' },
-    { id: 'arancio', name: 'Arancio Aperol', wert: '#ff5a00' },
-    { id: 'giallo', name: 'Giallo Modena', wert: '#ffcc00' },
-    { id: 'rosa', name: 'Rosa Sarti', wert: '#e4006e' },
-    { id: 'azzurro', name: 'Azzurro', wert: '#0047bb' },
-    { id: 'mucca', name: 'Mucca (Kuhfell)', wert: '#0f0d0c' }
-  ];
-  var farbwahl = $('[data-farbwahl]'), feld = $('[data-feld]'), themaFarbe = $('meta[name="theme-color"]');
-  var farbeJetzt = html.getAttribute('data-farbe') || 'nero';
-  if (!FARBEN.some(function (f) { return f.id === farbeJetzt; })) farbeJetzt = 'nero';
-
-  function farbeSetzen(id, von) {
-    var f = FARBEN.filter(function (x) { return x.id === id; })[0];
-    if (!f || !buehne) return;
-    var anwenden = function () {
-      if (id === 'nero') html.removeAttribute('data-farbe'); else html.setAttribute('data-farbe', id);
-      if (themaFarbe) themaFarbe.setAttribute('content', f.wert);
-    };
-    $$('.farbe', farbwahl).forEach(function (b) { b.setAttribute('aria-checked', String(b.dataset.farbe === id)); b.tabIndex = b.dataset.farbe === id ? 0 : -1; });
-    try { localStorage.setItem('antica-farbe', id); } catch (e) {}
-    if (id === farbeJetzt || ruhig || !von || !Element.prototype.animate) { farbeJetzt = id; anwenden(); return; }
-    farbeJetzt = id;
-    // Die neue Farbe breitet sich kreisförmig vom Farbknopf aus
-    var r = buehne.getBoundingClientRect();
-    var x = von.x - r.left, y = von.y - r.top;
-    var R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
-    var flut = document.createElement('div');
-    flut.className = 'buehne-feld-neu';
-    flut.style.background = id === 'mucca' ? 'url(assets/img/kuhfell.svg) 0 0 / 560px 560px, #0f0d0c' : f.wert;
-    ($('.buehne-fell', buehne) || feld).after(flut);
-    flut.animate([{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + R + 'px at ' + x + 'px ' + y + 'px)' }],
-      { duration: 800, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' }).finished.then(function () {
-      anwenden();
-      setTimeout(function () { flut.remove(); }, 60);
-    });
-    setTimeout(anwenden, 380);
-  }
-  if (farbwahl) {
-    FARBEN.forEach(function (f) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'farbe' + (f.id === 'mucca' ? ' farbe--mucca' : '');
-      b.setAttribute('role', 'radio');
-      b.dataset.farbe = f.id;
-      b.style.setProperty('--f', f.wert);
-      b.setAttribute('aria-label', f.name);
-      b.innerHTML = '<span class="farbe-name" aria-hidden="true">' + f.name + '</span>';
-      b.addEventListener('click', function () {
-        var bb = b.getBoundingClientRect();
-        farbeSetzen(f.id, { x: bb.left + bb.width / 2, y: bb.top + bb.height / 2 });
-      });
-      farbwahl.appendChild(b);
-    });
-    var knoepfe = $$('.farbe', farbwahl);
-    farbwahl.addEventListener('keydown', function (e) {
-      var i = knoepfe.indexOf(document.activeElement); if (i < 0) return;
-      var n = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? i + 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? i - 1 : null;
-      if (n === null) return;
-      e.preventDefault();
-      n = (n + knoepfe.length) % knoepfe.length;
-      knoepfe[n].focus(); knoepfe[n].click();
-    });
-    farbeSetzen(farbeJetzt);
-  }
+  var feld = $('[data-feld]'), themaFarbe = $('meta[name="theme-color"]');
 
   /* ═══ Die Pizzen auf dem Teller ═══ */
   var PIZZEN = [
-    { name: 'Margherita', bild: 'margherita', preis: '10,00', veg: true,
+    { name: 'Margherita', bild: 'margherita', preis: '10,00', veg: true, farbe: 'rosso', thema: '#c20000',
       satz: 'Tomate, Mozzarella, Oregano. Mehr braucht es nicht, und genau deshalb fängt hier jeder an.', zusatz: 'der Klassiker' },
-    { name: 'Sucuk', bild: 'salame', preis: '12,50',
-      satz: 'Mit Knoblauchwurst und Zwiebeln. Kräftig, würzig, die Lieblingspizza vieler Stammgäste.', zusatz: 'kräftig' },
-    { name: 'Quattro Formaggi', bild: 'formaggi', preis: '13,90', veg: true,
-      satz: 'Edamer, Mozzarella, Feta und Gorgonzola. Vier Käse, ein goldener Rand.', zusatz: 'für Käseliebhaber' },
-    { name: 'Tonno', bild: 'tonno', preis: '12,50',
-      satz: 'Mit Thunfisch und Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'einfach gut' },
-    { name: 'Vegetarisch', bild: 'verdure', preis: '13,90', veg: true,
-      satz: 'Mit Grillgemüse: Aubergine, Zucchini und Paprika, dazu Feta und Champignons.', zusatz: 'bunt wie der Teller' }
+    { name: 'Tonno', bild: 'tonno', preis: '12,50', farbe: 'azzurro', thema: '#0047ef',
+      satz: 'Mit Thunfisch und Zwiebeln, großzügig verteilt bis an den Rand.', zusatz: 'vom Meer' },
+    { name: 'Vegetarisch', bild: 'verdure', preis: '13,90', veg: true, farbe: 'giallo', thema: '#ffcc00',
+      satz: 'Mit Grillgemüse: Aubergine, Zucchini und Paprika, dazu Feta und Champignons.', zusatz: 'bunt wie der Teller' },
+    { name: 'Quattro Formaggi', bild: 'formaggi', preis: '13,90', veg: true, farbe: 'mucca', thema: '#0f0d0c',
+      satz: 'Edamer, Mozzarella, Feta und Gorgonzola. Vier Käse auf einem goldenen Rand, unsere Empfehlung des Hauses.', zusatz: 'la migliore' }
   ];
 
   var tafel = $('[data-tafel]'), teller = $('[data-teller]'), kranz = $('[data-kranz]');
@@ -221,7 +153,7 @@
     });
     var pizzen = $$('.pizza', teller);
     // Jede Pizza bekommt ein anderes Stück, das sich anheben lässt
-    var STUECKE = [[104, 146], [196, 238], [32, 74], [286, 328], [150, 192]];
+    var STUECKE = [[104, 146], [286, 328], [150, 192], [32, 74]];
     pizzen.forEach(function (el, i) {
       var s = STUECKE[i], mitte = (s[0] + s[1]) / 2 * Math.PI / 180;
       el.style.setProperty('--von', s[0] + 'deg');
@@ -249,11 +181,12 @@
 
     var akt = 0, laeuft = false, warte = null, gewechselt = false, dreh = 0;
     gerichtEl.innerHTML = gerichtHTML(PIZZEN[0]);
+    html.setAttribute('data-farbe', PIZZEN[0].farbe);
 
-    var zeige = function (neu, richtung) {
+    var zeige = function (neu, richtung, von) {
       neu = (neu + PIZZEN.length) % PIZZEN.length;
       if (neu === akt) return;
-      if (laeuft) { warte = [neu, richtung]; return; }
+      if (laeuft) { warte = [neu, richtung, von]; return; }
       var alt = akt, p = PIZZEN[neu];
       akt = neu;
       richtung = richtung || (neu > alt ? 1 : -1);
@@ -265,12 +198,27 @@
       if (kranz) kranz.style.setProperty('--dreh', dreh + 'deg');
 
       var altP = pizzen[alt], neuP = pizzen[neu];
+      var farbeAn = function () { html.setAttribute('data-farbe', p.farbe); if (themaFarbe) themaFarbe.setAttribute('content', p.thema); };
       if (ruhig || !Element.prototype.animate) {
         altP.classList.remove('is-aktiv'); neuP.classList.add('is-aktiv');
-        gerichtEl.innerHTML = gerichtHTML(p);
+        gerichtEl.innerHTML = gerichtHTML(p); farbeAn();
         return;
       }
       laeuft = true;
+
+      // Die neue Farbe wächst als Kreis von dort, wo getippt wurde
+      var r = buehne.getBoundingClientRect();
+      var x = (von ? von.x : r.left + r.width * 0.72) - r.left;
+      var y = (von ? von.y : r.top + r.height / 2) - r.top;
+      var R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
+      var flut = document.createElement('div');
+      flut.className = 'buehne-feld-neu' + (p.farbe === 'mucca' ? ' is-fell' : '');
+      flut.setAttribute('data-farbe-vorschau', p.farbe);
+      ($('.buehne-glanz', buehne) || feld).after(flut);
+      var flutAnim = flut.animate([{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + R + 'px at ' + x + 'px ' + y + 'px)' }],
+        { duration: 820, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
+      setTimeout(farbeAn, 300);
+      flutAnim.finished.then(function () { setTimeout(function () { flut.remove(); }, 80); });
 
       // Der ganze Teller wird abgeräumt, der nächste rollt von der anderen Seite herein
       var raus = altP.animate([
@@ -297,23 +245,24 @@
         altP.classList.remove('is-aktiv');
         raus.cancel();
         laeuft = false;
-        if (warte) { var w = warte; warte = null; zeige(w[0], w[1]); }
+        if (warte) { var w = warte; warte = null; zeige(w[0], w[1], w[2]); }
       });
     };
 
+    var mitteVon = function (el) { var b = el.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 }; };
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { zeige(i); });
+      t.addEventListener('click', function () { zeige(i, null, mitteVon(t)); });
       t.addEventListener('keydown', function (e) {
         var n = null;
         if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
         if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
         if (e.key === 'Home') n = 0;
         if (e.key === 'End') n = tabs.length - 1;
-        if (n !== null) { e.preventDefault(); tabs[n].focus(); zeige(n, n > i ? 1 : -1); }
+        if (n !== null) { e.preventDefault(); tabs[n].focus(); zeige(n, n > i ? 1 : -1, mitteVon(tabs[n])); }
       });
     });
     $$('[data-schritt]', buehne).forEach(function (b) {
-      b.addEventListener('click', function () { var s = +b.dataset.schritt; zeige(akt + s, s); });
+      b.addEventListener('click', function () { var s = +b.dataset.schritt; zeige(akt + s, s, mitteVon(b)); });
     });
 
     // Wischen: der Teller folgt dem Finger ein Stück und dreht sich mit
@@ -340,7 +289,7 @@
       tafel.classList.remove('is-zieht');
       if (Math.abs(dx) > 55) {
         p.style.transform = '';
-        zeige(akt + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+        zeige(akt + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1, e ? { x: e.clientX, y: e.clientY } : null);
       } else if (p.style.transform) {
         var jetzt = p.style.transform;
         p.style.transform = '';
@@ -351,7 +300,7 @@
     tafel.addEventListener('pointercancel', loslassen);
 
     document.addEventListener('keydown', function (e) {
-      if (e.target.closest('input, textarea, [role="tablist"], [role="radiogroup"]')) return;
+      if (e.target.closest('input, textarea, [role="tablist"]')) return;
       var b = buehne.getBoundingClientRect();
       if (b.bottom < 100 || b.top > window.innerHeight - 100) return;
       if (e.key === 'ArrowRight') zeige(akt + 1, 1);
@@ -396,7 +345,7 @@
   }
 
   /* ── Beim Scrollen: Teller am Kartenrand dreht sich, Fellteppich schwingt ── */
-  var randPizza = $('[data-rand-pizza]'), teppich = $('[data-teppich]');
+  var randPizza = $('[data-rand-pizza]'), teppich = null;
   if (!ruhig && (randPizza || teppich)) {
     var tickt = false;
     window.addEventListener('scroll', function () {
