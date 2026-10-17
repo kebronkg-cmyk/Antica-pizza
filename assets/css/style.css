@@ -577,8 +577,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .salone-fenster > img, .fenster-pizza { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity .7s var(--ease-out), transform 1.2s var(--ease-out); }
 .salone-fenster .is-aktiv { opacity: 1; transform: none; }
 .fenster-pizza img { position: absolute; }
-.fenster-pizza img:first-child { inset: 8%; width: 84%; height: 84%; border-radius: 50%; }
-.fenster-pizza img:last-child { inset: 18%; width: 64%; height: 64%; animation: pizza-drehen 30s linear infinite; }
+.fenster-pizza img { inset: 9%; width: 82%; height: 82%; filter: drop-shadow(0 14px 16px rgba(0,0,0,.45)); animation: pizza-drehen 30s linear infinite; }
 @keyframes pizza-drehen { to { transform: rotate(360deg); } }
 .salone-satz { margin: 22px 0 30px; font-size: clamp(16px, 1.2vw, 18px); opacity: .8; max-width: 44ch; }
 .salone-liste { list-style: none; padding: 0; margin: 0; }
@@ -620,6 +619,8 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .salone-fenster { right: -12%; width: 44%; }
   .salone-liste p { opacity: .8; margin-top: 8px; }
   .salone-liste h3 { color: var(--bianco); }
+  .salone-liste li:nth-child(2) h3 { color: #ff4a35; }
+  .salone-liste li:nth-child(3) h3 { color: var(--oro-hell); }
   .salone-liste li:nth-child(2) h3 { color: #ff4a35; }
   .salone-liste li:nth-child(3) h3 { color: var(--oro-hell); }
   .gaeste-wert { text-align: center; }
