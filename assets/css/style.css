@@ -616,40 +616,40 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 
 
 
-/* ═══ Gäste: Rosso Corsa mit verspielter Textur und fließenden Bewertungen ═══ */
-.gaeste { position: relative; overflow: hidden; isolation: isolate; padding: clamp(90px, 10vw, 150px) 0 clamp(80px, 9vw, 130px); color: #fff; background: radial-gradient(90% 80% at 50% 30%, #ef1608 0%, #d40000 45%, #9a0000 100%); }
-.gaeste-textur { position: absolute; inset: -220px; z-index: -1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 30 L60 30 L40 75 Z M26 38 C35 34 45 34 54 38'/%3E%3Ccircle cx='36' cy='45' r='3'/%3E%3Ccircle cx='45' cy='54' r='2.5'/%3E%3Cpath d='M130 40 h30 v10 a15 15 0 0 1 -30 0 z M160 44 h4 a5 5 0 0 1 0 10 h-4 M125 68 h42 M138 32 c-3 -4 3 -6 0 -10 M148 32 c-3 -4 3 -6 0 -10'/%3E%3Cpath d='M70 140 c10 -18 32 -18 36 0 c-10 6 -26 6 -36 0 z M88 132 v18'/%3E%3Cellipse cx='175' cy='150' rx='10' ry='14'/%3E%3Cpath d='M175 136 v-8 M184 130 l4 -6'/%3E%3Cpath d='M30 175 l4 8 9 1 -7 6 2 9 -8 -5 -8 5 2 -9 -7 -6 9 -1 z'/%3E%3Cpath d='M120 195 c6 -10 18 -10 24 0'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 220px 220px; opacity: .11; transform: rotate(-8deg); animation: textur-wandern 60s linear infinite; }
-@keyframes textur-wandern { to { background-position: 220px 220px; } }
-.gaeste::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 50% 35%, transparent 40%, rgba(70,0,0,.45)); pointer-events: none; }
+/* ═══ Gäste: Schwarz mit Italien-Akzenten, einreihiger Flow ═══ */
+.gaeste { position: relative; overflow: hidden; isolation: isolate; padding: clamp(100px, 11vw, 160px) 0 clamp(90px, 10vw, 140px); color: #fff; background: radial-gradient(70% 60% at 50% 20%, #1c1714, #000 70%); }
+.gaeste-tricolore { position: absolute; left: 0; right: 0; top: 0; height: 6px; display: flex; }
+.gaeste-tricolore i { flex: 1; }
+.gaeste-tricolore i:nth-child(1) { background: var(--tri-gruen); }
+.gaeste-tricolore i:nth-child(2) { background: #f4f3f0; }
+.gaeste-tricolore i:nth-child(3) { background: var(--tri-rot); }
 .gaeste-kopf { text-align: center; display: grid; justify-items: center; }
-.gaeste .hand { color: #ffe9a8; transform-origin: center; }
+.gaeste .hand { color: var(--oro-hell); transform-origin: center; }
 .gaeste-wert { display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); margin-top: 6px; text-align: left; }
-.riesen-zahl { font: 400 clamp(110px, 14vw, 210px)/.82 var(--f-titel); letter-spacing: -.04em; background: linear-gradient(170deg, #fff6d6 10%, #f0d68e 45%, #c99a40 95%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 14px 22px rgba(80,0,0,.5)); }
+.riesen-zahl { font: 400 clamp(110px, 14vw, 210px)/.82 var(--f-titel); letter-spacing: -.04em; background: linear-gradient(170deg, #fff6d6 10%, #f0d68e 45%, #c99a40 95%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 14px 22px rgba(0,0,0,.6)); }
 .google-sterne { font-size: 26px; letter-spacing: 6px; line-height: 1; }
-.google-sterne span { display: inline-block; --pz: calc(var(--wert) / 5 * 100%); background: linear-gradient(90deg, #ffe9a8 var(--pz), rgba(255,255,255,.3) var(--pz)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.google-sterne span { display: inline-block; --pz: calc(var(--wert) / 5 * 100%); background: linear-gradient(90deg, var(--oro-hell) var(--pz), rgba(255,255,255,.25) var(--pz)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .google-sterne span::before { content: "★★★★★"; }
 .gaeste-quelle { margin: 12px 0 16px; font-size: 13.5px; line-height: 1.55; opacity: .85; }
-.gaeste .leise-link { color: #fff; }
-.flow { display: grid; gap: 22px; margin-top: clamp(50px, 6vw, 80px); -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.gaeste .leise-link { color: var(--oro-hell); }
+.flow { display: grid; margin-top: clamp(50px, 6vw, 80px); -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .flow-reihe { overflow: hidden; }
 .flow-spur { display: flex; gap: 22px; width: max-content; animation: flow-links 70s linear infinite; }
 .flow-reihe--rechts .flow-spur { animation-name: flow-rechts; animation-duration: 80s; }
 .flow:hover .flow-spur { animation-play-state: paused; }
 @keyframes flow-links { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 11px)); } }
 @keyframes flow-rechts { from { transform: translateX(calc(-50% - 11px)); } to { transform: translateX(0); } }
-.zitat { flex: none; width: clamp(290px, 30vw, 430px); margin: 0; padding: 26px 28px; background: #fff; color: var(--tinte); border-radius: 6px; box-shadow: 0 22px 40px -22px rgba(60,0,0,.75); display: flex; flex-direction: column; }
-.zitat:nth-child(odd) { transform: rotate(-.8deg); }
-.zitat:nth-child(even) { transform: rotate(.7deg) translateY(10px); }
-.zitat-sterne { color: #e8a317; letter-spacing: 3px; font-size: 15px; }
+.zitat { position: relative; flex: none; width: clamp(290px, 30vw, 420px); margin: 0; padding: 30px 30px 26px; background: #141110; color: #fff; border: 1px solid rgba(212,170,82,.35); border-radius: 6px; display: flex; flex-direction: column; overflow: hidden; }
+.zitat::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--tri-gruen) 0 33.3%, #f4f3f0 33.3% 66.6%, var(--tri-rot) 66.6%); }
+.zitat-sterne { color: var(--oro-hell); letter-spacing: 3px; font-size: 15px; }
 .zitat blockquote { margin: 12px 0 18px; flex: 1; }
 .zitat blockquote p { font: 400 clamp(17px, 1.25vw, 19.5px)/1.48 var(--f-titel); }
-.zitat figcaption { display: flex; align-items: center; gap: 12px; font-size: 12.5px; color: #6b625b; }
-.zitat figcaption b { display: block; font-size: 14.5px; color: var(--tinte); }
+.zitat figcaption { display: flex; align-items: center; gap: 12px; font-size: 12.5px; color: rgba(246,245,242,.6); }
+.zitat figcaption b { display: block; font-size: 14.5px; color: #fff; }
 .zitat-avatar { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--rosso); color: #fff; font: 700 15px/1 var(--f-text); flex: none; }
 @media (max-width: 700px) {
   .gaeste-wert { flex-direction: column; text-align: center; gap: 8px; }
   .zitat { width: 80vw; }
-  .flow { gap: 34px; }
   .flow { -webkit-mask: none; mask: none; }
 }
-@media (prefers-reduced-motion: reduce) { .flow-spur, .gaeste-textur { animation: none; } .flow-reihe { overflow-x: auto; } }
+@media (prefers-reduced-motion: reduce) { .flow-spur, 
