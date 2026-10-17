@@ -291,14 +291,11 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 @keyframes dampf { 0% { stroke-dashoffset: 22; opacity: 0; } 40% { opacity: 1; } 100% { stroke-dashoffset: -22; opacity: 0; } }
 
 /* ═══ Karte ═══ */
-.karte { position: relative; overflow: hidden; background: var(--nero); color: var(--bianco); padding: clamp(90px, 11vw, 150px) 0 clamp(60px, 8vw, 110px); }
-.karte::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 50% at 15% 0%, rgba(212,170,82,.12), transparent 70%); }
+.karte { position: relative; overflow: hidden; background: transparent; color: var(--bianco); padding: clamp(90px, 11vw, 150px) 0 clamp(60px, 8vw, 110px); }
 .karte .titel-gross em { color: var(--oro-hell); }
 .karte .hand { color: var(--oro-hell); }
 .rand-pizza { position: absolute; right: calc(-1 * clamp(90px, 10vw, 220px)); top: clamp(40px, 6vw, 90px); width: clamp(260px, 27vw, 470px); aspect-ratio: 1; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); pointer-events: none; transform: rotate(var(--rad, 0deg)); }
-.rand-pizza img { position: absolute; }
-.rand-pizza img:first-child { inset: 0; width: 100%; height: 100%; border-radius: 50%; }
-.rand-pizza img:last-child { inset: 12.5%; width: 75%; height: 75%; }
+.rand-pizza img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
 .karte-steuer { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid rgba(212,170,82,.3); }
 .reiter { display: flex; gap: 6px; flex-wrap: wrap; }
 .reiter-tab { border: 1px solid rgba(246,245,242,.25); background: none; padding: 11px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: background-color .25s, color .25s, border-color .25s; }
@@ -513,7 +510,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 :root { --fell-schleier: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,0) 14%), linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.78) 34%, rgba(0,0,0,.08) 56%, rgba(0,0,0,0) 100%), linear-gradient(to top, rgba(0,0,0,.8), transparent 30%); }
 
 /* ═══ Aperitivo-Band mit dem Regal ═══ */
-.aperitivo { position: relative; background: #050403; overflow: hidden; min-height: clamp(380px, 46vw, 620px); display: grid; align-items: center; color: #fff; isolation: isolate; }
+.aperitivo { position: relative; background: transparent; overflow: hidden; min-height: clamp(380px, 46vw, 620px); display: grid; align-items: center; color: #fff; isolation: isolate; }
 .aperitivo-inhalt { display: grid; gap: 26px; justify-items: start; padding-block: 60px; }
 .neon--aperitivo { font-size: clamp(64px, 8vw, 128px); transform: rotate(-4deg); }
 .neon--aperitivo span { color: #fff1e0; text-shadow: 0 0 2px #fff, 0 0 10px #ffa45c, 0 0 24px var(--aperol), 0 0 50px #ff4800, 0 0 90px rgba(255,90,0,.7); }
@@ -549,8 +546,6 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .maske.is-klingelt { animation: maske-klingeln 1s ease-in-out; }
 @keyframes maske-klingeln { 0% { transform: rotate(14deg); } 15% { transform: rotate(4deg); } 30% { transform: rotate(20deg); } 45% { transform: rotate(8deg); } 60% { transform: rotate(17deg); } 80% { transform: rotate(12deg); } 100% { transform: rotate(14deg); } }
 /* Aperitivo: ganzes Regalfoto, nicht so nah */
-.aperitivo-bild { position: absolute; top: -10%; bottom: -10%; right: 0; width: min(62%, 900px); z-index: -2; background: url("../img/regal-voll-1300.webp") center / cover no-repeat; transform: translateY(var(--px, 0)); will-change: transform; -webkit-mask: linear-gradient(90deg, transparent, #000 35%); mask: linear-gradient(90deg, transparent, #000 35%); }
-.aperitivo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(5,4,3,.95) 30%, rgba(5,4,3,.4) 60%, rgba(5,4,3,.15)); }
 /* Dezente Textlinks */
 .leise-link { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--f-text); letter-spacing: .04em; color: var(--oro-hell); text-decoration: none; padding-bottom: 5px; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: gap .3s var(--ease-out), opacity .3s; opacity: .9; }
 .leise-link:hover { gap: 12px; opacity: 1; }
@@ -559,8 +554,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 @media (max-width: 900px) {
   .haus-raster { grid-template-columns: 1fr; }
   .maske { width: 120px; top: 30px; right: -4%; }
-  .aperitivo-bild { width: 100%; -webkit-mask: none; mask: none; opacity: .45; }
-}
+  }
 
 /* ═══ Caffè · Pizza · Bar · Drinnen: geordnetes Chaos auf Weiß, Trattoria-Akzente ═══ */
 .salone { position: relative; overflow: hidden; color: var(--tinte); padding: clamp(140px, 13vw, 190px) 0 clamp(90px, 10vw, 140px); background: var(--porcellana); }
@@ -570,28 +564,26 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .salone-kopf .titel-gross { max-width: 14ch; }
 /* Die Maske hängt groß in der rechten oberen Ecke */
 .salone .maske { position: absolute; top: 70px; right: -3%; z-index: 4; width: clamp(200px, 24vw, 360px); transform: rotate(12deg); filter: drop-shadow(0 20px 18px rgba(60,20,0,.3)); }
-/* Komposition: 12er-Raster */
-.buehnenbild { position: relative; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(10, minmax(40px, auto)); margin-top: clamp(30px, 4vw, 60px); }
-/* Rot-weiß karierte Tischdecke als Rahmen hinter den Fotos */
-.bb-tischdecke { grid-column: 5 / 13; grid-row: 2 / 11; margin: 0 -24px -60px 40px; z-index: 0; border-radius: 4px;
-  background-color: #fff; background-image: linear-gradient(90deg, rgba(212,0,0,.55) 50%, transparent 50%), linear-gradient(rgba(212,0,0,.55) 50%, transparent 50%);
-  background-size: 32px 32px; background-blend-mode: multiply; box-shadow: inset 0 0 0 10px #fff, inset 0 0 0 11px rgba(212,0,0,.6); }
-.bb-foto { position: relative; margin: 0; overflow: hidden; box-shadow: 0 40px 70px -32px rgba(15,10,6,.6); z-index: 1; }
+/* Komposition: die Fotos liegen auf einer rot-weiß karierten Tischdecke */
+.buehnenbild { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: clamp(36px, 5vw, 80px); align-items: center; margin-top: clamp(40px, 5vw, 70px); }
+.bb-text { grid-column: 1; grid-row: 1; }
+.bb-tisch { grid-column: 2; grid-row: 1; position: relative; display: grid; grid-template-columns: repeat(12, 1fr); align-items: start;
+  padding: clamp(22px, 3vw, 44px) clamp(22px, 3vw, 44px) clamp(40px, 5vw, 72px); border-radius: 6px;
+  background-color: #fff; background-image: linear-gradient(90deg, rgba(212,0,0,.5) 50%, transparent 50%), linear-gradient(rgba(212,0,0,.5) 50%, transparent 50%);
+  background-size: 34px 34px; background-blend-mode: multiply;
+  box-shadow: inset 0 0 0 8px #fff, inset 0 0 0 9px rgba(212,0,0,.45), 0 30px 60px -34px rgba(120,0,0,.45); }
+.bb-foto { position: relative; margin: 0; overflow: hidden; outline: 8px solid #fff; box-shadow: 0 30px 50px -24px rgba(15,10,6,.6); }
 .bb-foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s var(--ease-out); }
 .bb-foto:hover img { transform: scale(1.04); }
-.bb-foto--raum { grid-column: 6 / 11; grid-row: 1 / 10; aspect-ratio: 896 / 1195; outline: 10px solid #fff; }
-.bb-foto--tisch { grid-column: 9 / 13; grid-row: 6 / 11; aspect-ratio: 3 / 4; z-index: 2; transform: translate(0, 10%); outline: 10px solid #fff; }
-.js .bb-foto--tisch[data-auf].is-da { transform: translate(0, 10%); }
+.bb-foto--raum { grid-column: 1 / 8; grid-row: 1; aspect-ratio: 896 / 1195; z-index: 1; transform: rotate(-1.5deg); }
+.bb-foto--tisch { grid-column: 7 / 13; grid-row: 1; aspect-ratio: 3 / 4; z-index: 2; margin-top: 32%; transform: rotate(2deg); }
 .bb-foto--tisch img { object-position: 30% 75%; }
-.bb-notiz { font: 600 clamp(22px, 1.9vw, 27px)/1.1 var(--f-hand); color: var(--rosso); z-index: 3; }
-.bb-notiz--raum { grid-column: 3 / 6; grid-row: 3; align-self: start; justify-self: end; transform: rotate(-6deg); margin-right: 18px; text-align: right; }
-.bb-notiz--raum::after { content: ""; display: block; width: 60px; height: 2px; margin: 8px 0 0 auto; background: currentColor; transform: rotate(14deg); transform-origin: left; }
-.bb-notiz--tisch { display: none; }
-.bb-linie { grid-column: 1 / 5; grid-row: 5; align-self: center; height: 8px; margin-right: 24px; background: repeating-linear-gradient(90deg, var(--rosso) 0 22px, #fff 22px 44px); box-shadow: 0 0 0 1px rgba(212,0,0,.5); border-radius: 2px; }
-.bb-satz { grid-column: 1 / 5; grid-row: 6 / 8; align-self: start; padding-top: 22px; font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: #3a332e; max-width: 34ch; }
-/* Pizza liegt an der Fotokante statt frei zu schweben */
-.bb-pizza { grid-column: 4 / 7; grid-row: 7 / 10; align-self: center; justify-self: end; width: clamp(170px, 16vw, 250px); height: auto; aspect-ratio: 1; margin-right: -40px; z-index: 3; filter: drop-shadow(0 22px 18px rgba(60,20,0,.35)); animation: pizza-drehen 50s linear infinite; }
+.bb-pizza { position: absolute; left: -5%; bottom: -7%; width: 27%; height: auto; aspect-ratio: 1; z-index: 3; filter: drop-shadow(0 20px 16px rgba(60,20,0,.4)); animation: pizza-drehen 50s linear infinite; }
 @keyframes pizza-drehen { to { transform: rotate(360deg); } }
+.bb-notiz { font: 600 clamp(24px, 2vw, 30px)/1 var(--f-hand); color: var(--rosso); transform: rotate(-3deg); transform-origin: left; display: inline-block; }
+.bb-linie { display: block; height: 8px; margin: 18px 0 22px; background: repeating-linear-gradient(90deg, var(--rosso) 0 22px, #fff 22px 44px); box-shadow: 0 0 0 1px rgba(212,0,0,.5); border-radius: 2px; }
+.bb-satz { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: #3a332e; max-width: 34ch; }
+
 /* Drei Worte mit Markisen-Streifen */
 .drei-worte { list-style: none; padding: 0; margin: clamp(110px, 11vw, 160px) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); }
 .drei-worte li { position: relative; padding: 34px 28px 30px; border: 1px solid rgba(212,0,0,.35); border-radius: 4px; background: #fff; }
@@ -601,30 +593,28 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .drei-worte li:nth-child(2) h3 { color: var(--rosso); }
 .drei-worte p { font-size: 16px; color: #4a423c; max-width: 34ch; }
 
-/* Tablet und Handy: eigene, größere Komposition */
+/* Tablet und Handy: Tisch über die volle Breite, Text darunter */
 @media (max-width: 1180px) {
-  .salone .maske { width: clamp(150px, 26vw, 260px); top: 60px; }
+  .salone .maske { width: clamp(150px, 24vw, 250px); top: 60px; }
   .salone-kopf { max-width: 72%; }
   .salone-kopf .titel-gross { max-width: none; }
-  .buehnenbild { margin-top: 40px; grid-template-rows: auto; }
-  .bb-tischdecke { grid-column: 3 / 13; grid-row: 2 / 8; margin: 0 -20px 0 0; }
-  .bb-foto--raum { grid-column: 1 / 9; grid-row: 1 / 7; }
-  .bb-foto--tisch { grid-column: 7 / 13; grid-row: 4 / 8; transform: translate(0, 8%); }
-  .js .bb-foto--tisch[data-auf].is-da { transform: translate(0, 8%); }
-  .bb-notiz--raum { grid-column: 9 / 13; grid-row: 1; justify-self: start; text-align: left; margin: 14px 0 0 18px; transform: rotate(-5deg); }
-  .bb-notiz--raum::after { margin: 8px 0 0; transform: rotate(-160deg); }
-  .bb-pizza { grid-column: 1 / 5; grid-row: 6 / 9; justify-self: start; align-self: end; width: clamp(150px, 26vw, 230px); margin: 0 0 -40px -10px; }
-  .bb-linie { grid-column: 1 / 13; grid-row: 9; margin: 70px 0 0; }
-  .bb-satz { grid-column: 1 / 13; grid-row: 10; max-width: 52ch; font-size: clamp(17px, 2.2vw, 20px); }
-  .drei-worte { margin-top: 60px; }
+  .buehnenbild { grid-template-columns: 1fr; gap: clamp(56px, 8vw, 80px); }
+  .bb-tisch { grid-column: 1; grid-row: 1; }
+  .bb-text { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: auto 1fr; column-gap: 32px; align-items: center; }
+  .bb-notiz { grid-column: 1; grid-row: 1; }
+  .bb-linie { grid-column: 2; grid-row: 1; margin: 0; }
+  .bb-satz { grid-column: 1 / -1; grid-row: 2; margin-top: 22px; max-width: 58ch; font-size: clamp(17px, 2.2vw, 20px); }
+  .bb-pizza { width: 26%; left: -3%; bottom: -8%; }
+  .drei-worte { margin-top: 70px; }
+  .drei-worte h3 { font-size: clamp(32px, 4.2vw, 44px); }
 }
 @media (max-width: 760px) {
   .drei-worte { grid-template-columns: 1fr; }
   .salone .maske { width: 130px; top: 50px; right: -4%; }
-  .bb-foto--raum, .bb-foto--tisch { outline-width: 6px; }
-  .bb-tischdecke { background-size: 24px 24px; box-shadow: inset 0 0 0 6px #fff; }
   .salone-kopf { max-width: 78%; }
-  .bb-notiz--raum { font-size: 19px; }
+  .bb-tisch { background-size: 24px 24px; padding: 16px 16px 34px; box-shadow: inset 0 0 0 6px #fff, inset 0 0 0 7px rgba(212,0,0,.45); }
+  .bb-foto { outline-width: 5px; }
+  .bb-text { column-gap: 20px; }
 }
 
 /* ═══ Gäste: Schwarz mit Italien-Akzenten, einreihiger Flow ═══ */
@@ -667,3 +657,13 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 /* Kleiner Kuh-Akzent: Fellband über dem Link zur ganzen Karte */
 .vorschau-fuss { position: relative; border-top: 0; padding-top: 40px; }
 .vorschau-fuss::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 16px; border-radius: 999px; background: url("../img/kuhfell.webp") 30% 22% / 640px 640px; box-shadow: 0 0 0 1px rgba(212,170,82,.5); }
+
+/* ═══ Weinwand: ein durchgehender Hintergrund für Aperitivo und Karten-Vorschau ═══ */
+.weinwand { position: relative; isolation: isolate; overflow: hidden; background: #070605; }
+.weinwand-bild { position: absolute; inset: 0; z-index: -2; background: url("../img/regal-voll-1300.webp") 72% 30% / cover no-repeat; }
+.weinwand::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(7,6,5,.94) 0%, rgba(7,6,5,.86) 42%, rgba(7,6,5,.55) 70%, rgba(7,6,5,.4) 100%),
+              linear-gradient(to bottom, rgba(7,6,5,.15) 0%, rgba(7,6,5,.45) 35%, rgba(7,6,5,.85) 60%, rgba(7,6,5,.92) 100%); }
+@media (max-width: 900px) {
+  .weinwand::before { background: linear-gradient(to bottom, rgba(7,6,5,.55), rgba(7,6,5,.88) 30%, rgba(7,6,5,.94)); }
+}
