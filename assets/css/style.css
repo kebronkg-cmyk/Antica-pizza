@@ -643,3 +643,10 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 @media (max-width: 900px) {
   .weinwand::before { background: linear-gradient(to bottom, rgba(7,6,5,.35), rgba(7,6,5,.7) 35%, rgba(7,6,5,.8)); }
 }
+
+/* Goldener Lorbeerkranz um die 4,6 */
+.zahl-kranz { position: relative; display: grid; place-items: center; width: clamp(220px, 24vw, 340px); aspect-ratio: 1; }
+.kranz-lorbeer { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
+.kranz-lorbeer path { fill: none; stroke: #c99a40; stroke-width: 1.8; }
+.zahl-kranz .riesen-zahl { font-size: clamp(76px, 8.4vw, 124px); margin-top: -6%; }
+@media (max-width: 700px) { .zahl-kranz { width: 220px; } .zahl-kranz .riesen-zahl { font-size: 78px; } }
