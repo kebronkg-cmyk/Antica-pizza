@@ -294,7 +294,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .karte { position: relative; overflow: hidden; background: transparent; color: var(--bianco); padding: clamp(90px, 11vw, 150px) 0 clamp(60px, 8vw, 110px); }
 .karte .titel-gross em { color: var(--oro-hell); }
 .karte .hand { color: var(--oro-hell); }
-.rand-pizza { position: absolute; right: calc(-1 * clamp(90px, 10vw, 220px)); top: clamp(40px, 6vw, 90px); width: clamp(260px, 27vw, 470px); aspect-ratio: 1; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); pointer-events: none; transform: rotate(var(--rad, 0deg)); }
+.rand-pizza { position: absolute; right: calc(-1 * clamp(60px, 6vw, 120px)); top: clamp(50px, 6vw, 90px); width: clamp(180px, 17vw, 300px); aspect-ratio: 1; filter: drop-shadow(0 18px 18px rgba(0,0,0,.55)); pointer-events: none; transform: rotate(var(--rad, 0deg)); }
 .rand-pizza img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; }
 .karte-steuer { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid rgba(212,170,82,.3); }
 .reiter { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -565,14 +565,13 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .salone-kopf .titel-gross { max-width: 14ch; }
 .salone-intro { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: #3a332e; max-width: 36ch; padding-bottom: 8px; }
 /* Zwei Fotos im vollen Format nebeneinander */
-.duo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.6vw, 22px); margin-top: clamp(50px, 6vw, 90px); padding-bottom: 22px; }
+.duo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.6vw, 22px); max-width: 820px; margin: clamp(50px, 6vw, 90px) auto 0; padding-bottom: 22px; }
 .duo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--rosso) 0 26px, #fff 26px 52px); box-shadow: 0 0 0 1px rgba(212,0,0,.45); }
 .duo-bild { position: relative; margin: 0 0 30px; }
 .duo-bild img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
 .duo-bild figcaption { position: absolute; left: 0; bottom: -30px; display: flex; gap: 12px; align-items: baseline; font: 600 13px/1 var(--f-text); letter-spacing: .14em; text-transform: uppercase; color: #6b625b; }
 .duo-bild figcaption span { color: var(--rosso); }
 .duo-bild + .duo-bild figcaption { left: auto; right: 0; flex-direction: row-reverse; }
-.duo-pizza { position: absolute; left: 50%; bottom: -6px; width: clamp(130px, 15vw, 230px); height: auto; aspect-ratio: 1; margin-left: calc(clamp(130px, 15vw, 230px) / -2); z-index: 3; filter: drop-shadow(0 18px 16px rgba(60,20,0,.4)); animation: pizza-drehen 50s linear infinite; }
 @keyframes pizza-drehen { to { transform: rotate(360deg); } }
 /* Drei Worte: ruhige Spalten */
 .drei-worte { list-style: none; padding: 0; margin: clamp(80px, 9vw, 130px) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); }
@@ -590,10 +589,9 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
   .salone-kopf { padding-right: 0; }
   .salone-kopf .titel-gross { padding-right: 90px; }
   .salone .maske { width: 120px; top: 50px; right: -4%; }
-  .duo { grid-template-columns: 1fr; gap: 10px; }
+  .duo { gap: 10px; }
   .duo-bild figcaption { font-size: 11px; letter-spacing: .1em; }
-  .duo-pizza { width: 120px; left: auto; right: -8px; margin-left: 0; bottom: 4px; }
-  .duo-bild + .duo-bild figcaption { left: 0; right: auto; flex-direction: row; }
+  
   .drei-worte { grid-template-columns: 1fr; margin-top: 70px; }
   .drei-worte li, .drei-worte li:first-child { padding: 24px 0; border-left: 0; border-top: 1px solid rgba(15,13,12,.14); }
 }
