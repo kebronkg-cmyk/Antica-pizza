@@ -183,11 +183,11 @@
 
       <div class="duo">
         <figure class="duo-bild" data-auf>
-          <img src="assets/img/gastraum-voll-896.webp" srcset="assets/img/gastraum-voll-560.webp 560w, assets/img/gastraum-voll-896.webp 896w" sizes="(max-width: 640px) 92vw, 46vw" width="896" height="1195" loading="lazy" decoding="async" alt="Der Gastraum: Holzbalken, geschnitzte Lattenwand, Marmortische, Bistrostühle und das Regal voller Aperol">
+          <button type="button" class="duo-oeffnen" data-gross aria-label="Foto groß ansehen"><img src="assets/img/gastraum-voll-896.webp" srcset="assets/img/gastraum-voll-560.webp 560w, assets/img/gastraum-voll-896.webp 896w" sizes="(max-width: 640px) 92vw, 46vw" width="896" height="1195" loading="lazy" decoding="async" alt="Der Gastraum: Holzbalken, geschnitzte Lattenwand, Marmortische, Bistrostühle und das Regal voller Aperol"><span class="duo-lupe" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10.5 4.5a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM15 15l4.5 4.5M10.5 8v5M8 10.5h5"/></svg></span></button>
           <figcaption><span>I</span>La sala</figcaption>
         </figure>
         <figure class="duo-bild" data-auf>
-          <img src="assets/img/tisch-tv-1000.webp" srcset="assets/img/tisch-tv-600.webp 600w, assets/img/tisch-tv-1000.webp 1000w" sizes="(max-width: 640px) 92vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Runder Marmortisch mit Tischlampe an der hellen Putzwand">
+          <button type="button" class="duo-oeffnen" data-gross aria-label="Foto groß ansehen"><img src="assets/img/tisch-tv-1000.webp" srcset="assets/img/tisch-tv-600.webp 600w, assets/img/tisch-tv-1000.webp 1000w" sizes="(max-width: 640px) 92vw, 46vw" width="1000" height="1333" loading="lazy" decoding="async" alt="Runder Marmortisch mit Tischlampe an der hellen Putzwand"><span class="duo-lupe" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10.5 4.5a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM15 15l4.5 4.5M10.5 8v5M8 10.5h5"/></svg></span></button>
           <figcaption><span>II</span>Il tavolo</figcaption>
         </figure>
       </div>
@@ -359,6 +359,13 @@
   </div>
 </footer>
 
+<dialog class="leuchtkasten" data-leuchtkasten aria-label="Foto">
+  <img data-lk-bild alt="">
+  <p class="lk-titel" data-lk-titel></p>
+  <button type="button" class="lk-knopf lk-zu" data-lk-zu aria-label="Schließen">×</button>
+  <button type="button" class="lk-knopf lk-zurueck" data-lk-schritt="-1" aria-label="Voriges Foto">‹</button>
+  <button type="button" class="lk-knopf lk-weiter" data-lk-schritt="1" aria-label="Nächstes Foto">›</button>
+</dialog>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

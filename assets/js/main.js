@@ -433,6 +433,29 @@
     });
   }
 
+  /* ── Fotos im Laden-Abschnitt groß ansehen ── */
+  var lk = $('[data-leuchtkasten]'), grossKnoepfe = $$('[data-gross]');
+  if (lk && grossKnoepfe.length && typeof lk.showModal === 'function') {
+    var lkBild = $('[data-lk-bild]', lk), lkTitel = $('[data-lk-titel]', lk), lkJetzt = 0, lkVorher = null;
+    var lkZeige = function (n) {
+      lkJetzt = (n + grossKnoepfe.length) % grossKnoepfe.length;
+      var img = $('img', grossKnoepfe[lkJetzt]), cap = grossKnoepfe[lkJetzt].parentNode.querySelector('figcaption');
+      lkBild.src = img.currentSrc || img.src; lkBild.alt = img.alt;
+      lkTitel.textContent = cap ? Array.prototype.filter.call(cap.childNodes, function (n) { return n.nodeType === 3; }).map(function (n) { return n.textContent; }).join('').trim() : '';
+    };
+    grossKnoepfe.forEach(function (b, i) {
+      b.addEventListener('click', function () { lkVorher = b; lkZeige(i); lk.showModal(); document.body.style.overflow = 'hidden'; });
+    });
+    $$('[data-lk-schritt]', lk).forEach(function (b) { b.addEventListener('click', function () { lkZeige(lkJetzt + +b.dataset.lkSchritt); }); });
+    $('[data-lk-zu]', lk).addEventListener('click', function () { lk.close(); });
+    lk.addEventListener('click', function (e) { if (e.target === lk) lk.close(); });
+    lk.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') lkZeige(lkJetzt + 1); if (e.key === 'ArrowLeft') lkZeige(lkJetzt - 1); });
+    lk.addEventListener('close', function () { document.body.style.overflow = ''; if (lkVorher) lkVorher.focus(); });
+    var sx = null;
+    lk.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    lk.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) lkZeige(lkJetzt + (dx < 0 ? 1 : -1)); sx = null; });
+  }
+
   var jahr = $('[data-jahr]');
   if (jahr) jahr.textContent = new Date().getFullYear();
 })();
