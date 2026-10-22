@@ -650,3 +650,7 @@ html[data-farbe="giallo"] .hinweis-hand, html[data-farbe="rosso"] .hinweis-hand,
 .kranz-lorbeer path { fill: none; stroke: #c99a40; stroke-width: 1.8; }
 .zahl-kranz .riesen-zahl { font-size: clamp(76px, 8.4vw, 124px); margin-top: -6%; }
 @media (max-width: 700px) { .zahl-kranz { width: 220px; } .zahl-kranz .riesen-zahl { font-size: 78px; } }
+
+/* Kartenseite: Weinwand ruhiger, damit die lange Liste gut lesbar bleibt */
+.seite-karte .weinwand::before { background: linear-gradient(to bottom, rgba(7,6,5,.55), rgba(7,6,5,.86) 30%, rgba(7,6,5,.92)); }
+.seite-karte .weinwand-bild { background-attachment: fixed; }
