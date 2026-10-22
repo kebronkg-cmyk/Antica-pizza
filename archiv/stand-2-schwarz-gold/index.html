@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Antica · Caffè Pizza Bar · Haidhausen</title>
+  <meta name="description" content="Antica Caffè Pizza Bar in der Weißenburger Straße 27, München-Haidhausen. Nachmittags Caffè, abends Bar, immer Pizza. Dazu Pide, Pasta, Schanigarten und Pizza zum Mitnehmen.">
+  <meta name="theme-color" content="#141110">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Antica · Caffè Pizza Bar · Haidhausen">
+  <meta property="og:description" content="Pizza, Pide, Pasta und Caffè in der Weißenburger Straße 27, München-Haidhausen.">
+  <meta property="og:image" content="assets/img/pizza/margherita-800.webp">
+  <meta property="og:locale" content="de_DE">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/pizza/margherita-800.webp" as="image" imagesrcset="assets/img/pizza/margherita-480.webp 480w, assets/img/pizza/margherita-800.webp 800w" imagesizes="(max-width: 900px) 82vw, 42vw">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Antica Caffè Pizza Bar",
+    "image": "assets/img/fassade.jpg",
+    "servesCuisine": ["Pizza", "Italienisch", "Pide"],
+    "priceRange": "€",
+    "telephone": "+49 89 44142500",
+    "address": { "@type": "PostalAddress", "streetAddress": "Weißenburger Str. 27", "postalCode": "81667", "addressLocality": "München", "addressRegion": "Bayern", "addressCountry": "DE" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.12855, "longitude": 11.59901 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "14:00", "closes": "23:00" }
+    ],
+    "acceptsReservations": "True",
+    "hasMenu": "#karte"
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<!-- Gemeinsame SVG-Bausteine: Blattgold, Pinselkante, Icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="oro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1d98f"/>
+      <stop offset=".5" stop-color="#cfa54c"/>
+      <stop offset="1" stop-color="#9a7330"/>
+    </linearGradient>
+    <filter id="pinsel" x="-6%" y="-12%" width="112%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9 .06" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".5 .9" numOctaves="2" seed="8" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.0 1.45" result="sm"/>
+      <feComposite in="d" in2="sm" operator="in"/>
+    </filter>
+    <filter id="kreide" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="2" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.35" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M5.2 3.8h3.4l1.7 4.4-2.2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2.2 4.4 1.7v3.4a1.5 1.5 0 0 1-1.6 1.5A16.3 16.3 0 0 1 3.7 5.4a1.5 1.5 0 0 1 1.5-1.6z"/></symbol>
+  <symbol id="i-pfeil" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 21s6.8-6 6.8-11.5a6.8 6.8 0 0 0-13.6 0C5.2 15 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-karte" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M5 6.5h14M5 12h14M5 17.5h9"/></symbol>
+  <symbol id="i-stern" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8l2.2 7.9 8 2.3-8 2.3-2.2 7.9-2.2-7.9-8-2.3 8-2.3z"/></symbol>
+  <symbol id="i-blatt" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 3.5C11 3.6 4.6 8.4 4.3 16.2c-.1 1.6.3 3 .9 4.3l1.3-1c-.4-.9-.6-1.9-.5-3 .1-1.2.4-2.3 1-3.3 2.4-1 5-2.9 7-5.6-1.8 3.3-4 5.3-6.2 6.6.2 3.1 2.7 5 6 4.5 5.6-.9 7.3-8.1 6.7-15.2z"/></symbol>
+</svg>
+
+<!-- ═══ Kopf ═══ -->
+<header class="kopf" data-kopf>
+  <div class="wrap kopf-zeile">
+    <a class="marke" href="#inhalt" aria-label="Antica Caffè Pizza Bar, nach oben">
+      <svg class="schild" viewBox="0 0 320 100" aria-hidden="true" focusable="false">
+        <g class="schild-zug" fill="none" stroke="url(#oro)" stroke-linecap="round" stroke-linejoin="round" filter="url(#pinsel)">
+          <path stroke-width="8.5" d="M10 84 C16 62 24 36 33 9"/><path stroke-width="10" d="M33 9 C38 34 44 60 50 86"/><path stroke-width="5.5" d="M17 60 C25 56 34 55 47 58"/>
+          <path stroke-width="8.5" d="M66 85 C65 62 66 38 67 14"/><path stroke-width="6" d="M67 14 C77 38 88 60 99 82"/><path stroke-width="9.5" d="M99 84 C99 60 100 34 102 6"/>
+          <path stroke-width="7" d="M112 15 C126 11 141 10 158 12 L162 16"/><path stroke-width="10" d="M135 13 C135 38 134 62 133 88 C133 93 137 95 141 92"/>
+          <path stroke-width="9.5" d="M176 13 C176 38 177 60 176 85"/>
+          <path stroke-width="9.5" d="M226 20 C214 6 193 10 191 44 C189 74 206 90 228 74"/>
+          <path stroke-width="8.5" d="M240 84 C246 62 254 36 263 9"/><path stroke-width="10" d="M263 9 C268 36 274 62 281 84 C284 92 294 93 300 84"/><path stroke-width="5.5" d="M247 60 C255 56 264 55 277 58"/>
+        </g>
+      </svg>
+      <span class="marke-unter">Caffè · Pizza · Bar</span>
+    </a>
+    <nav class="kopf-nav" aria-label="Hauptnavigation">
+      <a href="#pizze">Pizze</a>
+      <a href="#tag">Caffè &amp; Bar</a>
+      <a href="#karte">Karte</a>
+      <a href="#besuch">Besuch</a>
+    </nav>
+    <span class="kopf-status" data-status></span>
+    <a class="pille pille--voll pille--klein kopf-anruf" href="tel:+498944142500"><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg><span>Anrufen</span></a>
+    <button class="kopf-menu" type="button" data-menu aria-expanded="false" aria-controls="menu"><i></i><i></i><span class="sr">Menü</span></button>
+  </div>
+</header>
+<nav class="menu-flaeche" id="menu" data-menu-flaeche aria-label="Menü">
+  <a href="#pizze">Pizze</a>
+  <a href="#tag">Caffè &amp; Bar</a>
+  <a href="#karte">Karte</a>
+  <a href="#besuch">Besuch</a>
+  <div class="menu-fuss"><span data-status="lang"></span><a href="tel:+498944142500">089 441 425 00</a><span>Weißenburger Str. 27, Haidhausen</span></div>
+</nav>
+
+<main id="inhalt">
+
+  <!-- ═══ Bühne: fünf Pizzen zum Durchwischen ═══ -->
+  <section class="buehne" id="pizze" aria-labelledby="titel" data-buehne data-ton="hell">
+    <div class="buehne-feld" data-feld aria-hidden="true"></div>
+    <div class="buehne-korn" aria-hidden="true"></div>
+    <div class="rahmen" aria-hidden="true"><i class="rahmen-o"></i><i class="rahmen-u"></i><i class="rahmen-l"></i><i class="rahmen-r"></i>
+      <svg class="ecke ecke--lo"><use href="#i-stern"/></svg><svg class="ecke ecke--ro"><use href="#i-stern"/></svg>
+    </div>
+
+    <div class="buehne-raster wrap">
+      <div class="intro">
+        <p class="intro-ort"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Weißenburger Str. 27 · Haidhausen</p>
+        <h1 id="titel" class="intro-marke" data-malen-start>
+          <span class="sr">Antica Caffè Pizza Bar</span>
+          <svg class="schild schild--buehne" data-malen viewBox="0 0 320 100" aria-hidden="true" focusable="false">
+            <g class="schild-zug" fill="none" stroke="url(#oro)" stroke-linecap="round" stroke-linejoin="round" filter="url(#pinsel)">
+          <path pathLength="1" stroke-width="8.5" d="M10 84 C16 62 24 36 33 9"/><path pathLength="1" stroke-width="10" d="M33 9 C38 34 44 60 50 86"/><path pathLength="1" stroke-width="5.5" d="M17 60 C25 56 34 55 47 58"/>
+          <path pathLength="1" stroke-width="8.5" d="M66 85 C65 62 66 38 67 14"/><path pathLength="1" stroke-width="6" d="M67 14 C77 38 88 60 99 82"/><path pathLength="1" stroke-width="9.5" d="M99 84 C99 60 100 34 102 6"/>
+          <path pathLength="1" stroke-width="7" d="M112 15 C126 11 141 10 158 12 L162 16"/><path pathLength="1" stroke-width="10" d="M135 13 C135 38 134 62 133 88 C133 93 137 95 141 92"/>
+          <path pathLength="1" stroke-width="9.5" d="M176 13 C176 38 177 60 176 85"/>
+          <path pathLength="1" stroke-width="9.5" d="M226 20 C214 6 193 10 191 44 C189 74 206 90 228 74"/>
+          <path pathLength="1" stroke-width="8.5" d="M240 84 C246 62 254 36 263 9"/><path pathLength="1" stroke-width="10" d="M263 9 C268 36 274 62 281 84 C284 92 294 93 300 84"/><path pathLength="1" stroke-width="5.5" d="M247 60 C255 56 264 55 277 58"/>
+        </g>
+          </svg>
+          <span class="intro-schild-unter" aria-hidden="true">Caffè <i></i> Pizza <i></i> Bar</span>
+          <span class="tricolore tricolore--buehne" aria-hidden="true"><i></i><i></i><i></i></span>
+        </h1>
+        <p class="intro-titel">Nachmittags Caffè, abends Bar, <em>immer</em> Pizza.</p>
+        <div class="intro-rest">
+          <div class="intro-handeln">
+            <a class="pille pille--voll" href="#karte"><svg class="ico" aria-hidden="true"><use href="#i-karte"/></svg>Zur Karte</a>
+            <a class="pille pille--rand" href="tel:+498944142500">Tisch per Telefon</a>
+          </div>
+          <p class="intro-status" data-status="lang"></p>
+        </div>
+      </div>
+
+      <div class="tafel" data-tafel>
+        <svg class="kranz" data-kranz viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+          <defs><path id="kranz-bahn" d="M200 200 m-176 0 a176 176 0 1 1 352 0 a176 176 0 1 1 -352 0"/></defs>
+          <circle cx="200" cy="200" r="194" class="kranz-punkte"/>
+          <circle cx="200" cy="200" r="160" class="kranz-linie"/>
+          <text class="kranz-text"><textPath href="#kranz-bahn" textLength="1100">ANTICA ✦ CAFFÈ ✦ PIZZA ✦ BAR ✦ HAIDHAUSEN ✦ WEISSENBURGER STRASSE ✦ </textPath></text>
+          <g class="kranz-tricolore"><path d="M200 18 v14" stroke="#2f8a4f"/><path d="M200 368 v14" stroke="#c8321f"/><path d="M18 200 h14" stroke="#f4ecdc"/><path d="M368 200 h14" stroke="#f4ecdc"/></g>
+        </svg>
+
+        <div class="siegel" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id="siegel-bahn" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
+            <circle cx="60" cy="60" r="57" class="siegel-rand"/><circle cx="60" cy="60" r="34" class="siegel-rand siegel-rand--innen"/>
+            <text class="siegel-text"><textPath href="#siegel-bahn" textLength="286">· GÄSTE LIEBEN ES · GOOGLE · RESTAURANT GURU </textPath></text>
+          </svg>
+          <span class="siegel-zahl">4,6</span><span class="siegel-sterne">★★★★★</span>
+        </div>
+
+        <div class="teller" data-teller>
+          <div class="pizza is-aktiv" data-pizza="0">
+            <img class="pizza-rest" src="assets/img/pizza/margherita-800.webp" srcset="assets/img/pizza/margherita-480.webp 480w, assets/img/pizza/margherita-800.webp 800w" sizes="(max-width: 900px) 82vw, 42vw" alt="" width="800" height="800" fetchpriority="high" draggable="false">
+            <img class="pizza-stueck" src="assets/img/pizza/margherita-800.webp" srcset="assets/img/pizza/margherita-480.webp 480w, assets/img/pizza/margherita-800.webp 800w" sizes="(max-width: 900px) 82vw, 42vw" alt="" width="800" height="800" draggable="false">
+          </div>
+        </div>
+        <p class="stueck-zettel" data-stueck-zettel aria-hidden="true">Stück gefällig?<br><span>gibt’s auch to go</span></p>
+
+        <button class="tafel-pfeil tafel-pfeil--zurueck" type="button" data-schritt="-1" aria-label="Vorige Pizza"><svg class="ico" aria-hidden="true"><use href="#i-pfeil"/></svg></button>
+        <button class="tafel-pfeil" type="button" data-schritt="1" aria-label="Nächste Pizza"><svg class="ico" aria-hidden="true"><use href="#i-pfeil"/></svg></button>
+      </div>
+
+      <div class="gericht" data-gericht aria-live="polite"></div>
+
+      <div class="waehler-zeile">
+        <div class="waehler" role="tablist" aria-label="Unsere Pizzen" data-waehler></div>
+        <p class="hinweis-hand" data-hinweis aria-hidden="true">
+          <svg viewBox="0 0 60 40"><path d="M56 6 C40 4 22 10 12 30 M12 30 l-2 -10 M12 30 l9 -5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Tipp eine an, oder wisch!</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Laufband ═══ -->
+  <div class="band" aria-hidden="true">
+    <div class="band-spur">
+      <span>Stück Pizza to go</span><b>✦</b><span>Espresso</span><b>✦</b><span>Aperol Spritz</span><b>✦</b><span>Pide aus dem Ofen</span><b>✦</b><span>Ayinger</span><b>✦</b><span>Schanigarten</span><b>✦</b><span>Tramezzini</span><b>✦</b><span>Grappa zum Schluss</span><b>✦</b>
+      <span>Stück Pizza to go</span><b>✦</b><span>Espresso</span><b>✦</b><span>Aperol Spritz</span><b>✦</b><span>Pide aus dem Ofen</span><b>✦</b><span>Ayinger</span><b>✦</b><span>Schanigarten</span><b>✦</b><span>Tramezzini</span><b>✦</b><span>Grappa zum Schluss</span><b>✦</b>
+    </div>
+  </div>
+
+  <!-- ═══ Ein Tag bei Antica ═══ -->
+  <section class="tag" id="tag" aria-labelledby="tag-titel" data-tag>
+    <div class="wrap">
+      <header class="kopfzeile">
+        <p class="hand" data-auf>Drei Wörter auf dem Schild</p>
+        <h2 id="tag-titel" class="titel-gross" data-auf>Ein Laden, <em>drei</em> Tageszeiten.</h2>
+      </header>
+
+      <div class="bogen" aria-hidden="true">
+        <svg viewBox="0 0 1000 150" preserveAspectRatio="none"><path data-bogen d="M10 140 C 250 -20, 750 -20, 990 140" fill="none"/></svg>
+        <span class="bogen-gestirn" data-gestirn></span>
+      </div>
+
+      <ol class="drei" role="list">
+        <li class="drei-teil" data-von="14" data-bis="17" data-auf>
+          <p class="drei-zeit">ab 14 Uhr</p>
+          <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M28 44h52v14a26 26 0 0 1-52 0z"/><path d="M80 50h6a9 9 0 0 1 0 18h-8"/><path d="M18 86h74"/><path class="dampf" d="M44 34c-5-6 5-10 0-17M56 34c-5-6 5-10 0-17M68 34c-5-6 5-10 0-17"/></g></svg>
+          <h3>Caffè</h3>
+          <p>Espresso, Cappuccino oder ein Caffè zum Mitnehmen. Am besten draußen unter den Schirmen, mit Blick auf die Weißenburger Straße.</p>
+          <span class="drei-jetzt">Gerade jetzt</span>
+        </li>
+        <li class="drei-teil" data-von="17" data-bis="21" data-auf>
+          <p class="drei-zeit">ab 17 Uhr</p>
+          <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 30 L60 88 L108 30 C80 14 40 14 12 30z"/><path d="M20 39c26-11 54-11 80 0"/><circle cx="50" cy="48" r="5"/><circle cx="70" cy="56" r="4"/><circle cx="58" cy="70" r="3.5"/><path d="M40 34l2 1M78 36l2-1"/></g></svg>
+          <h3>Pizza</h3>
+          <p>Neun Pizzen und fünf Pide aus dem Ofen, dazu Pasta. In der Vitrine liegen Stücke, Panini und Tramezzini für unterwegs.</p>
+          <span class="drei-jetzt">Gerade jetzt</span>
+        </li>
+        <li class="drei-teil" data-von="21" data-bis="23" data-auf>
+          <p class="drei-zeit">ab 21 Uhr</p>
+          <svg class="drei-bild" viewBox="0 0 120 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M34 14h34l-3 46a14 14 0 0 1-28 0z"/><path d="M36 34h30"/><path d="M51 74v14M38 88h26"/><circle cx="84" cy="30" r="9"/><path d="M84 21v18M75 30h18M78 24l12 12M90 24L78 36"/></g></svg>
+          <h3>Bar</h3>
+          <p>Ein Ayinger, ein Glas Wein, ein Aperol, und zum Schluss ein Grappa. Bis 23 Uhr, mitten in Haidhausen.</p>
+          <span class="drei-jetzt">Gerade jetzt</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══ Speisekarte ═══ -->
+  <section class="karte" id="karte" aria-labelledby="karte-titel">
+    <img class="rand-pizza" data-rand-pizza src="assets/img/pizza/verdure-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async" aria-hidden="true">
+    <div class="wrap">
+      <header class="kopfzeile kopfzeile--karte">
+        <p class="hand" data-auf>La carta</p>
+        <h2 id="karte-titel" class="titel-gross" data-auf>Die Karte. <em>Kurz</em> und ehrlich.</h2>
+        <p class="kopfzeile-text" data-auf>Alle Pizzen kommen mit Tomatensauce, Käse und Oregano.</p>
+      </header>
+
+      <div class="karte-steuer" data-auf>
+        <div class="reiter" role="tablist" aria-label="Kategorien">
+          <button role="tab" aria-selected="true" aria-controls="k-pizza" id="r-pizza" class="reiter-tab">Pizza <small>9</small></button>
+          <button role="tab" aria-selected="false" aria-controls="k-pide" id="r-pide" class="reiter-tab" tabindex="-1">Pide <small>5</small></button>
+          <button role="tab" aria-selected="false" aria-controls="k-pasta" id="r-pasta" class="reiter-tab" tabindex="-1">Pasta <small>3</small></button>
+          <button role="tab" aria-selected="false" aria-controls="k-trinken" id="r-trinken" class="reiter-tab" tabindex="-1">Trinken</button>
+        </div>
+        <label class="veg-schalter">
+          <input type="checkbox" id="nur-veg">
+          <span class="veg-spur" aria-hidden="true"><svg><use href="#i-blatt"/></svg></span>
+          Nur vegetarisch
+        </label>
+      </div>
+
+      <div class="karte-blatt">
+        <div class="karte-teil" role="tabpanel" id="k-pizza" aria-labelledby="r-pizza">
+          <ul class="speisen" role="list">
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Margherita</h3><i></i><span class="preis">10,00</span></div><p>Der Klassiker mit Tomate, Käse und Oregano</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Tonno</h3><i></i><span class="preis">12,50</span></div><p>Thunfisch und Zwiebeln</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Funghi</h3><i></i><span class="preis">12,50</span></div><p>Frische Champignons</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Mozzarella</h3><i></i><span class="preis">12,50</span></div><p>Frische Tomaten und Peperoni</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Sucuk</h3><i></i><span class="preis">12,50</span></div><p>Knoblauchwurst und Zwiebeln</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Quattro Formaggi</h3><i></i><span class="preis">13,90</span></div><p>Edamer, Mozzarella, Feta und Gorgonzola</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Vegetarisch</h3><i></i><span class="preis">13,90</span></div><p>Gegrillte Aubergine, Zucchini und Paprika mit Feta und Champignons</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Vegetarisch II</h3><i></i><span class="preis">13,90</span></div><p>Paprika, Artischocken und Champignons</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Hackfleisch</h3><i></i><span class="preis">13,90</span></div><p>Mit Rinderhackfleisch</p></li>
+          </ul>
+        </div>
+        <div class="karte-teil" role="tabpanel" id="k-pide" aria-labelledby="r-pide" hidden>
+          <p class="karte-notiz">Pide ist das Schiffchen aus Hefeteig, gebacken im selben Ofen wie die Pizza.</p>
+          <ul class="speisen" role="list">
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Pide mit Käse</h3><i></i><span class="preis">12,00</span></div><p>Gefüllt mit geschmolzenem Käse</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Pide mit Spinat</h3><i></i><span class="preis">13,00</span></div><p>Mit Spinat und Käse</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Pide mit Hackfleisch</h3><i></i><span class="preis">14,00</span></div><p>Mit gewürztem Hackfleisch</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Pide mit Sucuk</h3><i></i><span class="preis">14,00</span></div><p>Mit Knoblauchwurst</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Pide mit Pastırma</h3><i></i><span class="preis">14,00</span></div><p>Mit luftgetrocknetem Rindfleisch</p></li>
+          </ul>
+        </div>
+        <div class="karte-teil" role="tabpanel" id="k-pasta" aria-labelledby="r-pasta" hidden>
+          <ul class="speisen" role="list">
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Penne Arrabbiata <span class="scharf" title="scharf">scharf</span></h3><i></i><span class="preis">10,00</span></div><p>Scharfe Tomatensauce mit Oliven</p></li>
+            <li class="speise"><div class="speise-zeile"><h3>Spaghetti Bolognese</h3><i></i><span class="preis">13,00</span></div><p>Rinderhackfleisch, Tomatensauce und Gemüse</p></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Spaghetti Quattro Formaggi</h3><i></i><span class="preis">13,00</span></div><p>Gouda, Mozzarella, Feta und Gorgonzola</p></li>
+          </ul>
+        </div>
+        <div class="karte-teil" role="tabpanel" id="k-trinken" aria-labelledby="r-trinken" hidden>
+          <h3 class="karte-gruppe">Alkoholfrei</h3>
+          <ul class="speisen" role="list">
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Coca-Cola <small>0,33 l</small></h3><i></i><span class="preis">2,50</span></div></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Fanta Orange <small>0,33 l</small></h3><i></i><span class="preis">2,50</span></div></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Uludağ Gazoz <small>0,33 l</small></h3><i></i><span class="preis">2,50</span></div></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Wasser still <small>0,5 l</small></h3><i></i><span class="preis">2,40</span></div></li>
+            <li class="speise" data-veg><div class="speise-zeile"><h3>Red Bull <small>0,25 l</small></h3><i></i><span class="preis">3,20</span></div></li>
+          </ul>
+          <h3 class="karte-gruppe">An der Bar</h3>
+          <p class="bar-liste">Espresso · Cappuccino · Weißbier · Ayinger · Wein rot &amp; weiß · Prosecco · Aperol Spritz · Grappa</p>
+          <p class="klein">Die Preise für Caffè, Bier, Wein und Aperitivo stehen an der Tafel im Laden.</p>
+        </div>
+        <p class="karte-leer" data-karte-leer hidden>In dieser Kategorie ist nichts vegetarisch. Schalte den Filter aus oder schau bei Pizza und Pide.</p>
+      </div>
+
+      <div class="karte-fuss">
+        <div class="tafelchen" data-auf>
+          <svg class="tafelchen-stueck" viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#kreide)"><path d="M10 18 C30 8 52 8 72 18 L41 74 Z"/><path d="M15 26 C32 18 50 18 67 26"/><circle cx="33" cy="34" r="4.5"/><circle cx="48" cy="40" r="4"/><circle cx="40" cy="53" r="3.5"/></g></svg>
+          <p class="tafelchen-klein">Heute in der Vitrine:</p>
+          <p class="tafelchen-gross">Stück Pizza<br>to go</p>
+          <p class="tafelchen-klein">für den Weg zum Ostbahnhof</p>
+        </div>
+        <p class="klein karte-hinweis">Preise in Euro inkl. MwSt. Stand der Karte: Oktober 2025. Es gilt die Karte im Laden. Fragen zu Allergenen beantworten wir gern vor Ort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Gäste ═══ -->
+  <section class="gaeste" id="gaeste" aria-labelledby="gaeste-titel">
+    <div class="wrap">
+      <header class="kopfzeile">
+        <p class="hand" data-auf>Aus der Nachbarschaft</p>
+        <h2 id="gaeste-titel" class="titel-gross" data-auf>Was Gäste <em>sagen</em>.</h2>
+      </header>
+      <div class="zettel-reihe">
+        <figure class="zettel zettel--wert" data-auf>
+          <p class="zettel-zahl">4,6</p>
+          <p class="zettel-sterne" aria-label="4,6 von 5 Sternen">★★★★★</p>
+          <figcaption>Google, laut Restaurant Guru<br><span>4,7 bei Restaurant Guru · 4,3 bei Intravel</span></figcaption>
+        </figure>
+        <figure class="zettel" data-auf>
+          <blockquote><p>„Wir haben nur ein paar Pizzen to go geholt, und das ca. um 21 Uhr. Der Besitzer war trotzdem sooo nett, hat uns super beraten und die Pizzen waren mega lecker! Es gab sogar einen Espresso aufs Haus!“</p></blockquote>
+          <figcaption>Gast, via Restaurant Guru</figcaption>
+        </figure>
+        <figure class="zettel" data-auf>
+          <blockquote><p>„Wunderbar geführtes Lokal mit schönem Ambiente. Der Chef ist super freundlich und das Team stimmt.“</p></blockquote>
+          <figcaption>Gast, via Restaurant Guru</figcaption>
+        </figure>
+        <figure class="zettel" data-auf>
+          <blockquote><p>„Sehr gute Speise- und Getränkekarte mit guten Preisen. Die ruhige, entspannte Atmosphäre rundet alles ab. Top.“</p></blockquote>
+          <figcaption>Gast, via Restaurant Guru</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Besuch ═══ -->
+  <section class="besuch" id="besuch" aria-labelledby="besuch-titel">
+    <div class="wrap besuch-raster">
+      <div class="besuch-text">
+        <p class="hand" data-auf>Vieni a trovarci</p>
+        <h2 id="besuch-titel" class="titel-gross" data-auf>Zwei Ecken vom <em>Ostbahnhof</em>.</h2>
+        <address class="adresse" data-auf>Weißenburger Straße 27<br>81667 München-Haidhausen</address>
+        <div class="besuch-handeln" data-auf>
+          <a class="pille pille--voll" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wei%C3%9Fenburger+Str.+27%2C+81667+M%C3%BCnchen" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Route planen</a>
+          <a class="pille pille--rand" href="tel:+498944142500"><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg>089 441 425 00</a>
+        </div>
+        <ul class="wege" role="list" data-auf>
+          <li><span class="weg-zeichen weg-zeichen--s">S</span><span><strong>Ostbahnhof</strong>S-Bahn und U5, ca. 5 Min. zu Fuß</span></li>
+          <li><span class="weg-zeichen weg-zeichen--t">T</span><span><strong>Orleansstraße</strong>Tram und Bus, ca. 370 m</span></li>
+          <li><span class="weg-zeichen weg-zeichen--p">P</span><span><strong>Parkhaus am Ostbahnhof</strong>ca. 180 m</span></li>
+        </ul>
+      </div>
+
+      <div class="besuch-zeiten" data-auf>
+        <h3 class="zeiten-titel">Öffnungszeiten</h3>
+        <p class="zeiten-status" data-status="lang"></p>
+        <table class="zeiten" id="zeiten">
+          <tbody>
+            <tr data-tag="1"><th scope="row">Montag</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="2"><th scope="row">Dienstag</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="3"><th scope="row">Mittwoch</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="4"><th scope="row">Donnerstag</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="5"><th scope="row">Freitag</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="6"><th scope="row">Samstag</th><td>14 – 23 Uhr</td></tr>
+            <tr data-tag="0"><th scope="row">Sonntag</th><td>Ruhetag</td></tr>
+          </tbody>
+        </table>
+        <p class="klein">Reservieren geht telefonisch. An Feiertagen ist meist geschlossen, im Zweifel kurz anrufen.</p>
+        <ul class="merkmale" role="list">
+          <li>Schanigarten</li><li>Zum Mitnehmen</li><li>Kartenzahlung</li><li>Familienfreundlich</li><li>Platz für Feiern</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap besuch-unten">
+      <figure class="postkarte" data-auf>
+        <img src="assets/img/fassade.jpg" alt="Die Ladenfront von Antica: schwarzes Schild mit goldenem Schriftzug, grüne Sonnenschirme, Tische und Stühle auf dem Gehweg" width="1430" height="960" loading="lazy" decoding="async">
+        <figcaption>Saluti da Haidhausen!</figcaption>
+        <svg class="stempel" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stempel-bahn" d="M60 60 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs><circle cx="60" cy="60" r="54"/><circle cx="60" cy="60" r="30"/><text><textPath href="#stempel-bahn" textLength="250">MÜNCHEN · 81667 · HAIDHAUSEN ·</textPath></text><text x="60" y="66" text-anchor="middle" class="stempel-mitte">27</text></svg>
+      </figure>
+      <div class="karte-ort" data-auf>
+        <div class="karte-ort-feld" id="map">
+          <svg class="karte-ort-skizze" viewBox="0 0 400 300" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"><path d="M-10 210 L410 120"/><path d="M60 -10 L150 310"/><path d="M240 -10 L300 310"/><path d="M-10 60 L410 30"/><path d="M-10 280 L410 250" stroke-dasharray="2 6"/></g><g class="karte-ort-pin"><circle cx="205" cy="160" r="26" fill="currentColor" opacity=".14"/><circle cx="205" cy="160" r="7" fill="currentColor"/></g><text x="214" y="146" class="karte-ort-label">Antica</text><text x="16" y="198" class="karte-ort-strasse" transform="rotate(-12 16 198)">Weißenburger Str.</text></svg>
+          <div class="karte-ort-text">
+            <p class="klein">Mit Klick lädt eine Karte von OpenStreetMap. Dabei wird deine IP-Adresse an OpenStreetMap übertragen.</p>
+            <button class="pille pille--voll" type="button" id="karte-laden">Karte anzeigen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ Fuß ═══ -->
+<footer class="fuss">
+  <div class="wrap">
+    <a class="fuss-schild" href="#inhalt" aria-label="Antica, nach oben">
+      <svg class="schild schild--gross" data-malen viewBox="0 0 320 100" aria-hidden="true" focusable="false">
+        <g class="schild-zug" fill="none" stroke="url(#oro)" stroke-linecap="round" stroke-linejoin="round" filter="url(#pinsel)">
+          <path pathLength="1" stroke-width="8.5" d="M10 84 C16 62 24 36 33 9"/><path pathLength="1" stroke-width="10" d="M33 9 C38 34 44 60 50 86"/><path pathLength="1" stroke-width="5.5" d="M17 60 C25 56 34 55 47 58"/>
+          <path pathLength="1" stroke-width="8.5" d="M66 85 C65 62 66 38 67 14"/><path pathLength="1" stroke-width="6" d="M67 14 C77 38 88 60 99 82"/><path pathLength="1" stroke-width="9.5" d="M99 84 C99 60 100 34 102 6"/>
+          <path pathLength="1" stroke-width="7" d="M112 15 C126 11 141 10 158 12 L162 16"/><path pathLength="1" stroke-width="10" d="M135 13 C135 38 134 62 133 88 C133 93 137 95 141 92"/>
+          <path pathLength="1" stroke-width="9.5" d="M176 13 C176 38 177 60 176 85"/>
+          <path pathLength="1" stroke-width="9.5" d="M226 20 C214 6 193 10 191 44 C189 74 206 90 228 74"/>
+          <path pathLength="1" stroke-width="8.5" d="M240 84 C246 62 254 36 263 9"/><path pathLength="1" stroke-width="10" d="M263 9 C268 36 274 62 281 84 C284 92 294 93 300 84"/><path pathLength="1" stroke-width="5.5" d="M247 60 C255 56 264 55 277 58"/>
+        </g>
+      </svg>
+      <span class="fuss-unter">Caffè <i></i> Pizza <i></i> Bar</span>
+      <span class="tricolore" aria-hidden="true"><i></i><i></i><i></i></span>
+    </a>
+    <div class="fuss-spalten">
+      <div><h3>Adresse</h3><p>Weißenburger Straße 27<br>81667 München-Haidhausen</p></div>
+      <div><h3>Kontakt</h3><p><a href="tel:+498944142500">089 441 425 00</a><br><span class="leise">Reservieren telefonisch</span></p></div>
+      <div><h3>Geöffnet</h3><p>Mo – Sa 14 – 23 Uhr<br><span class="leise">So &amp; Feiertage Ruhetag</span></p></div>
+      <div><h3>Rechtliches</h3><p><a href="impressum.html">Impressum</a><br><a href="datenschutz.html">Datenschutz</a></p></div>
+    </div>
+    <div class="fuss-base">
+      <p>© <span data-jahr>2026</span> Antica Caffè Pizza Bar</p>
+      <p class="hand hand--klein">fatto a mano in Haidhausen</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Leiste für unterwegs (Handy) -->
+<nav class="leiste" aria-label="Schnellzugriff" data-leiste>
+  <a href="tel:+498944142500"><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg>Anrufen</a>
+  <a href="#karte"><svg class="ico" aria-hidden="true"><use href="#i-karte"/></svg>Karte</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Wei%C3%9Fenburger+Str.+27%2C+81667+M%C3%BCnchen" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Route</a>
+</nav>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
